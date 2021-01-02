@@ -22,9 +22,9 @@ else
     echo ".bashrc not copied"
 fi
 
-read -p "Would you like to cop .gitconfig to your home directory (Y/n) " gtcfg_copy_var
+read -p "Would you like to copy .gitconfig to your home directory (Y/n) " gtcfg_copy_var
 
-if [[ $gtcfg =~ $yn_regex ]]
+if [[ $gtcfg_copy_var =~ $yn_regex ]]
 then
     cp .gitconfig ~
     echo ".gitconfig copied"
