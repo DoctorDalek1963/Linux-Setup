@@ -1,5 +1,7 @@
 #!/bin/bash
 
+yn_regex='^[Yy].*'
+
 # Copy the .vimrc and .bash_aliases to the home directory
 cp .vimrc ~
 echo ".vimrc copied"
@@ -9,8 +11,6 @@ source ~/.bash_aliases
 echo ".bash_aliases sourced"
 
 read -p "Would you like to copy .bashrc to your home directory? (Y/n) " bashrc_copy_var
-
-yn_regex='^[Yy].*'
 
 if [[ $bashrc_copy_var =~ $yn_regex ]]
 then
