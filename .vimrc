@@ -3,7 +3,7 @@ filetype indent plugin on
 
 set number relativenumber " Set number options
 set ruler
-set ignorecase hlsearch incsearch " Search options
+set ignorecase hlsearch incsearch " Set search options
 
 " Show spaces and tabs
 set list
