@@ -3,7 +3,7 @@
 # Regex to check user input
 yn_regex='^[Yy].*'
 
-# Function to optionally copy a file (takes one argument; returns 0 if successful and 1 if unsuccessful, and 2 if not copied)
+# Function to optionally copy a file (takes one argument; returns 0 if successful, 1 if unsuccessful, and 2 if not copied)
 OptionalCopy() {
     read -p "Would you like to copy $1 to your home directory? (Y/n) " copy_var
 
