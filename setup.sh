@@ -21,3 +21,13 @@ then
 else
     echo ".bashrc not copied"
 fi
+
+read -p "Would you like to cop .gitconfig to your home directory (Y/n) " gtcfg_copy_var
+
+if [[ $gtcfg =~ $yn_regex ]]
+then
+    cp .gitconfig ~
+    echo ".gitconfig copied"
+else
+    echo ".gitconfig not copied"
+fi
