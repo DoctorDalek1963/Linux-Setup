@@ -1,0 +1,16 @@
+[user]
+	name = DoctorDalek1963
+	email = 69600500+DoctorDalek1963@users.noreply.github.com
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	sh = show
+	l = log
+	last = log -1 HEAD
+	puom = push -u origin main

@@ -15,8 +15,12 @@ alias srcbrc="source ~/.bashrc && echo \~/.bashrc sourced"
 alias upbrc="cp ~/.bashrc $git_repo/.bashrc && echo \~/.bashrc updated in git repo"
 alias vbrc="vim ~/.bashrc"
 
+# Deal with ~/.gitconfig in single commands
+alias upgc="cp ~/.gitconfig $git_repo/.gitconfig && echo \~/.gitconfig updated in git repo"
+alias vgc="vim ~/.gitconfig"
+
 # Source and update ~/.vimrc, ~/.bashrc, and ~/,bash_aliases
-alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc && echo;echo Everything sourced and updated"
+alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc && echo;echo Everything sourced and updated"
 
 # Update and upgrade apt and apt-get libraries
 alias suaptup="sudo apt update;echo;sudo apt upgrade;echo;sudo apt-get update;echo;sudo apt-get upgrade;echo && echo apt and apt-get updated and upgraded"
