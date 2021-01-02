@@ -46,5 +46,3 @@ fi
 echo
 
 OptionalCopy .gitconfig
-
-exit 0 # Exit successfully
