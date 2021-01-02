@@ -16,3 +16,4 @@
 	puom = push -u origin main
 	lo = log --pretty=oneline
 	lg = log --graph
+	aa = add -A
