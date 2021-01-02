@@ -28,3 +28,6 @@ alias myip="curl ipinfo.io/ip;echo"
 mkcd () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
+
+# Run ssh-agent and add the github_main private key to it
+alias addghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/github_main"
