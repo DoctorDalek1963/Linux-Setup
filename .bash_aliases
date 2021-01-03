@@ -21,9 +21,10 @@ alias vgc="vim ~/.gitconfig"
 
 # Source and update ~/.vimrc, ~/.bashrc, and ~/,bash_aliases
 alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc && echo;echo Everything sourced and updated"
+alias fullsrcup="srcupall;srcupall" # Do it twice just to be sure
 
 # Update and upgrade apt and apt-get libraries
-alias suaptup="sudo apt update;echo;sudo apt upgrade;echo;sudo apt-get update;echo;sudo apt-get upgrade;echo && echo apt and apt-get updated and upgraded"
+alias suaptup="sudo apt update;echo;sudo apt upgrade;echo;sudo apt-get update;echo;sudo apt-get upgrade;echo;echo apt and apt-get updated and upgraded"
 
 # Echo my public IP address from ipinfo.io/ip
 alias myip="curl ipinfo.io/ip;echo"
