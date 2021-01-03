@@ -20,7 +20,7 @@ alias upgc="cp ~/.gitconfig $git_repo/.gitconfig && echo \~/.gitconfig updated i
 alias vgc="vim ~/.gitconfig"
 
 # Source and update ~/.vimrc, ~/.bashrc, and ~/,bash_aliases
-alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc && echo;echo Everything sourced and updated"
+alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc;echo;echo Everything sourced and updated"
 alias fullsrcup="srcupall;srcupall" # Do it twice just to be sure
 
 # Update and upgrade apt and apt-get libraries
