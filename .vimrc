@@ -26,8 +26,14 @@ command Rmhl execute "nohlsearch"
 command Q execute "q!"
 command W execute "wq"
 
-" Maps to use hjkl to easily switch panes
+" Easily tab through panes
+map <Tab> <C-W>w
+" Easier 4 directional navigation
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Easier splitting into new panes
+map <Bar> <C-W>v<C-l>
+map - <C-W>s<C-j>
