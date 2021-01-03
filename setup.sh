@@ -17,7 +17,7 @@ OptionalCopy() {
 }
 
 OptionalCopyAndSource () {
-    # I just copied the whole OptionalCopy function in here because calling the function didn't seem to work
+    # I just copied the whole OptionalCopy function in here (with minor alterations) because calling the function didn't seem to work
     echo # Create a blank line to pad things out a bit
     read -p "Would you like to copy $1 to your home directory? (Y/n) " copy_var
 
