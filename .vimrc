@@ -1,3 +1,23 @@
+" Use vim-plug to handle plugins
+call plug#begin()
+Plug 'preservim/NERDTree'
+Plug 'andymass/vim-matchup'
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 " Turn on rainbow parenthesis
+Plug 'preservim/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
+Plug 'dense-analysis/ale'
+call plug#end()
+
+set laststatus=2 " Let lightline status bar work
+set noshowmode " Hide original status bar
+
+set updatetime=100 " Update things faster (this reduces the delay of gitgutter)
+
 syntax on
 filetype indent plugin on
 
@@ -27,7 +47,6 @@ command -nargs=1 Pydoc call PydocFunc('<args>')
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
 command W execute "wq"
-command E execute "edit"
 
 " Easily tab through panes
 map <Tab> <C-w>w
