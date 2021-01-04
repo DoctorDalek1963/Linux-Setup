@@ -27,6 +27,7 @@ command -nargs=1 Pydoc call PydocFunc('<args>')
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
 command W execute "wq"
+command E execute "edit"
 
 " Easily tab through panes
 map <Tab> <C-w>w
@@ -41,3 +42,6 @@ map <C-l> <C-w>l
 " Easier splitting into new panes
 map <Bar> <C-w>v<C-l>
 map - <C-w>s<C-j>
+
+" Close all windows and quit
+map <leader>Q <C-w>o:q<CR>
