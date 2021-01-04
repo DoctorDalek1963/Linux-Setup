@@ -42,6 +42,13 @@ endfunction
 
 command -nargs=1 Pydoc call PydocFunc('<args>')
 
+" Edit a new file using ':E <name>'
+function EditNewFile(name)
+    execute 'edit '.expand(a:name)
+endfunction
+
+command -nargs=1 E call EditNewFile('<args>')
+
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
 command W execute "wq"
