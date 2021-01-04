@@ -44,4 +44,4 @@ map <Bar> <C-w>v<C-l>
 map - <C-w>s<C-j>
 
 " Close all windows and quit
-map <leader>Q <C-w>o:q<CR>
+map \Q <C-w>o:q<CR>
