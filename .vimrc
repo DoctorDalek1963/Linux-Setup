@@ -1,7 +1,7 @@
 syntax on
 filetype indent plugin on
 
-colorscheme ron
+colorscheme ron " Nicer for dark terminals, mine is #002b36 with an opacity of 93%
 
 set number relativenumber " Set number options
 set ruler
@@ -29,13 +29,15 @@ command Q execute "q!"
 command W execute "wq"
 
 " Easily tab through panes
-map <Tab> <C-W>w
+map <Tab> <C-w>w
+map <S-Tab> <C-w>W
+
 " Easier 4 directional navigation
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 " Easier splitting into new panes
-map <Bar> <C-W>v<C-l>
-map - <C-W>s<C-j>
+map <Bar> <C-w>v<C-l>
+map - <C-w>s<C-j>
