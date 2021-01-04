@@ -8,7 +8,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
-Plug 'dense-analysis/ale'
 call plug#end()
 
 set laststatus=2 " Let lightline status bar work
