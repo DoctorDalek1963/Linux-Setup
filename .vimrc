@@ -7,9 +7,7 @@ let g:rainbow_active = 1 " Turn on rainbow parenthesis
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
+let g:lightline = {'colorscheme': 'wombat'}
 Plug 'dense-analysis/ale'
 call plug#end()
 
