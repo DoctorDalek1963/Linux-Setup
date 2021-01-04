@@ -1,6 +1,8 @@
 syntax on
 filetype indent plugin on
 
+colorscheme ron
+
 set number relativenumber " Set number options
 set ruler
 set ignorecase hlsearch incsearch " Set search options
