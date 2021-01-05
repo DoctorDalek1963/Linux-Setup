@@ -19,8 +19,11 @@ alias vbrc="vim ~/.bashrc"
 alias upgc="cp ~/.gitconfig $git_repo/.gitconfig && echo \~/.gitconfig updated in git repo"
 alias vgc="vim ~/.gitconfig"
 
-# Source and update ~/.vimrc, ~/.bashrc, and ~/,bash_aliases
+# Source and update ~/.vimrc, ~/.bashrc, ~/,bash_aliases, and ~/.gitconfig
 alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc;echo;echo Everything sourced and updated"
+alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
+alias upall="upvrc;upbal;upbrc;upgc;echo;echo Everything updated"
+
 alias fullsrcup="srcupall;srcupall" # Do it twice just to be sure
 
 # Update and upgrade apt and apt-get libraries
