@@ -24,7 +24,7 @@ alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc;echo;echo Everything source
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
 alias upall="upvrc;upbal;upbrc;upgc;echo;echo Everything updated"
 
-alias fullsrcup="srcupall;srcupall" # Do it twice just to be sure
+alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 
 # Update and upgrade apt and apt-get libraries
 alias suaptup="sudo apt -y update;echo;sudo apt -y upgrade;echo;sudo apt-get -y update;echo;sudo apt-get -y upgrade;sudo apt autoremove;sudo apt-get autoremove;echo;echo apt and apt-get updated and upgraded"
