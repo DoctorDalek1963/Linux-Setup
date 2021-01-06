@@ -36,7 +36,7 @@ OptionalCopyAndSource () {
 ########## USER INTERACTION ##########
 
 # Warn the user before doing anything
-echo "WARNING: This script has options to overwrite important files and install lots of stuff, which will take time and bandwidth"
+echo "WARNING: This script has options to overwrite important files and install lots of stuff, which will take time and bandwidth."
 read -p "Would you like to continue? (Y/n) " continue_var
 
 if [[ ! $continue_var =~ $yn_regex ]] # If not continue, quit script
