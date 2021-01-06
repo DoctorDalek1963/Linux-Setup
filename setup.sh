@@ -108,3 +108,5 @@ fi
 echo
 
 echo "Thanks for using this setup utility!"
+read -n 1 -s -r -p "Press any key to exit..."
+echo
