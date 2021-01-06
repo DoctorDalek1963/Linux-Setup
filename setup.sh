@@ -65,6 +65,8 @@ read -p "Would you like to install vim-plug? (Y/n) " vim_plug_var
 
 if [[ $vim_plug_var =~ $yn_regex ]]
 then
+    # Install curl if it's not already installed
+    sudo apt install curl
     # Install vim-plug in autoload directory
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
