@@ -44,3 +44,5 @@ alias addghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/github_main"
 alias pip="pip3"
 
 alias gp="git push"
+alias gs="git status"
+alias ga="git add -A"
