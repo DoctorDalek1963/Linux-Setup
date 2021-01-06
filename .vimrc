@@ -1,5 +1,7 @@
+set nocompatible " Possibly useless, but ensures correct usage
+
 " Use vim-plug to handle plugins
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
 Plug 'luochen1990/rainbow'
@@ -9,6 +11,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
 call plug#end()
+
+set rtp+=~/.vim/bundle/Vundle.vim " Set the tuntim path the include Vundle
+
+" Use Vundle to handle other plugins
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
+Plugin 'ycm-core/YouCompleteMe'
+call vundle#end()
 
 set laststatus=2 " Let lightline status bar work
 set noshowmode " Hide original status bar
