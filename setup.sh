@@ -72,21 +72,21 @@ then
 fi
 echo
 
-read -p "Would you like to install and update all vim-plug plugins? (Y/n) " vim_plug_install_var
-
-if [[ $vim_plug_install_var =~ $yn_regex ]]
-then
-    vim -c "PlugInstall" -c "qa!"
-    vim -c "PlugUpdate" -c "qa!"
-fi
-echo
-
 read -p "Would you like to install Vundle? (Y/n) " vundle_var
 
 if [[ $vundle_var =~ $yn_regex ]]
 then
     # Clone github repo for Vundle into proper directory
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+echo
+
+read -p "Would you like to install and update all vim-plug plugins? (Y/n) " vim_plug_install_var
+
+if [[ $vim_plug_install_var =~ $yn_regex ]]
+then
+    vim -c "PlugInstall" -c "qa!"
+    vim -c "PlugUpdate" -c "qa!"
 fi
 echo
 
