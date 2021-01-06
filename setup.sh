@@ -58,7 +58,7 @@ OptionalCopy .gitconfig
 echo
 echo "========== VIM PLUGINS =========="
 echo
-echo "NOTE: If you don't install vim-plug and Vundle but you do copy .vimrc, the plugins won't load"
+echo "NOTE: If you don't install vim-plug and Vundle, vim will fail to load properly. Only decline these installations if they are already installed."
 echo
 
 read -p "Would you like to install vim-plug? (Y/n) " vim_plug_var
