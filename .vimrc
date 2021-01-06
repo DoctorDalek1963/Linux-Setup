@@ -76,5 +76,5 @@ map <C-l> <C-w>l
 map <Bar> <C-w>v<C-l>
 map - <C-w>s<C-j>
 
-" Close all windows and quit
-map \Q <C-w>o:q!<CR>
+" Quit vim completely
+map \Q qa!
