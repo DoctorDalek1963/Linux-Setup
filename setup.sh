@@ -36,6 +36,8 @@ OptionalCopyAndSource () {
 ########## USER INTERACTION ##########
 
 # Warn the user before doing anything
+echo "NOTE: This setup utility was designed primarily for Ubuntu and will not work on distros without apt installed"
+echo
 echo "WARNING: This script has options to overwrite important files and install lots of stuff, which will take time and bandwidth."
 read -p "Would you like to continue? (Y/n) " continue_var
 
