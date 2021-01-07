@@ -71,6 +71,7 @@ then
     # If curl is not installed the exit code will not be 0, so we should install it
     if [[ ! $? -eq 0 ]]
     then
+        echo
         echo "curl is not installed. Installing it now..."
         echo
         sudo apt -y install curl
