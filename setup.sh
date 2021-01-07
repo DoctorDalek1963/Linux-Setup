@@ -61,12 +61,21 @@ echo
 echo "NOTE: If you don't install vim-plug and Vundle, vim will fail to load properly. Only decline these installations if they are already installed."
 echo
 
-read -p "Would you like to install vim-plug? (Y/n) " vim_plug_var
+read -p "Would you like to install vim-plug? (curl will also be installed if it's not already) (Y/n) " vim_plug_var
 
 if [[ $vim_plug_var =~ $yn_regex ]]
 then
-    # Install curl if it's not already installed
-    sudo apt -y install curl
+    # Check if curl is installed
+    curl --version
+
+    # If curl is not installed the exit code will not be 0, so we should install it
+    if [[ ! $? -eq 0 ]]
+    then
+        echo "curl is not installed. Installing it now..."
+        echo
+        sudo apt -y install curl
+    fi
+
     # Install vim-plug in autoload directory
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
