@@ -34,6 +34,9 @@ set number relativenumber " Set number options
 set ruler
 set ignorecase hlsearch incsearch " Set search options
 
+" This creates a line under the cursor that spans the whole line
+set cursorline
+
 " Show spaces and tabs
 set list
 set listchars=space:·
