@@ -12,7 +12,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
 call plug#end()
 
-set rtp+=~/.vim/bundle/Vundle.vim " Set the tuntim path the include Vundle
+set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path the include Vundle
 
 " Use Vundle to handle other plugins
 call vundle#begin()
