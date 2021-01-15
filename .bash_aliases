@@ -38,7 +38,9 @@ mkcd () {
 }
 
 # Run ssh-agent and add the github_main private key to it
-alias addghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/github_main"
+alias addmainghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/github_main"
+# Same but with john_smith_github
+alias addjsghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/john_smith_github"
 
 # Ease of use pip (literally the laziest thing I've ever done)
 alias pip="pip3"
