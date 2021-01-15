@@ -18,3 +18,4 @@
 	lg = log --graph
 	aa = add -A
 	unstage = restore --staged
+	undo = reset --soft HEAD~1
