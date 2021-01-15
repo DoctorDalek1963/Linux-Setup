@@ -64,7 +64,7 @@ then
 fi
 
 echo
-read -p "Would you like to install vim plugins and their managers? (Y/n) " vim_plugins_var
+read -p "Would you like to install any vim plugins or their managers? (Y/n) " vim_plugins_var
 
 if [[ $vim_plugins_var =~ $yn_regex ]]
 then
