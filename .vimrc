@@ -72,7 +72,7 @@ command -nargs=1 E call EditNewFile('<args>')
 " ########## CUSTOM SIMPLE FUNCTIONS ###########
 
 " Remove all spaces on lines that only have spaces
-command Rmsp execute "silent %s/^[ ]\\+$//g"
+command Rmsp execute "silent %s/^[ ]\\+$//g | Rmhl"
 " Remove highlights after searching
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
