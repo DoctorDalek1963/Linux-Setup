@@ -14,7 +14,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
 call plug#end()
 
-set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path the include Vundle
+set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path the include Vundle
 
 " Use Vundle to handle other plugins
 call vundle#begin()
@@ -29,18 +29,18 @@ filetype indent plugin on
 
 colorscheme ron " Nicer for dark terminals, mine is #002b36 with an opacity of 93%
 
-" ########## SET THINGS ##########
+" ########## set THINGS ##########
 
 set laststatus=2 " Let lightline status bar work
 set noshowmode " Hide original status bar
 
 set updatetime=100 " Update things faster (this reduces the delay of gitgutter)
 
-set number relativenumber " Set number options
+set number relativenumber " set number options
 set ruler
-set ignorecase hlsearch incsearch " Set search options
+set ignorecase hlsearch incsearch " set search options
 
-" This creates a line under the cursor that spans the whole line
+" This creaset a line under the cursor that spans the whole line
 set cursorline
 
 " Show spaces and tabs
@@ -72,7 +72,7 @@ command -nargs=1 E call EditNewFile('<args>')
 " ########## CUSTOM SIMPLE FUNCTIONS ###########
 
 " Remove all spaces on lines that only have spaces
-command Rmsp execute "%s/^[ ]\\+$//g"
+command Rmsp execute "silent %s/^[ ]\\+$//g"
 " Remove highlights after searching
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
