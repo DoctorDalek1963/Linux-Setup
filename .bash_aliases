@@ -38,9 +38,9 @@ mkcd () {
 }
 
 # Start ssh-agent
-alias sshag="eval \"\$(ssh-agent -s)"
+alias sshag="eval \"\$(ssh-agent -s)\""
 # Add the github_main private key to ssh-agent
-alias addmainghssh="\"ssh-add ~/.ssh/github_main"
+alias addmainghssh="ssh-add ~/.ssh/github_main"
 # Same but with john_smith_github
 alias addjsghssh="ssh-add ~/.ssh/john_smith_github"
 
