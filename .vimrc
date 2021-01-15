@@ -29,7 +29,7 @@ filetype indent plugin on
 
 colorscheme ron " Nicer for dark terminals, mine is #002b36 with an opacity of 93%
 
-" ########## set THINGS ##########
+" ########## SET THINGS ##########
 
 set laststatus=2 " Let lightline status bar work
 set noshowmode " Hide original status bar
