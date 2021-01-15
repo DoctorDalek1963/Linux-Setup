@@ -37,10 +37,12 @@ mkcd () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-# Run ssh-agent and add the github_main private key to it
-alias addmainghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/github_main"
+# Start ssh-agent
+alias sshag="eval \"\$(ssh-agent -s)"
+# Add the github_main private key to ssh-agent
+alias addmainghssh="\"ssh-add ~/.ssh/github_main"
 # Same but with john_smith_github
-alias addjsghssh="eval \"\$(ssh-agent -s)\";ssh-add ~/.ssh/john_smith_github"
+alias addjsghssh="ssh-add ~/.ssh/john_smith_github"
 
 # Ease of use pip (literally the laziest thing I've ever done)
 alias pip="pip3"
