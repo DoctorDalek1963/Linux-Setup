@@ -47,80 +47,92 @@ then
 fi
 
 echo
-echo "========== FILE MOVEMENT =========="
+read -p "Would you like to move any files to your home directory? (Y/n) " file_move_var
 
-OptionalCopy .vimrc
-
-OptionalCopyAndSource .bash_aliases
-
-OptionalCopyAndSource .bashrc
-
-OptionalCopy .gitconfig
-
-echo
-echo "========== VIM PLUGINS =========="
-echo
-echo "NOTE: If you don't install vim-plug and Vundle, vim will fail to load properly. Only decline these installations if they are already installed."
-echo
-
-read -p "Would you like to install vim-plug? (curl will also be installed if it's not already) (Y/n) " vim_plug_var
-
-if [[ $vim_plug_var =~ $yn_regex ]]
+if [[ $file_move_var =~ $yn_regex ]]
 then
-    # Check if curl is installed
-    curl --version
+    echo
+    echo "========== FILE MOVEMENT =========="
 
-    # If curl is not installed the exit code will not be 0, so we should install it
-    if [[ ! $? -eq 0 ]]
+    OptionalCopy .vimrc
+
+    OptionalCopyAndSource .bash_aliases
+
+    OptionalCopyAndSource .bashrc
+
+    OptionalCopy .gitconfig
+fi
+
+echo
+read -p "Would you like to install vim plugins and their managers? (Y/n) " vim_plugins_var
+
+if [[ $vim_plugins_var =~ $yn_regex ]]
+then
+    echo
+    echo "========== VIM PLUGINS =========="
+    echo
+    echo "NOTE: If you don't install vim-plug and Vundle, vim will fail to load properly. Only decline these installations if they are already installed."
+    echo
+    
+    read -p "Would you like to install vim-plug? (curl will also be installed if it's not already) (Y/n) " vim_plug_var
+    
+    if [[ $vim_plug_var =~ $yn_regex ]]
     then
-        echo
-        echo "curl is not installed. Installing it now..."
-        echo
-        sudo apt -y install curl
+        # Check if curl is installed
+        curl --version
+    
+        # If curl is not installed the exit code will not be 0, so we should install it
+        if [[ ! $? -eq 0 ]]
+        then
+            echo
+            echo "curl is not installed. Installing it now..."
+            echo
+            sudo apt -y install curl
+        fi
+    
+        # Install vim-plug in autoload directory
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
-
-    # Install vim-plug in autoload directory
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo
+    
+    read -p "Would you like to install Vundle? (Y/n) " vundle_var
+    
+    if [[ $vundle_var =~ $yn_regex ]]
+    then
+        # Clone github repo for Vundle into proper directory
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    fi
+    echo
+    
+    read -p "Would you like to install and update all vim-plug plugins? (Y/n) " vim_plug_install_var
+    
+    if [[ $vim_plug_install_var =~ $yn_regex ]]
+    then
+        vim -c "PlugInstall" -c "qa!"
+        vim -c "PlugUpdate" -c "qa!"
+    fi
+    echo
+    
+    read -p "Would you like to install all depenedencies for the YouCompleteMe plugin (this will take a long time)? (Y/n) " ycm_var
+    
+    if [[ $ycm_var =~ $yn_regex ]]
+    then
+        sudo apt -y install build-essential cmake vim-nox python3-dev
+        sudo apt -y install mono-complete golang nodejs default-jdk npm
+        python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+    fi
+    echo
+    
+    read -p "Would you like to install and update all Vundle plugins? (Y/n) " vundle_install_var
+    
+    if [[ $vundle_install_var =~ $yn_regex ]]
+    then
+        vim -c "PluginInstall" -c "qa!"
+        vim -c "PluginUpdate" -c "qa!"
+    fi
 fi
+
 echo
-
-read -p "Would you like to install Vundle? (Y/n) " vundle_var
-
-if [[ $vundle_var =~ $yn_regex ]]
-then
-    # Clone github repo for Vundle into proper directory
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-echo
-
-read -p "Would you like to install and update all vim-plug plugins? (Y/n) " vim_plug_install_var
-
-if [[ $vim_plug_install_var =~ $yn_regex ]]
-then
-    vim -c "PlugInstall" -c "qa!"
-    vim -c "PlugUpdate" -c "qa!"
-fi
-echo
-
-read -p "Would you like to install all depenedencies for the YouCompleteMe plugin (this will take a long time)? (Y/n) " ycm_var
-
-if [[ $ycm_var =~ $yn_regex ]]
-then
-    sudo apt -y install build-essential cmake vim-nox python3-dev
-    sudo apt -y install mono-complete golang nodejs default-jdk npm
-    python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-fi
-echo
-
-read -p "Would you like to install and update all Vundle plugins? (Y/n) " vundle_install_var
-
-if [[ $vundle_install_var =~ $yn_regex ]]
-then
-    vim -c "PluginInstall" -c "qa!"
-    vim -c "PluginUpdate" -c "qa!"
-fi
-echo
-
 echo "Thanks for using this setup utility!"
 read -n 1 -s -r -p "Press any key to exit..."
 echo
