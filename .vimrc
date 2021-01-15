@@ -1,5 +1,7 @@
 set nocompatible " Possibly useless, but ensures correct usage
 
+" ########## PLUGIN STUFF ##########
+
 " Use vim-plug to handle plugins
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/NERDTree'
@@ -20,15 +22,19 @@ Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
 Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 
-set laststatus=2 " Let lightline status bar work
-set noshowmode " Hide original status bar
-
-set updatetime=100 " Update things faster (this reduces the delay of gitgutter)
+" ########## MISC THINGS ##########
 
 syntax on
 filetype indent plugin on
 
 colorscheme ron " Nicer for dark terminals, mine is #002b36 with an opacity of 93%
+
+" ########## SET THINGS ##########
+
+set laststatus=2 " Let lightline status bar work
+set noshowmode " Hide original status bar
+
+set updatetime=100 " Update things faster (this reduces the delay of gitgutter)
 
 set number relativenumber " Set number options
 set ruler
@@ -47,6 +53,8 @@ set tabstop=4 " 4 spaces per tab
 set shiftwidth=4
 set expandtab
 
+" ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
+
 " Wrapper func for Pydoc call
 function PydocFunc(name)
     execute '!pydoc '.expand(a:name)
@@ -61,6 +69,11 @@ endfunction
 
 command -nargs=1 E call EditNewFile('<args>')
 
+" ########## CUSTOM SIMPLE FUNCTIONS ###########
+
+" Remove all spaces on lines that only have spaces
+command Rmsp execute "%s/^[ ]\+$//g"
+" Remove highlights after searching
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
 command W execute "wq"
