@@ -77,6 +77,10 @@ command Rmsp execute "silent %s/^[ ]\\+$//g | Rmhl"
 command Tbcnv execute "silent %s/\t/    /g"
 " Remove highlights after searching
 command Rmhl execute "nohlsearch"
+
+" Fully clean up file
+command Clean execute "Tbcnv | Rmsp"
+
 command Q execute "q!"
 command W execute "wq"
 
