@@ -108,3 +108,9 @@ nmap <space> za
 
 " Quit vim completely
 map \Q qa!
+
+" ########## AUTOMATIC COMMANDS ##########
+
+" Open all folds by default
+" Triggers on buffer read, matches all files, and executes 'zR' in normal mode
+au BufRead * normal zR
