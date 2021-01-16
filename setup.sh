@@ -57,7 +57,6 @@ then
     OptionalCopy .vimrc
 
     OptionalCopyAndSource .bash_aliases
-    source ~/.bashrc && echo ".bashrc sourced" || echo ".bashrc failed to source"
 
     OptionalCopyAndSource .bashrc
 
