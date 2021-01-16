@@ -48,7 +48,7 @@ alias addmainghssh="ssh-add ~/.ssh/github_main"
 alias addjsghssh="ssh-add ~/.ssh/john_smith_github"
 
 # Switch GitHub accounts
-alias gitswitch="./~/repos/misc-personal/git_switch_account.sh"
+alias gitswitch="bash ~/repos/misc-personal/git_switch_account.sh"
 
 # Ease of use pip (literally the laziest thing I've ever done)
 alias pip="pip3"
