@@ -73,6 +73,8 @@ command -nargs=1 -complete=file E call EditNewFile('<args>')
 
 " Remove all spaces on lines that only have spaces
 command Rmsp execute "silent %s/^[ ]\\+$//g | Rmhl"
+" Convert tabs to spaces
+command Tbcnv execute "silent %s/\t/    /g"
 " Remove highlights after searching
 command Rmhl execute "nohlsearch"
 command Q execute "q!"
