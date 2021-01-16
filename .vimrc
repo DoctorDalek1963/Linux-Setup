@@ -1,3 +1,6 @@
+" Set the mapleader
+let mapleader='\'
+
 " This should be t the start and not in the set section to ensure correct usage
 set nocompatible " Possibly useless, but ensures correct usage
 
@@ -107,7 +110,7 @@ map - <C-w>s<C-j>
 nmap <space> za
 
 " Quit vim completely
-map \Q qa!
+map <leader>Q qa!
 
 " ########## AUTOMATIC COMMANDS ##########
 
