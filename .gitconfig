@@ -15,6 +15,7 @@
 	last = log -1 HEAD
 	puom = push -u origin main
 	lo = log --pretty=oneline --abbrev-commit
+	la = log --abbrev-commit
 	lg = log --graph
 	aa = add -A
 	unstage = restore --staged
