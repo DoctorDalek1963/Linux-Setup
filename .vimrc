@@ -1,3 +1,4 @@
+" This should be t the start and not in the set section to ensure correct usage
 set nocompatible " Possibly useless, but ensures correct usage
 
 " ########## PLUGIN STUFF ##########
@@ -53,6 +54,9 @@ set tabstop=4 " 4 spaces per tab
 set shiftwidth=4
 set expandtab
 
+set foldenable
+set foldmethod=indent
+
 " ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
 
 " Wrapper func for Pydoc call
@@ -98,6 +102,9 @@ map <C-l> <C-w>l
 " Easier splitting into new panes
 map <Bar> <C-w>v<C-l>
 map - <C-w>s<C-j>
+
+" Toggle folding with space
+nmap <space> za
 
 " Quit vim completely
 map \Q qa!
