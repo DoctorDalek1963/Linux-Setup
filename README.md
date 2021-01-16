@@ -1,7 +1,6 @@
 # Linux-Setup
 
 ![License](https://img.shields.io/github/license/DoctorDalek1963/Linux-Setup)
-![Release](https://img.shields.io/github/v/release/DoctorDalek1963/Linux-Setup)
 ![Last Commit](https://img.shields.io/github/last-commit/DoctorDalek1963/Linux-Setup)
 
 ![Repo Size](https://img.shields.io/github/repo-size/DoctorDalek1963/Linux-Setup)
