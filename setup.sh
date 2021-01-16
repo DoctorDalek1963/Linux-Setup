@@ -47,13 +47,13 @@ then
 fi
 
 echo
+echo "========== FILE MOVEMENT =========="
+echo
+
 read -p "Would you like to move any files to your home directory? (Y/n) " file_move_var
 
 if [[ $file_move_var =~ $yn_regex ]]
 then
-    echo
-    echo "========== FILE MOVEMENT =========="
-
     OptionalCopy .vimrc
 
     OptionalCopyAndSource .bash_aliases
@@ -66,12 +66,12 @@ then
 fi
 
 echo
+echo "========== VIM PLUGINS =========="
+echo
 read -p "Would you like to install any vim plugins or their managers? (Y/n) " vim_plugins_var
 
 if [[ $vim_plugins_var =~ $yn_regex ]]
 then
-    echo
-    echo "========== VIM PLUGINS =========="
     echo
     echo "NOTE: If you don't install vim-plug and Vundle, vim will fail to load properly. Only decline these installations if they are already installed."
     echo
