@@ -67,7 +67,7 @@ function EditNewFile(name)
     execute 'edit '.expand(a:name)
 endfunction
 
-command -nargs=1 E call EditNewFile('<args>')
+command -nargs=1 -complete=file E call EditNewFile('<args>')
 
 " ########## CUSTOM SIMPLE FUNCTIONS ###########
 
