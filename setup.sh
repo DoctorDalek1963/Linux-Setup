@@ -62,6 +62,8 @@ then
     OptionalCopyAndSource .bashrc
 
     OptionalCopy .gitconfig
+
+    OptionalCopy .tern-config
 fi
 
 echo
