@@ -41,6 +41,8 @@ mkcd () {
 alias sshag="eval \"\$(ssh-agent -s)\""
 # List ssh keys in agent
 alias sshl="ssh-add -l"
+# Remove all ssh keys from agent
+alias sshd="ssh-add -D"
 
 # Add the github_main private key to ssh-agent
 alias addmainghssh="ssh-add ~/.ssh/github_main"
