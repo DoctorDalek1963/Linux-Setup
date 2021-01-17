@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
 Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1 " Turn on rainbow parenthesis
+let g:rainbow_active = 1 " Turn on rainbow parentheses
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
