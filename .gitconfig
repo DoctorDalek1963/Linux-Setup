@@ -10,6 +10,7 @@
 	br = branch
 	c = commit
 	ca = commit -a
+	cm = commit -m
 	st = status
 	sh = show
 	l = log
