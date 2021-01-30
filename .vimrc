@@ -48,9 +48,8 @@ set ignorecase hlsearch incsearch " set search options
 set cursorline
 
 " Show spaces and tabs
+set listchars=space:·,nbsp:~,tab:>- " Middle dot is U+00B7
 set list
-set listchars=space:·
-set listchars+=tab:>-
 
 " Always use 4 spaces when tab is pressed
 set tabstop=4 " 4 spaces per tab
