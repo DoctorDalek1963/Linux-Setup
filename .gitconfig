@@ -9,6 +9,7 @@
 	co = checkout
 	br = branch
 	c = commit
+	ca = commit -a
 	st = status
 	sh = show
 	l = log
