@@ -11,6 +11,7 @@
 	c = commit
 	ca = commit -a
 	cm = commit -m
+	cam = commit -a -m
 	st = status
 	sh = show
 	l = log
