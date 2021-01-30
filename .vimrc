@@ -79,11 +79,9 @@ command -nargs=1 -complete=file E call EditNewFile('<args>')
 " ########## CUSTOM SIMPLE FUNCTIONS ###########
 
 " Remove all spaces on lines that only have spaces
-command Rmsp execute "silent %s/^[ ]\\+$//g | Rmhl"
+command Rmsp execute "silent %s/^[ ]\\+$//g | noh"
 " Convert tabs to spaces
 command Tbcnv execute "silent %s/\t/    /g"
-" Remove highlights after searching
-command Rmhl execute "nohlsearch"
 
 " Fully clean up file
 command Clean execute "Tbcnv | Rmsp"
