@@ -3,14 +3,14 @@
 # Regex to check user input
 yn_regex='^[Yy].*'
 
-# Function to optionally copy a file (takes one argument; returns 0 if successful, 1 if unsuccessful, and 2 if not copied)
+# Function to optionally copy a file (takes two arguments - the file to copy, and the directory to copy it to; returns 0 if successful, 1 if unsuccessful, and 2 if not copied)
 OptionalCopy() {
     echo # Create a blank line to pad things out a bit
     read -p "Would you like to copy $1 to your home directory? (Y/n) " copy_var
 
     if [[ $copy_var =~ $yn_regex ]]
     then
-        cp $1 ~ && echo "$1 copied";return 0 || echo "$1 failed to copy";return 1
+        cp $1 $2 && echo "$1 copied";return 0 || echo "$1 failed to copy";return 1
     else
         echo "$1 not copied";return 2
     fi
@@ -23,13 +23,13 @@ OptionalCopyAndSource () {
 
     if [[ $copy_var =~ $yn_regex ]]
     then
-        cp $1 ~ && echo "$1 copied";source_var=true || echo "$1 failed to copy";success_var=false
+        cp $1 $2 && echo "$1 copied";source_var=true || echo "$1 failed to copy";success_var=false
     else
         echo "$1 not copied";source_var=false
     fi
 
     if $source_var ; then
-        source ~/$1 && echo "$1 sourced" || echo "$1 failed to source"
+        source $2/$1 && echo "$1 sourced" || echo "$1 failed to source"
     fi
 }
 
@@ -54,15 +54,17 @@ read -p "Would you like to move any files to your home directory? (Y/n) " file_m
 
 if [[ $file_move_var =~ $yn_regex ]]
 then
-    OptionalCopy .vimrc
+    OptionalCopy .vimrc ~
 
-    OptionalCopyAndSource .bash_aliases
+    OptionalCopyAndSource .bash_aliases ~
 
-    OptionalCopyAndSource .bashrc
+    OptionalCopyAndSource .bashrc ~
 
-    OptionalCopy .gitconfig
+    OptionalCopy .gitconfig ~
 
-    OptionalCopy .tern-config
+    OptionalCopy .tern-config ~
+
+    OptionalCopy neofetch_config ~/.config/neofetch/config.conf
 fi
 
 echo
