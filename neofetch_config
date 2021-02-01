@@ -8,8 +8,8 @@ print_info() {
     info "Host" model
     info "Kernel" kernel
     info "Uptime" uptime
-    info "Packages" packages
-    info "Shell" shell
+    # info "Packages" packages
+    # info "Shell" shell
     # info "Resolution" resolution
     info "DE" de
     info "WM" wm
@@ -29,7 +29,7 @@ print_info() {
     # info "Font" font
     # info "Song" song
     # [[ "$player" ]] && prin "Music Player" "$player"
-    info "Local IP" local_ip
+    # info "Local IP" local_ip
     # info "Public IP" public_ip
     # info "Users" users
     # info "Locale" locale  # This only works on glibc systems.
@@ -101,7 +101,7 @@ os_arch="on"
 # on:   '2 days, 10 hours, 3 mins'
 # tiny: '2d 10h 3m'
 # off:  '2 days, 10 hours, 3 minutes'
-uptime_shorthand="on"
+uptime_shorthand="tiny"
 
 
 # Memory
@@ -745,7 +745,7 @@ image_source="auto"
 #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
 #       postmarketOS, and Void have a smaller logo variant.
 #       Use '{distro name}_small' to use the small variants.
-ascii_distro="Ubuntu"
+ascii_distro="Ubuntu_small"
 
 # Ascii Colors
 #
