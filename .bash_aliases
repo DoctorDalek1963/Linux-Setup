@@ -1,3 +1,5 @@
+alias x="exit"
+
 # Variable that holds the directory of the git repo holding this file and its associates
 git_repo="~/repos/Linux-Setup"
 
