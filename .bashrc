@@ -118,3 +118,7 @@ fi
 
 # This is a compatibility PATH update for WSL
 export PATH=/home/dyson/.local/bin:$PATH
+
+# Run neofetch when terminal is opened
+echo # Create a blank line
+neofetch
