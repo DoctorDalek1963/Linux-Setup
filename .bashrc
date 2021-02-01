@@ -120,5 +120,4 @@ fi
 export PATH=/home/dyson/.local/bin:$PATH
 
 # Run neofetch when terminal is opened
-echo # Create a blank line
 neofetch
