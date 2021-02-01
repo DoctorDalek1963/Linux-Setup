@@ -10,14 +10,14 @@ print_info() {
     info "Uptime" uptime
     info "Packages" packages
     info "Shell" shell
-    info "Resolution" resolution
+    # info "Resolution" resolution
     info "DE" de
     info "WM" wm
-    info "WM Theme" wm_theme
-    info "Theme" theme
-    info "Icons" icons
-    info "Terminal" term
-    info "Terminal Font" term_font
+    # info "WM Theme" wm_theme
+    # info "Theme" theme
+    # info "Icons" icons
+    # info "Terminal" term
+    # info "Terminal Font" term_font
     info "CPU" cpu
     info "GPU" gpu
     info "Memory" memory
@@ -29,12 +29,12 @@ print_info() {
     # info "Font" font
     # info "Song" song
     # [[ "$player" ]] && prin "Music Player" "$player"
-    # info "Local IP" local_ip
+    info "Local IP" local_ip
     # info "Public IP" public_ip
     # info "Users" users
     # info "Locale" locale  # This only works on glibc systems.
 
-    info cols
+    # info cols
 }
 
 # Title
@@ -116,7 +116,7 @@ uptime_shorthand="on"
 # Example:
 # on:   '1801MiB / 7881MiB (22%)'
 # off:  '1801MiB / 7881MiB'
-memory_percent="off"
+memory_percent="on"
 
 
 # Packages
@@ -286,7 +286,7 @@ gpu_type="all"
 # Example:
 # on:  '1920x1080 @ 60Hz'
 # off: '1920x1080'
-refresh_rate="off"
+refresh_rate="on"
 
 
 # Gtk Theme / Icons / Font
@@ -473,7 +473,7 @@ music_player="auto"
 #
 # Example:
 # default: 'Song: Jet - Get Born - Sgt Major'
-song_format="%artist% - %album% - %title%"
+song_format="%title%, %artist% - %album%"
 
 # Print the Artist, Album and Title on separate lines
 #
@@ -745,7 +745,7 @@ image_source="auto"
 #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
 #       postmarketOS, and Void have a smaller logo variant.
 #       Use '{distro name}_small' to use the small variants.
-ascii_distro="auto"
+ascii_distro="Ubuntu"
 
 # Ascii Colors
 #
