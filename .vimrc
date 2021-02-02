@@ -80,10 +80,11 @@ command -nargs=1 -complete=file E call EditNewFile('<args>')
 
 " ########## CUSTOM SIMPLE FUNCTIONS ###########
 
-" Remove all spaces on lines that only have spaces
-command Rmsp execute "silent %s/\ \+$//g | noh"
+" Remove all trailing spaces
+" This is the only way this command seems to work. It angers me.
+command Rmsp execute "silent %s/ * $//g | noh"
 " Convert tabs to spaces
-command Tbcnv execute "silent %s/\t/    /g"
+command Tbcnv execute "silent %s/\t/    /g | noh"
 
 " Fully clean up file
 command Clean execute "Tbcnv | Rmsp"
