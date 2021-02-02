@@ -21,5 +21,7 @@
 	la = log --abbrev-commit
 	lg = log --graph
 	aa = add -A
+	ap = add -p
+    ae = add -e
 	unstage = restore --staged
 	undo = reset --soft HEAD~1
