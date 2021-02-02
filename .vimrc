@@ -59,14 +59,14 @@ set foldmethod=indent
 " ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
 
 " Wrapper func for Pydoc call
-function PydocFunc(name)
+function PydocFunc(name) abort
     execute '!pydoc '.expand(a:name)
 endfunction
 
 command -nargs=1 Pydoc call PydocFunc('<args>')
 
 " Edit a new file using ':E <name>'
-function EditNewFile(name)
+function EditNewFile(name) abort
     execute 'edit '.expand(a:name)
 endfunction
 
