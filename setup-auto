@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo This will simply be a version of setup-manual which the user can pass arguements to, rather than going through the whole process.
+echo For example, the user could do \"./setup-auto --vimrc\" to only copy the .vimrc file, or \"./setup-auto --vundle\" to only install Vundle plugins, or \"./setup-auto --all\" to copy and install everything
+
+echo I have yet to write this script, because my bash skills are quite lacking
