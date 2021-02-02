@@ -1,9 +1,6 @@
 " Set the mapleader
 let mapleader = '\'
 
-" This should be t the start and not in the set section to ensure correct usage
-set nocompatible " Possibly useless, but ensures correct usage
-
 " ########## PLUGIN STUFF ##########
 
 " Use vim-plug to handle plugins
