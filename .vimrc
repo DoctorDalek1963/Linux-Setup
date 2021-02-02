@@ -15,12 +15,17 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
 call plug#end()
 
-set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path the include Vundle
+set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path the include Vundle
 
 " Use Vundle to handle other plugins
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_defaultGroup = 'SpecialKey'
+let g:indentLine_char = '·'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
 call vundle#end()
 
 " ########## MISC THINGS ##########
@@ -45,7 +50,7 @@ set ignorecase hlsearch incsearch " set search options
 set cursorline
 
 " Show spaces and tabs
-set listchars=space:·,nbsp:~,tab:>- " Middle dot is U+00B7
+set listchars=trail:·,nbsp:~,tab:>- " Middle dot is U00B7
 set list
 
 " Always use 4 spaces when tab is pressed
