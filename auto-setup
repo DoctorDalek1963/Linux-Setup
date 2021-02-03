@@ -33,12 +33,12 @@ do
             vim -c "PlugInstall" -c "qa!"
             vim -c "PlugUpdate" -c "qa!"
 
+            vim -c "PluginInstall" -c "qa!"
+            vim -c "PluginUpdate" -c "qa!"
+
             sudo apt -y install build-essential cmake vim-nox python3-dev
             sudo apt -y install mono-complete golang nodejs default-jdk npm
             python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-
-            vim -c "PluginInstall" -c "qa!"
-            vim -c "PluginUpdate" -c "qa!"
             exit
         ;;
 
