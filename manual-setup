@@ -64,6 +64,16 @@ then
 
     OptionalCopy .tern-config ~
 
+    neofetch --version
+    if [[ $? -ne 0 ]]
+    then
+        read -p "Would you like to install neofetch? (Y/n) " neofetch_install_var
+        if [[ neofetch_install_var ]]
+        then
+            sudo apt install -y neofetch
+        fi
+    fi
+
     OptionalCopy neofetch_config ~/.config/neofetch/config.conf
 fi
 

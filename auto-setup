@@ -13,6 +13,13 @@ do
             cp .bashrc ~ && source ~/.bashrc
             cp .gitconfig ~
             cp .tern-config ~
+
+            neofetch --version
+            if [[ $? -ne 0 ]]
+            then
+                sudo apt install -y neofetch
+            fi
+
             cp neofetch_config ~/.config/neofetch/config.conf
 
             ##### Plugins
@@ -69,6 +76,16 @@ do
 
         '--tern-config'|'--tc')
             cp .tern-config ~
+            shift
+            continue
+        ;;
+
+        '--install-neofetch'|'--in-neo')
+            neofetch --version
+            if [[ $? -ne 0 ]]
+            then
+                sudo apt install -y neofetch
+            fi
             shift
             continue
         ;;
