@@ -23,7 +23,7 @@ Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_defaultGroup = 'SpecialKey'
-let g:indentLine_char = '·'
+let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 call vundle#end()
