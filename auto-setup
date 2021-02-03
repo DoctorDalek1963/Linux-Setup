@@ -1,6 +1,78 @@
 #!/bin/bash
 
-echo This will simply be a version of setup-manual which the user can pass arguements to, rather than going through the whole process.
-echo For example, the user could do \"./setup-auto --vimrc\" to only copy the .vimrc file, or \"./setup-auto --vundle\" to only install Vundle plugins, or \"./setup-auto --all\" to copy and install everything
-
-echo I have yet to write this script, because my bash skills are quite lacking
+# This is just a big ol' switch statement
+while [ $# -ne 0 ]
+do
+    case "$1" in
+        ########## Files
+        '--vimrc'|'--vrc'|'--all')
+            cp .vimrc ~
+            shift
+            continue
+        ;;
+        '--bash-aliases'|'--bal'|'--all')
+            cp .bash_aliases ~ && source ~/.bash_aliases
+            shift
+            continue
+        ;;
+        '--bashrc'|'--brc'|'--all')
+            cp .bashrc ~ && source ~/.bashrc
+            shift
+            continue
+        ;;
+        '--gitconfig'|'--gc'|'--all')
+            cp .gitconfig ~
+            shift
+            continue
+        ;;
+        '--tern-config'|'--tc'|'--all')
+            cp .tern-config ~
+            shift
+            continue
+        ;;
+        '--neofetch-config'|'--neo'|'--all')
+            cp neofetch_config ~/.config/neofetch/config.conf
+            shift
+            continue
+        ;;
+        ########## Plugins
+        '--install-vim-plug'|'--in-vp'|'--all')
+            # Check if curl is installed
+            curl --version
+            # If curl is not installed the exit code will not be 0, so we should install it
+            if [[ $? -ne 0 ]]
+            then
+                sudo apt -y install curl
+            fi
+            # Install vim-plug in autoload directory
+            curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+            shift
+            continue
+        ;;
+        '--install-vundle'|'--in-vn'|'--all')
+            # Clone github repo for Vundle into proper directory
+            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+            shift
+            continue
+        ;;
+        '--install-vim-plug-plugins'|'--in-vp-plugs'|'--all')
+            vim -c "PlugInstall" -c "qa!"
+            vim -c "PlugUpdate" -c "qa!"
+            shift
+            continue
+        ;;
+        '--install-ycm-depend'|'--in-ycm'|'--all')
+            sudo apt -y install build-essential cmake vim-nox python3-dev
+            sudo apt -y install mono-complete golang nodejs default-jdk npm
+            python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+            shift
+            continue
+        ;;
+        '--install-vundle-plugins'|'--in-vn-plugs'|'--all')
+            vim -c "PluginInstall" -c "qa!"
+            vim -c "PluginUpdate" -c "qa!"
+            shift
+            continue
+        ;;
+    esac
+done
