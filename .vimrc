@@ -11,7 +11,6 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 " Turn on rainbow parentheses
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
-let g:lightline = {'colorscheme': 'wombat'}
 call plug#end()
 
 set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path the include Vundle
@@ -26,6 +25,7 @@ let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 Plugin 'itchyny/lightline.vim'
+let g:lightline = {'colorscheme': 'wombat'}
 call vundle#end()
 
 " ########## MISC THINGS ##########
