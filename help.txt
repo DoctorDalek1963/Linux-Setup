@@ -5,8 +5,8 @@ Commands:
   all                        Copies all files and installs everything.
 
   vimrc                      Copies .vimrc to your home direcory.
-  bash-aliases               Copies .bash_aliases to your home directory.
-  bashrc                     Copies .bashrc to your home directory.
+  bash-aliases               Copies .bash_aliases to your home directory and sources it.
+  bashrc                     Copies .bashrc to your home directory and sources it.
   gitconfig                  Copies .gitconfig to your home directory.
   tern-config                Copies .tern-config to your home directory.
   install-neofetch           Installs neofetch.
