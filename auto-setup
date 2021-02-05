@@ -1,5 +1,13 @@
 #!/bin/bash
 
+help_text=$(<auto-setup_help.txt) # Read the help from a file
+
+if [ "$1" == "--help" ]
+then
+    echo "$help_text" # This is in quotes to allow for line breaks
+    exit 0
+fi
+
 # This is just a big ol' switch statement
 while [ $# -ne 0 ]
 do
@@ -138,6 +146,11 @@ do
             vim -c "PluginUpdate" -c "qa!"
             shift
             continue
+        ;;
+
+        *)
+            echo "auto-setup must be supplied with an arument. See --help to see all options."
+            exit 1
         ;;
 
     esac
