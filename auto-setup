@@ -15,7 +15,7 @@ while [ $# -ne 0 ]
 do
     case "$1" in
         ########## Do all the options
-        '--all')
+        'all')
             ##### Files
 
             cp .vimrc ~
@@ -60,37 +60,37 @@ do
         ;;
 
         ########## Files
-        '--vimrc'|'--vrc')
+        'vimrc')
             cp .vimrc ~
             shift
             continue
         ;;
 
-        '--bash-aliases'|'--bal')
+        'bash-aliases')
             cp .bash_aliases ~ && source ~/.bash_aliases
             shift
             continue
         ;;
 
-        '--bashrc'|'--brc')
+        'bashrc')
             cp .bashrc ~ && source ~/.bashrc
             shift
             continue
         ;;
 
-        '--gitconfig'|'--gc')
+        'gitconfig')
             cp .gitconfig ~
             shift
             continue
         ;;
 
-        '--tern-config'|'--tc')
+        'tern-config')
             cp .tern-config ~
             shift
             continue
         ;;
 
-        '--install-neofetch'|'--in-neo')
+        'install-neofetch')
             neofetch --version
             if [[ $? -ne 0 ]]
             then
@@ -100,14 +100,14 @@ do
             continue
         ;;
 
-        '--neofetch-config'|'--neo')
+        'neofetch-config')
             cp neofetch_config ~/.config/neofetch/config.conf
             shift
             continue
         ;;
 
         ########## Plugins
-        '--install-vim-plug'|'--in-vp')
+        'install-vim-plug')
             # Check if curl is installed
             curl --version
             # If curl is not installed the exit code will not be 0, so we should install it
@@ -121,21 +121,21 @@ do
             continue
         ;;
 
-        '--install-vundle'|'--in-vn')
+        'install-vundle')
             # Clone github repo for Vundle into proper directory
             git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
             shift
             continue
         ;;
 
-        '--install-vim-plug-plugins'|'--in-vp-plugs')
+        'install-vim-plug-plugins')
             vim -c "PlugInstall" -c "qa!"
             vim -c "PlugUpdate" -c "qa!"
             shift
             continue
         ;;
 
-        '--install-ycm-depend'|'--in-ycm')
+        'install-ycm-depend')
             sudo apt -y install build-essential cmake vim-nox python3-dev
             sudo apt -y install mono-complete golang nodejs default-jdk npm
             python3 ~/.vim/bundle/YouCompleteMe/install.py --all
@@ -143,7 +143,7 @@ do
             continue
         ;;
 
-        '--install-vundle-plugins'|'--in-vn-plugs')
+        'install-vundle-plugins')
             vim -c "PluginInstall" -c "qa!"
             vim -c "PluginUpdate" -c "qa!"
             shift
