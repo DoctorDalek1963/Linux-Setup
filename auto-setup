@@ -151,7 +151,7 @@ do
         ;;
 
         *)
-            echo "auto-setup must be supplied with an argument. See --help to see all options."
+            echo "auto-setup must be supplied with at least one argument. See --help for all accepted arguments."
             exit 1
         ;;
 
