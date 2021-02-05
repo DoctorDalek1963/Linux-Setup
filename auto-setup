@@ -1,6 +1,6 @@
 #!/bin/bash
 
-help_text=$(<help.txt) # Read the help from a file
+help_text=$(<setup-help) # Read the help from a file
 
 if [ "$1" == "--help" ]
 then
