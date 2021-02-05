@@ -1,0 +1,22 @@
+Usage:
+  ./auto-setup <command>
+
+Commands:
+  all                        Copies all files and installs everything.
+
+  vimrc                      Copies .vimrc to your home direcory.
+  bash-aliases               Copies .bash_aliases to your home directory.
+  bashrc                     Copies .bashrc to your home directory.
+  gitconfig                  Copies .gitconfig to your home directory.
+  tern-config                Copies .tern-config to your home directory.
+  install-neofetch           Installs neofetch.
+  neofetch-config            Copies neofetch_config to its proper directory.
+
+  install-vim-plug           Installs vim-plug (and curl if it's not installed).
+  install-vundle             Installs Vundle.
+  install-vim-plug-plugins   Installs and updates all vim-plug plugins in .vimrc.
+  install-ycm-depend         Installs all the dependencies for YouCompleteMe (this may take a long time).
+  install-vundle-plugins     Installs and updates all Vundle plugins in .vimrc.
+
+Options:
+  --help                     Show help.
