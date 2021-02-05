@@ -1,10 +1,12 @@
 #!/bin/bash
 
-help_text=$(<auto-setup_help.txt) # Read the help from a file
+help_text=$(<help.txt) # Read the help from a file
 
 if [ "$1" == "--help" ]
 then
+    echo
     echo "$help_text" # This is in quotes to allow for line breaks
+    echo
     exit 0
 fi
 
@@ -149,7 +151,7 @@ do
         ;;
 
         *)
-            echo "auto-setup must be supplied with an arument. See --help to see all options."
+            echo "auto-setup must be supplied with an argument. See --help to see all options."
             exit 1
         ;;
 
