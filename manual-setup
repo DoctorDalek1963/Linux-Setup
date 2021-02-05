@@ -54,15 +54,15 @@ read -p "Would you like to move any files to your home directory? (Y/n) " file_m
 
 if [[ $file_move_var =~ $yn_regex ]]
 then
-    OptionalCopy .vimrc ~
+    OptionalCopy Files/.vimrc ~
 
-    OptionalCopyAndSource .bash_aliases ~
+    OptionalCopyAndSource Files/.bash_aliases ~
 
-    OptionalCopyAndSource .bashrc ~
+    OptionalCopyAndSource Files/.bashrc ~
 
-    OptionalCopy .gitconfig ~
+    OptionalCopy Files/.gitconfig ~
 
-    OptionalCopy .tern-config ~
+    OptionalCopy Files/.tern-config ~
 
     neofetch --version
     if [[ $? -ne 0 ]]
@@ -74,7 +74,7 @@ then
         fi
     fi
 
-    OptionalCopy neofetch_config ~/.config/neofetch/config.conf
+    OptionalCopy Files/neofetch_config ~/.config/neofetch/config.conf
 fi
 
 echo

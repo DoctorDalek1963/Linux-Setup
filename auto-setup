@@ -1,6 +1,6 @@
 #!/bin/bash
 
-help_text=$(<setup-help) # Read the help from a file
+help_text=$(<Files/setup-help) # Read the help from a file
 
 if [ "$1" == "--help" ]
 then
@@ -18,11 +18,11 @@ do
         'all')
             ##### Files
 
-            cp .vimrc ~
-            cp .bash_aliases ~ && source ~/.bash_aliases
-            cp .bashrc ~ && source ~/.bashrc
-            cp .gitconfig ~
-            cp .tern-config ~
+            cp Files/.vimrc ~
+            cp Files/.bash_aliases ~ && source ~/.bash_aliases
+            cp Files/.bashrc ~ && source ~/.bashrc
+            cp Files/.gitconfig ~
+            cp Files/.tern-config ~
 
             neofetch --version
             if [[ $? -ne 0 ]]
@@ -30,7 +30,7 @@ do
                 sudo apt install -y neofetch
             fi
 
-            cp neofetch_config ~/.config/neofetch/config.conf
+            cp Files/neofetch_config ~/.config/neofetch/config.conf
 
             ##### Plugins
 
@@ -61,31 +61,31 @@ do
 
         ########## Files
         'vimrc')
-            cp .vimrc ~
+            cp Files/.vimrc ~
             shift
             continue
         ;;
 
         'bash-aliases')
-            cp .bash_aliases ~ && source ~/.bash_aliases
+            cp Files/.bash_aliases ~ && source ~/.bash_aliases
             shift
             continue
         ;;
 
         'bashrc')
-            cp .bashrc ~ && source ~/.bashrc
+            cp Files/.bashrc ~ && source ~/.bashrc
             shift
             continue
         ;;
 
         'gitconfig')
-            cp .gitconfig ~
+            cp Files/.gitconfig ~
             shift
             continue
         ;;
 
         'tern-config')
-            cp .tern-config ~
+            cp Files/.tern-config ~
             shift
             continue
         ;;
@@ -101,7 +101,7 @@ do
         ;;
 
         'neofetch-config')
-            cp neofetch_config ~/.config/neofetch/config.conf
+            cp Files/neofetch_config ~/.config/neofetch/config.conf
             shift
             continue
         ;;
