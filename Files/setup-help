@@ -19,4 +19,4 @@ Commands:
   install-vundle-plugins     Installs and updates all Vundle plugins in .vimrc.
 
 Options:
-  --help                     Show help.
+  -h, --help                     Show help.

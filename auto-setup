@@ -2,7 +2,7 @@
 
 help_text=$(<Files/setup-help) # Read the help from a file
 
-if [ "$1" == "--help" ]; then
+if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo
     echo "$help_text" # This is in quotes to allow for line breaks
     echo
