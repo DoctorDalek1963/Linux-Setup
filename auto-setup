@@ -55,6 +55,51 @@ while [ $# -ne 0 ];do
             exit
         ;;
 
+        'files')
+            cp Files/.vimrc ~
+            cp Files/.bash_aliases ~ && source ~/.bash_aliases
+            cp Files/.bashrc ~ && source ~/.bashrc
+            cp Files/.gitconfig ~
+            cp Files/.tern-config ~
+
+            neofetch --version &> /dev/null
+            if [ $? -ne 0 ]; then
+                sudo apt install -y neofetch
+            fi
+
+            cp Files/neofetch_config ~/.config/neofetch/config.conf
+
+            shift
+            continue
+        ;;
+
+        'plugins')
+            # Check if curl is installed
+            curl --version &> /dev/null
+            # If curl is not installed the exit code will not be 0, so we should install it
+            if [ $? -ne 0 ]; then
+                sudo apt -y install curl
+            fi
+            # Install vim-plug in autoload directory
+            curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+            # Clone github repo for Vundle into proper directory
+            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+            vim -c "PlugInstall" -c "qa!"
+            vim -c "PlugUpdate" -c "qa!"
+
+            vim -c "PluginInstall" -c "qa!"
+            vim -c "PluginUpdate" -c "qa!"
+
+            sudo apt -y install build-essential cmake vim-nox python3-dev
+            sudo apt -y install mono-complete golang nodejs default-jdk npm
+            python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+
+            shift
+            continue
+        ;;
+
         ########## Files
         'vimrc')
             cp Files/.vimrc ~
