@@ -3,7 +3,7 @@ alias c="clear"
 alias v="vim"
 
 # Variable that holds the directory of the git repo holding this file and its associates
-git_repo="~/repos/Linux-Setup"
+git_repo="~/repos/Linux-Setup/Files"
 
 # Deal with ~/.vimrc in single commands
 alias upvrc="cp ~/.vimrc $git_repo && echo \~/.vimrc updated in git repo"
