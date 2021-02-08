@@ -65,7 +65,7 @@ set foldmethod=indent
 
 " Wrapper func for Pydoc call
 function PydocFunc(name) abort
-    execute '!pydoc '.expand(a:name)
+    execute '!pydoc3 '.expand(a:name)
 endfunction
 
 command -nargs=1 Pydoc call PydocFunc('<args>')
