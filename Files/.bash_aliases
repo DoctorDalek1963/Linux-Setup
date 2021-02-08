@@ -66,3 +66,6 @@ alias ga="git add -A"
 alias gf="git fetch"
 alias gpl="git pull"
 alias gl="git log"
+
+# Search long-form history
+alias grephist="cat ~/.bash_history | grep"
