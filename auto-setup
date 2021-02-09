@@ -190,8 +190,9 @@ while [ $# -ne 0 ];do
         ;;
 
         *)
-            echo "auto-setup must be supplied with at least one valid argument. See --help for all accepted arguments."
-            exit 1
+            echo "'$1' is not a recognised argument. See --help for all recognised arguments."
+            shift
+            continue
         ;;
 
     esac
