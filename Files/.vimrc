@@ -13,7 +13,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path the include Vundle
+set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
 
 " Use Vundle to handle other plugins
 call vundle#begin()
