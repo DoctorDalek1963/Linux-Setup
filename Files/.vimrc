@@ -26,6 +26,12 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="`"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+Plugin 'honza/vim-snippets'
 call vundle#end()
 
 " ########## MISC THINGS ##########
