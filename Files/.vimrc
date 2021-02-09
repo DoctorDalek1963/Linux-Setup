@@ -70,14 +70,6 @@ endfunction
 
 command -nargs=1 Pydoc call PydocFunc('<args>')
 
-" Edit a new file using ':E <name>'
-function EditNewFile(name) abort
-    execute 'edit '.expand(a:name)
-endfunction
-
-" -complete=file means the command will autocomplete a file name or directory when tab is pressed
-command -nargs=1 -complete=file E call EditNewFile('<args>')
-
 " ########## CUSTOM SIMPLE FUNCTIONS ###########
 
 " Remove all trailing spaces
