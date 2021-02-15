@@ -10,7 +10,7 @@ if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
 fi
 
 # This is just a big ol' switch statement
-while [ $# -ne 0 ];do
+while [ $# -ne 0 ]; do
     case "$1" in
         ########## Do all the options
         'all')
