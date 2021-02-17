@@ -68,5 +68,7 @@ alias gf="git fetch"
 alias gpl="git pull"
 alias gl="git log"
 
+alias gstall="python /home/dyson/repos/gst_all.py"
+
 # Search long-form history
 alias grephist="cat ~/.bash_history | grep"
