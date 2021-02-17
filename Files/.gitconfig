@@ -20,9 +20,11 @@
 	lo = log --pretty=oneline --abbrev-commit
 	la = log --abbrev-commit
 	lg = log --graph
+	a = add
 	aa = add -A
 	ap = add -p
 	apa = add -p -A
 	ae = add -e
+	aea = add -e -A
 	unstage = restore --staged
 	undo = reset --soft HEAD~1
