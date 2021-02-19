@@ -10,6 +10,10 @@ git_repo="~/repos/Linux-Setup/Files"
 alias upvrc="cp ~/.vimrc $git_repo && echo \~/.vimrc updated in git repo"
 alias vvrc="vim ~/.vimrc"
 
+# Deal with ~/.ideavimrc in single commands
+alias upivrc="cp ~/.ideavimrc $git_repo && echo \~/.ideavimrc updated in git repo"
+alias vivrc="vim ~/.ideavimrc"
+
 # Deal with ~/.bash_aliases in single commands
 alias srcbal="source ~/.bash_aliases && echo \~/.bash_aliases sourced"
 alias upbal="cp ~/.bash_aliases $git_repo && echo \~/.bash_aliases updated in git repo"
