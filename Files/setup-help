@@ -1,5 +1,5 @@
 Usage:
-  ./auto-setup <command>
+  ./setup <command>
 
 Commands:
   all                        Copies all files and installs all plugin managers and plugins.
