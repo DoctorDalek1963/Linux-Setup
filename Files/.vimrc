@@ -112,6 +112,12 @@ nmap <space> za
 " Quit vim completely
 nmap <leader>Q :qa!<cr>
 
+" Run current file
+nnoremap <leader>r :!"%:p"<Enter>
+
+" Write current file
+nnoremap <leader>w :w
+
 " ########## AUTOMATIC COMMANDS ##########
 
 " Open all folds by default
