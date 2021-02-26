@@ -84,3 +84,12 @@ CopyUnicodeCodePoint() {
     python -c "print('$string')" | xclip -selection c
 }
 alias cpunicp=CopyUnicodeCodePoint
+
+# Create executable file and open it with vim
+CreateAndVimExecutable() {
+    filename="$1"
+    touch $filename
+    chmod +x $filename
+    vim $filename
+}
+alias vex=CreateAndVimExecutable
