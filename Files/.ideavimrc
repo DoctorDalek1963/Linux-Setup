@@ -38,6 +38,9 @@ command Clean execute "Tbcnv | Rmsp"
 " Toggle folding with space
 nmap <space> za
 
+" Write current file
+nnoremap <leader>w :w<Enter>
+
 " ########## AUTOMATIC COMMANDS ##########
 
 " Open all folds by default
