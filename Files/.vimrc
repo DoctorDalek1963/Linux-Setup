@@ -116,7 +116,7 @@ nmap <leader>Q :qa!<cr>
 nnoremap <leader>r :!"%:p"<Enter>
 
 " Write current file
-nnoremap <leader>w :w
+nnoremap <leader>w :w<Enter>
 
 " ########## AUTOMATIC COMMANDS ##########
 
