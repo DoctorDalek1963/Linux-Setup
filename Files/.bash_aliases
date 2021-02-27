@@ -87,10 +87,9 @@ alias cpunicp=CopyUnicodeCodePoint
 
 # Create executable file and open it with vim
 CreateAndVimExecutable() {
-    filename="$1"
-    touch $filename
-    chmod +x $filename
-    vim $filename
+    touch $1
+    chmod +x $1
+    vim $1
 }
 alias vex=CreateAndVimExecutable
 
