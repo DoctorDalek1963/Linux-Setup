@@ -93,3 +93,6 @@ CreateAndVimExecutable() {
     vim $filename
 }
 alias vex=CreateAndVimExecutable
+
+# Pipe to clip for easy copying
+alias clip="xclip -selection c"
