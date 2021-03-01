@@ -11,6 +11,7 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 " Turn on rainbow parentheses
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
