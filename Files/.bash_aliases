@@ -98,3 +98,6 @@ alias clip="xclip -selection c"
 
 # Set APL xkb layout with AltGr as modifier key
 alias aplkb="setxkbmap gb,apl -option grp:switch"
+
+# Get pydoc to work nicely
+alias pydoc="python -m pydoc"
