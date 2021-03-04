@@ -33,6 +33,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
 
 " ########## MISC THINGS ##########
