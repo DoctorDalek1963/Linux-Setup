@@ -1,7 +1,9 @@
+# Single letter aliases
 alias x="exit"
 alias c="clear"
 alias v="vim"
 alias g="git"
+alias p="python"
 
 # Variable that holds the directory of the git repo holding this file and its associates
 git_repo="~/repos/Linux-Setup/Files"
