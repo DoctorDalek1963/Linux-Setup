@@ -29,7 +29,7 @@ let g:indentLine_fileTypeExclude = ['json', 'markdown']
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
 Plugin 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="`"
+let g:UltiSnipsExpandTrigger="¬"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
