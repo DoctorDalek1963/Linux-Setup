@@ -35,11 +35,15 @@ command Clean execute "Tbcnv | Rmsp"
 
 " ########## MAPPINGS ###########
 
-" Toggle folding with space
-nmap <space> za
+" Easier 4 directional navigation
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 " Write current file
 nnoremap <leader>w :w<Enter>
+nnoremap <leader><leader> :w<Enter>
 
 " ########## AUTOMATIC COMMANDS ##########
 

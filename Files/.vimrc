@@ -95,9 +95,7 @@ command Clean execute "Tbcnv | Rmsp"
 command Q execute "q!"
 command W execute "wq"
 
-" Easily tab through panes
-map <Tab> <C-w>w
-map <S-Tab> <C-w>W
+" ########## MAPPINGS ###########
 
 " Easier 4 directional navigation
 map <C-j> <C-w>j
