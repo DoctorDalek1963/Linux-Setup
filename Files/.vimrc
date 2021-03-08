@@ -25,6 +25,7 @@ let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_fileTypeExclude = ['json', 'markdown']
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
 Plugin 'SirVer/ultisnips'
