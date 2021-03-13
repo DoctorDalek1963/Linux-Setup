@@ -53,7 +53,7 @@ set updatetime=100 " Update things faster (this reduces the delay of gitgutter)
 
 set number relativenumber " set number options
 set ruler
-set ignorecase hlsearch incsearch " set search options
+set ignorecase smartcase hlsearch incsearch " set search options
 
 " This creates a line under the cursor that spans the whole line
 set cursorline
