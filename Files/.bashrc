@@ -116,7 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-ATHAME_ENABLED=1 # Enable athame
+export ATHAME_ENABLED=1 # Enable athame
+export ATHAME_TEST_RC=/home/dyson/.athamerc
 
 # This is a compatibility PATH update for WSL
 export PATH=/home/dyson/.local/bin:$PATH

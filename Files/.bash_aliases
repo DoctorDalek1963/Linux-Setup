@@ -16,6 +16,10 @@ alias vvrc="vim ~/.vimrc"
 alias upivrc="cp ~/.ideavimrc $git_repo && echo \~/.ideavimrc updated in git repo"
 alias vivrc="vim ~/.ideavimrc"
 
+# Deal with ~/.athamerc in single commands
+alias upamrc="cp ~/.athamerc $git_repo && echo \~/.athamerc updated in git repo"
+alias vamrc="vim ~/.athamerc"
+
 # Deal with ~/.bash_aliases in single commands
 alias srcbal="source ~/.bash_aliases && echo \~/.bash_aliases sourced"
 alias upbal="cp ~/.bash_aliases $git_repo && echo \~/.bash_aliases updated in git repo"
