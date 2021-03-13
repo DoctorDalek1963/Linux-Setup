@@ -7,32 +7,38 @@ let mapleader = '\'
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
+
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 " Turn on rainbow parentheses
+
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 call plug#end()
 
-set rtp+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
+set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
 
 " Use Vundle to handle other plugins
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
 Plugin 'ycm-core/YouCompleteMe'
+
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_fileTypeExclude = ['json', 'markdown']
+
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'wombat'}
+
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="¬"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
@@ -42,7 +48,7 @@ call vundle#end()
 syntax on
 filetype indent plugin on
 
-colorscheme ron " Nicer for dark terminals, mine is #002b36 with an opacity of 93%
+colorscheme ron " Nicer for dark terminals, especially with semi-transparent background
 
 " ########## SET THINGS ##########
 
@@ -69,6 +75,12 @@ set expandtab
 
 set foldenable
 set foldmethod=indent
+
+" Better indents
+set autoindent smartindent
+
+" Autoreload the file if it has been changed outside of vim
+set autoread
 
 " ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
 
@@ -98,14 +110,18 @@ command W execute "wq"
 " ########## MAPPINGS ###########
 
 " Easier 4 directional navigation
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 " Easier splitting into new panes
-map <Bar> <C-w>v<C-l>
-map - <C-w>s<C-j>
+nmap <Bar> <C-w>v<C-l>
+nmap - <C-w>s<C-j>
+
+" Don't skip wrapped line with j and k
+nmap j gj
+nmap k gk
 
 " Toggle folding with space
 nmap <space> za
