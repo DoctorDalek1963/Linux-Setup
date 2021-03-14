@@ -39,16 +39,6 @@ while [ $# -ne 0 ]; do
 
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
-            # Install athame
-            git clone --recursive http://github.com/ardagnir/athame
-            cd athame
-            ./readline_athame_setup.sh --libdir=/lib/x86_64-linux-gnu --use_sudo
-            ./bash_readline_setup.sh --use_sudo
-            cd ..
-            rm -rf athame
-
-            cp Files/.athamerc ~
-
             ##### Plugins
 
             CheckWithHelpFlagAndInstall curl
@@ -151,23 +141,6 @@ while [ $# -ne 0 ]; do
 
         'neofetch-config')
             cp Files/neofetch_config ~/.config/neofetch/config.conf
-            shift
-            continue
-        ;;
-
-        'install-athame')
-            git clone --recursive http://github.com/ardagnir/athame
-            cd athame
-            ./readline_athame_setup.sh --libdir=/lib/x86_64-linux-gnu --use_sudo
-            ./bash_readline_setup.sh --use_sudo
-            cd ..
-            rm -rf athame
-            shift
-            continue
-        ;;
-
-        'athamerc')
-            cp Files/.athamerc ~
             shift
             continue
         ;;
