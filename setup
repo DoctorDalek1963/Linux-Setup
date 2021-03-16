@@ -37,6 +37,10 @@ while [ $# -ne 0 ]; do
 
             CheckWithHelpFlagAndInstall neofetch
 
+            # Make directory if it doesn't exist
+            if [ ! -d ~/.config/neofetch ]; then
+                mkdir -p ~/.config/neofetch
+            fi
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
             ##### Plugins
@@ -73,6 +77,10 @@ while [ $# -ne 0 ]; do
                 sudo apt install -y neofetch
             fi
 
+            # Make directory if it doesn't exist
+            if [ ! -d ~/.config/neofetch ]; then
+                mkdir -p ~/.config/neofetch
+            fi
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
             shift
@@ -140,6 +148,10 @@ while [ $# -ne 0 ]; do
         ;;
 
         'neofetch-config')
+            # Make directory if it doesn't exist
+            if [ ! -d ~/.config/neofetch ]; then
+                mkdir -p ~/.config/neofetch
+            fi
             cp Files/neofetch_config ~/.config/neofetch/config.conf
             shift
             continue
