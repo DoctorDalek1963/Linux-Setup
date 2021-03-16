@@ -13,10 +13,8 @@ Commands:
   gitconfig                  Copies .gitconfig to your home directory.
   tern-config                Copies .tern-config to your home directory.
   neofetch-config            Copies neofetch_config to its proper directory.
-  athamerc                   Copies .athamerc to your home directory.
 
   install-neofetch           Installs neofetch.
-  install-athame             Installs athame.
 
   install-vim-plug           Installs vim-plug (and curl if it's not installed).
   install-vundle             Installs Vundle.
