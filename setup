@@ -43,6 +43,8 @@ while [ $# -ne 0 ]; do
             fi
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
+            cp Files/terminator-config ~/.config/terminator/config
+
             ##### Plugins
 
             CheckWithHelpFlagAndInstall curl
@@ -82,6 +84,11 @@ while [ $# -ne 0 ]; do
                 mkdir -p ~/.config/neofetch
             fi
             cp Files/neofetch_config ~/.config/neofetch/config.conf
+
+            if [ ! -d ~/.config/terminator ]; then
+                mkdir -p ~/.config/terminator
+            fi
+            cp Files/terminator-config ~/.config/terminator/config
 
             shift
             continue
@@ -141,18 +148,27 @@ while [ $# -ne 0 ]; do
             continue
         ;;
 
-        'install-neofetch')
-            CheckWithHelpFlagAndInstall neofetch
-            shift
-            continue
-        ;;
-
         'neofetch-config')
             # Make directory if it doesn't exist
             if [ ! -d ~/.config/neofetch ]; then
                 mkdir -p ~/.config/neofetch
             fi
             cp Files/neofetch_config ~/.config/neofetch/config.conf
+            shift
+            continue
+        ;;
+
+        'terminator-config')
+            if [ ! -d ~/.config/terminator ]; then
+                mkdir -p ~/.config/terminator
+            fi
+            cp Files/terminator-config ~/.config/terminator/config
+            shift
+            continue
+        ;;
+
+        'install-neofetch')
+            CheckWithHelpFlagAndInstall neofetch
             shift
             continue
         ;;

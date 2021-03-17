@@ -12,7 +12,8 @@ Commands:
   bashrc                     Copies .bashrc to your home directory and sources it.
   gitconfig                  Copies .gitconfig to your home directory.
   tern-config                Copies .tern-config to your home directory.
-  neofetch-config            Copies neofetch_config to its proper directory.
+  neofetch-config            Copies neofetch config to its proper directory.
+  terminator-config          Copies terminator config to its proper directory.
 
   install-neofetch           Installs neofetch.
 

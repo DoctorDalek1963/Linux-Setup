@@ -1,0 +1,41 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    visible_bell = True
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Hack 12
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    use_system_font = False
+    bold_is_bright = True
+  [[Minimal]]
+    visible_bell = True
+    cursor_color = "#aaaaaa"
+    font = Hack 12
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    use_system_font = False
+    bold_is_bright = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 257:122
+      maximised = False
+      fullscreen = False
+      size = 1105, 645
+      title = dyson@Sasha-Ubuntu
+      last_active_term = 28a660ed-cd85-45b9-908c-7fa368e26171
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = 28a660ed-cd85-45b9-908c-7fa368e26171
+[plugins]
