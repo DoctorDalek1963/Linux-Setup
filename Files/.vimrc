@@ -119,9 +119,9 @@ nmap <C-l> <C-w>l
 nmap <Bar> <C-w>v<C-l>
 nmap - <C-w>s<C-j>
 
-" Don't skip wrapped line with j and k
-nmap j gj
-nmap k gk
+" Don't skip wrapped line with arrow keys
+nmap <up> g<up>
+nmap <down> g<down>
 
 " Toggle folding with space
 nmap <space> za
