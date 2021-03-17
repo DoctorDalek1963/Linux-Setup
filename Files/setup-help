@@ -5,6 +5,7 @@ Commands:
   all                        Copies all files and installs everything.
 
   files                      Copies all files to your home directory and sources them if appropriate.
+  misc-software              Installs all misc software available to be installed by this script.
   vim-plugins                Installs all plugin managers and installs and updates all plugins.
 
   vimrc                      Copies .vimrc to your home direcory.
@@ -16,6 +17,7 @@ Commands:
   terminator-config          Copies terminator config to its proper directory.
 
   install-neofetch           Installs neofetch.
+  install-terminator         Installs terminator.
 
   install-vim-plug           Installs vim-plug (and curl if it's not installed).
   install-vundle             Installs Vundle.

@@ -2,10 +2,16 @@
 
 help_text=$(<Files/setup-help) # Read the help from a file
 
-CheckWithHelpFlagAndInstall() {
+CheckWithVersionFlagAndInstall() {
     $1 --version &> /dev/null # Redirect stdout and stderr to /dev/null to avoid outputting anything to the terminal
     if [ $? -ne 0 ]; then
         sudo apt install -y $1
+    fi
+}
+
+OptionalMkdir() {
+    if [ ! -d $1 ]; then
+        mkdir -p $1
     fi
 }
 
@@ -35,19 +41,20 @@ while [ $# -ne 0 ]; do
             cp Files/.gitconfig ~
             cp Files/.tern-config ~
 
-            CheckWithHelpFlagAndInstall neofetch
-
-            # Make directory if it doesn't exist
-            if [ ! -d ~/.config/neofetch ]; then
-                mkdir -p ~/.config/neofetch
-            fi
+            OptionalMkdir ~/.config/neofetch
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
+            OptionalMkdir ~/.config/terminator
             cp Files/terminator-config ~/.config/terminator/config
+
+            ##### Misc Software
+
+            CheckWithVersionFlagAndInstall neofetch
+            CheckWithVersionFlagAndInstall terminator
 
             ##### Plugins
 
-            CheckWithHelpFlagAndInstall curl
+            CheckWithVersionFlagAndInstall curl
 
             # Install vim-plug in autoload directory
             curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -74,28 +81,23 @@ while [ $# -ne 0 ]; do
             cp Files/.gitconfig ~
             cp Files/.tern-config ~
 
-            neofetch --version &> /dev/null
-            if [ $? -ne 0 ]; then
-                sudo apt install -y neofetch
-            fi
-
-            # Make directory if it doesn't exist
-            if [ ! -d ~/.config/neofetch ]; then
-                mkdir -p ~/.config/neofetch
-            fi
+            OptionalMkdir ~/.config/neofetch
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
-            if [ ! -d ~/.config/terminator ]; then
-                mkdir -p ~/.config/terminator
-            fi
+            OptionalMkdir ~/.config/terminator
             cp Files/terminator-config ~/.config/terminator/config
 
             shift
             continue
         ;;
 
+        'misc-software')
+            CheckWithVersionFlagAndInstall neofetch
+            CheckWithVersionFlagAndInstall terminator
+        ;;
+
         'vim-plugins')
-            CheckWithHelpFlagAndInstall curl
+            CheckWithVersionFlagAndInstall curl
 
             # Install vim-plug in autoload directory
             curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -150,32 +152,35 @@ while [ $# -ne 0 ]; do
 
         'neofetch-config')
             # Make directory if it doesn't exist
-            if [ ! -d ~/.config/neofetch ]; then
-                mkdir -p ~/.config/neofetch
-            fi
+            OptionalMkdir ~/.config/neofetch
             cp Files/neofetch_config ~/.config/neofetch/config.conf
             shift
             continue
         ;;
 
         'terminator-config')
-            if [ ! -d ~/.config/terminator ]; then
-                mkdir -p ~/.config/terminator
-            fi
+            OptionalMkdir ~/.config/terminator
             cp Files/terminator-config ~/.config/terminator/config
             shift
             continue
         ;;
 
+        ########## Misc Software
         'install-neofetch')
-            CheckWithHelpFlagAndInstall neofetch
+            CheckWithVersionFlagAndInstall neofetch
+            shift
+            continue
+        ;;
+
+        'install-terminator')
+            CheckWithVersionFlagAndInstall terminator
             shift
             continue
         ;;
 
         ########## Plugins
         'install-vim-plug')
-            CheckWithHelpFlagAndInstall curl
+            CheckWithVersionFlagAndInstall curl
 
             # Install vim-plug in autoload directory
             curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
