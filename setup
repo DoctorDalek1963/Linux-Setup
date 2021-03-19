@@ -8,6 +8,7 @@ CheckWithVersionFlagAndInstall() {
 }
 
 OptionalMkdir() {
+    # If the directory doesn't exist, make it
     if [ ! -d $1 ]; then
         mkdir -p $1
     fi
