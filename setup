@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-help_text=$(<Files/setup-help) # Read the help from a file
-
 CheckWithVersionFlagAndInstall() {
     $1 --version &> /dev/null # Redirect stdout and stderr to /dev/null to avoid outputting anything to the terminal
     if [ $? -ne 0 ]; then
@@ -17,7 +15,7 @@ OptionalMkdir() {
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo
-    echo "$help_text" # This is in quotes to allow for line breaks
+    echo "$(<Files/setup-help)" # Read the help from a file. This is in quotes to allow for line breaks
     echo
     exit 0
 fi
