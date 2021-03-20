@@ -132,6 +132,10 @@ nmap <leader>Q :qa!<cr>
 " Run current file
 nnoremap <leader>r :!"%:p"<Enter>
 
+" Run current file with arguments
+" The space at the end of this line is intentional
+nnoremap <leader>a :!"%:p" 
+
 " Write current file
 nnoremap <leader>w :w<Enter>
 nnoremap <leader><leader> :w<Enter>
