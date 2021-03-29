@@ -32,5 +32,5 @@
 	clean = grep -v "usageCount" %f
 	smudge = cat
 [filter "nostore"]
-	clean = cat %f | tr "\n" "·" | sed 's/"store": {[^{}]*}//g' | tr "·" "\n"
+	clean = cat %f | tr "\\n" "·" | sed 's/"store": {[^{}]*},//g' | tr "·" "\\n"
 	smudge = cat
