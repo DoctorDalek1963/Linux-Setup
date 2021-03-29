@@ -10,7 +10,7 @@ filetype indent plugin on
 
 set number relativenumber " set number options
 set ruler
-set ignorecase hlsearch incsearch " set search options
+set ignorecase smartcase hlsearch incsearch " set search options
 
 " Always use 4 spaces when tab is pressed
 set tabstop=4 " 4 spaces per tab
