@@ -65,7 +65,7 @@ alias addmainghssh="ssh-add ~/.ssh/github_main"
 alias addjsghssh="ssh-add ~/.ssh/john_smith_github"
 
 # Switch GitHub accounts
-alias gitswitch="bash ~/repos/misc-personal/gitswitch.sh"
+alias gitswitch="bash ~/repos/misc-personal/bash/gitswitch.sh"
 
 alias gp="git push"
 alias gst="git status"
