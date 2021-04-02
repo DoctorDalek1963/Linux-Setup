@@ -11,3 +11,5 @@ This is a small, simple repo to hold files that go in my home directory when I r
 It contains lots of configuration files. It also contains a setup script to automatically move and source these files, using command line arguments. Do `./setup -h` or `./setup --help` for help.
 
 The setup script also has options to install vim-plug and Vundle, as well as installing all the plugins listed in .vimrc.
+
+Use `source .setup-completion.bash` to get tab autocompletion for the setup script.
