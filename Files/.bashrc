@@ -121,5 +121,10 @@ export ATHAME_ENABLED=0 # Disable athame
 # This is a compatibility PATH update for WSL
 export PATH=/home/dyson/.local/bin:$PATH
 
+# Add every directory in /opt to PATH
+for dir in /opt/*; do
+    export PATH="$PATH:$dir"
+done
+
 # Run neofetch when terminal is opened
 neofetch
