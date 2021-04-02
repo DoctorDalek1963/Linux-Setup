@@ -30,7 +30,6 @@
       maximised = False
       fullscreen = False
       size = 1105, 645
-      title = dyson@Sasha-Ubuntu
       last_active_term = 28a660ed-cd85-45b9-908c-7fa368e26171
       last_active_window = True
     [[[terminal1]]]
