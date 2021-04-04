@@ -18,6 +18,8 @@ Plug 'tpope/vim-surround'
 Plug 'joshdick/onedark.vim'
 let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
+
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
