@@ -45,7 +45,14 @@ let g:lightline.component_type = {
       \     'linter_ok': 'right',
       \ }
 
-let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+" This will set the ALE linting stuff on the far right, and then my normal vim file info stuff to the left of that
+let g:lightline.active = {
+      \ 'right': [
+      \            [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+      \            [ 'lineinfo' ],
+      \            [ 'percent' ],
+      \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ }
 
 let g:lightline#ale#indicator_checking = "\uf110 "
 let g:lightline#ale#indicator_infos = "\uf129 "
