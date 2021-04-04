@@ -20,6 +20,37 @@ let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'dense-analysis/ale'
+
+Plug 'itchyny/lightline.vim'
+let g:lightline = {'colorscheme': 'onedark'}
+
+Plug 'maximbaz/lightline-ale'
+" The following lightline configuration has just be taken from https://github.com/maximbaz/lightline-ale
+" I understand almost none of it, but it makes things work, so I keep it
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
+
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+
+let g:lightline#ale#indicator_checking = "\uf110 "
+let g:lightline#ale#indicator_infos = "\uf129 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
 call plug#end()
 
 set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
@@ -35,9 +66,6 @@ let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_fileTypeExclude = ['json', 'markdown']
-
-Plugin 'itchyny/lightline.vim'
-let g:lightline = {'colorscheme': 'wombat'}
 
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="¬"
