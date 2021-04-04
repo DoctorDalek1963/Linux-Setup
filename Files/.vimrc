@@ -168,6 +168,8 @@ nmap <down> g<down>
 nmap <space> za
 
 " Quit vim completely
+nmap <leader>q :qa<cr>
+" Force quit
 nmap <leader>Q :qa!<cr>
 
 " Run current file
