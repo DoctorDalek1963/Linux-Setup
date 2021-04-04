@@ -44,7 +44,7 @@ while [ $# -ne 0 ]; do
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
             OptionalMkdir ~/.config/terminator
-            cp Files/terminator-config ~/.config/terminator/config
+            cp Files/terminator_config ~/.config/terminator/config
 
             ##### Misc Software
 
@@ -84,7 +84,7 @@ while [ $# -ne 0 ]; do
             cp Files/neofetch_config ~/.config/neofetch/config.conf
 
             OptionalMkdir ~/.config/terminator
-            cp Files/terminator-config ~/.config/terminator/config
+            cp Files/terminator_config ~/.config/terminator/config
 
             shift
             continue
@@ -157,9 +157,9 @@ while [ $# -ne 0 ]; do
             continue
         ;;
 
-        'terminator-config')
+        'terminator_config')
             OptionalMkdir ~/.config/terminator
-            cp Files/terminator-config ~/.config/terminator/config
+            cp Files/terminator_config ~/.config/terminator/config
             shift
             continue
         ;;
