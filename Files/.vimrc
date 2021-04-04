@@ -14,6 +14,10 @@ let g:rainbow_active = 1 " Turn on rainbow parentheses
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
+
+Plug 'joshdick/onedark.vim'
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=1
 call plug#end()
 
 set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
@@ -48,7 +52,7 @@ call vundle#end()
 syntax on
 filetype indent plugin on
 
-colorscheme ron " Nicer for dark terminals, especially with semi-transparent background
+colorscheme onedark
 
 " ########## SET THINGS ##########
 
