@@ -16,7 +16,7 @@ OptionalMkdir() {
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo
-    echo "$(<Files/setup-help)" # Read the help from a file. This is in quotes to allow for line breaks
+    echo "$(<Files/setup_help)" # Read the help from a file. This is in quotes to allow for line breaks
     echo
     exit 0
 fi
