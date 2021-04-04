@@ -34,10 +34,14 @@ alias vgc="vim ~/.gitconfig"
 alias upnf="cp ~/.config/neofetch/config.conf $git_repo/neofetch_config && echo \~/.config/neofetch/config.conf updated in git repo"
 alias vnf="vim ~/.config/neofetch/config.conf"
 
-# Source and update ~/.vimrc, ~/.bashrc, ~/,bash_aliases, and ~/.gitconfig
-alias srcupall="upvrc;srcbal;upbal;srcbrc;upbrc;upgc;upnf;echo;echo Everything sourced and updated"
+# Deal with terminator config in single commands
+alias uptmf="cp ~/.config/terminator/config $git_repo/terminator_config && echo \~/.config/terminator/config updated in git repo"
+alias vtmf="vim ~/.config/terminator/config"
+
+# Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upbal;upbrc;upgc;upnf;echo;echo Everything updated"
+alias upall="upvrc;upbal;upbrc;upgc;upnf;uptmf;echo;echo Everything updated"
+alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 
