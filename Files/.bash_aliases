@@ -49,7 +49,10 @@ alias myip="curl ipinfo.io/ip;echo"
 
 # Make a directory and cd into it
 mkcd () {
-    mkdir -p -- "$1" && cd -P -- "$1"
+    if [ ! -d $1 ]; then
+        mkdir -p -- "$1"
+    fi
+    cd -P -- "$1"
 }
 
 # Start ssh-agent
