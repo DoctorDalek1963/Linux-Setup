@@ -160,6 +160,9 @@ nmap <C-l> <C-w>l
 nmap <Bar> <C-w>v<C-l>
 nmap - <C-w>s<C-j>
 
+" Duplicate line with Ctrl+D
+nmap <C-d> yyp
+
 " Don't skip wrapped line with arrow keys
 nmap <up> g<up>
 nmap <down> g<down>
