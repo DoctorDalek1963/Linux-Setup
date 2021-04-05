@@ -179,6 +179,9 @@ nnoremap <leader>r :!"%:p"<Enter>
 " The space at the end of this line is intentional
 nnoremap <leader>a :!"%:p" 
 
+" Clear the terminal
+nnoremap <leader>l :!clear<Enter><Enter>
+
 " Write current file
 nnoremap <leader>w :w<Enter>
 nnoremap <leader><leader> :w<Enter>
