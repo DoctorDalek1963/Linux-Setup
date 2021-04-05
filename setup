@@ -157,7 +157,7 @@ while [ $# -ne 0 ]; do
             continue
         ;;
 
-        'terminator_config')
+        'terminator-config')
             OptionalMkdir ~/.config/terminator
             cp Files/terminator_config ~/.config/terminator/config
             shift
