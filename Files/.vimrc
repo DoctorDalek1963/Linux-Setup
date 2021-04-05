@@ -172,8 +172,13 @@ nmap <space> za
 
 " Quit vim completely
 nmap <leader>q :qa<cr>
-" Force quit
+" Force quit completely
 nmap <leader>Q :qa!<cr>
+
+" Write all open files
+nmap <leader>w :wa<cr>
+" Write all open files and quit
+nmap <leader>W :wqa<cr>
 
 " Run current file
 nnoremap <leader>r :!"%:p"<Enter>
