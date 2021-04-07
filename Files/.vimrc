@@ -205,3 +205,6 @@ nnoremap <leader><leader> :w<Enter>
 " Open all folds by default
 " Triggers on buffer read, matches all files, and executes 'zR' in normal mode
 au BufRead * normal zR
+
+" Set a colour at column 121 so that I know my rough limit for line length in Python
+au BufRead *.py set colorcolumn=121
