@@ -176,6 +176,8 @@ nmap <down> g<down>
 " Toggle folding with space
 nmap <space> za
 
+" ### Writing files and quitting vim
+
 " Quit vim completely
 nmap <leader>q :qa<cr>
 " Force quit completely
@@ -185,20 +187,21 @@ nmap <leader>Q :qa!<cr>
 nmap <leader>w :wa<cr>
 " Write all open files and quit
 nmap <leader>W :wqa<cr>
+"
+" Write current file
+nnoremap <leader><leader> :w<cr>
+
+" ### Running files
 
 " Run current file
-nnoremap <leader>r :!"%:p"<Enter>
+nnoremap <leader>r :!"%:p"<cr>
 
 " Run current file with arguments
 " The space at the end of this line is intentional
 nnoremap <leader>a :!"%:p" 
 
 " Clear the terminal
-nnoremap <leader>l :!clear<Enter><Enter>
-
-" Write current file
-nnoremap <leader>w :w<Enter>
-nnoremap <leader><leader> :w<Enter>
+nnoremap <leader>l :!clear<cr><cr>
 
 " ########## AUTOMATIC COMMANDS ##########
 
