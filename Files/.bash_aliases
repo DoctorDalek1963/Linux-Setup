@@ -104,3 +104,8 @@ alias vex=CreateAndVimExecutable
 
 # Pipe to clip for easy copying
 alias clip="xclip -selection c"
+
+Base64Decode() {
+    echo $1 | base64 -d
+}
+alias b64d="Base64Decode"
