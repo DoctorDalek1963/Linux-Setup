@@ -90,7 +90,7 @@ alias grephist="cat ~/.bash_history | grep"
 # Copy Unicode code point (passed as $1)
 CopyUnicodeCodePoint() {
     string="\\u$1"
-    python -c "print('$string')" | xclip -selection c
+    python -c "print('$string', end='')" | xclip -selection c
 }
 alias cpunicp=CopyUnicodeCodePoint
 
