@@ -12,6 +12,7 @@
 	ca = commit -a
 	cm = commit -m
 	cam = commit -a -m
+	cane = commit --amend --no-edit
 	st = status
 	sh = show
 	l = log
