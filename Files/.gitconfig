@@ -13,6 +13,7 @@
 	cm = commit -m
 	cam = commit -a -m
 	cane = commit --amend --no-edit
+	fixm = commit --amend
 	st = status
 	sh = show
 	l = log
