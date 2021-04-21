@@ -1,6 +1,7 @@
 # Single letter aliases
 alias c="clear"
 alias g="git"
+alias n="nohup"
 alias p="python"
 alias v="vim"
 alias x="exit"
