@@ -218,8 +218,5 @@ command -nargs=1 Pydoc call PydocFunc('<args>')
 " This is the only way this command seems to work. It angers me.
 command Rmsp execute "silent %s/ * $//g | noh"
 
-" Fully clean up file
-command Clean execute "Tbcnv | Rmsp"
-
 command Q execute "q!"
 command W execute "wq"
