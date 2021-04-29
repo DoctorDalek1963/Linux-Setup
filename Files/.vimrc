@@ -118,7 +118,7 @@ set list
 " Always use 4 spaces when tab is pressed
 set tabstop=4 " 4 spaces per tab
 set shiftwidth=4
-set expandtab
+set noexpandtab
 
 set foldenable
 set foldmethod=indent
