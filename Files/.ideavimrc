@@ -15,23 +15,13 @@ set ignorecase smartcase hlsearch incsearch " set search options
 " Always use 4 spaces when tab is pressed
 set tabstop=4 " 4 spaces per tab
 set shiftwidth=4
-set expandtab
+set noexpandtab
+
+" Use spaces instead of tabs in Python files
+autocmd FileType python set expandtab
 
 set foldenable
 set foldmethod=indent
-
-" ########## CUSTOM SIMPLE FUNCTIONS ###########
-
-" Remove all trailing spaces
-" This is the only way this command seems to work. It angers me.
-command Rmsp execute "silent %s/ * $//g | noh"
-" Convert tabs to spaces
-command Tb2sp execute "silent %s/\t/    /g | noh"
-" Convert spaces to tabs
-command Sp2tb execute "silent %s/    /\t/g | noh"
-
-" Fully clean up file
-command Clean execute "Tbcnv | Rmsp"
 
 " ########## MAPPINGS ###########
 
@@ -44,9 +34,3 @@ nmap <C-l> <C-w>l
 " Write current file
 nnoremap <leader>w :w<Enter>
 nnoremap <leader><leader> :w<Enter>
-
-" ########## AUTOMATIC COMMANDS ##########
-
-" Open all folds by default
-" Triggers on buffer read, matches all files, and executes 'zR' in normal mode
-au BufRead * normal zR
