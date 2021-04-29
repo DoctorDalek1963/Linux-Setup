@@ -196,6 +196,13 @@ augroup all_files_augroup
 	autocmd BufRead * normal zR
 augroup END
 
+augroup vimrc_augroup
+	autocmd!
+	" Set foldmethod to manual and fold the plugin stuff at the top of the file
+	autocmd BufRead ~/.vimrc set foldmethod=manual
+	autocmd BufRead ~/.vimrc normal ggV89Gzf
+augroup END
+
 " ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
 
 " Wrapper func for Pydoc call
