@@ -1,6 +1,3 @@
-" Set the mapleader
-let mapleader = '\'
-
 " ########## PLUGIN STUFF ##########
 
 " Use vim-plug to handle plugins
@@ -92,6 +89,9 @@ call vundle#end()
 
 " ########## MISC THINGS ##########
 
+" Set the mapleader
+let mapleader = '\'
+
 syntax on
 filetype indent plugin on
 
@@ -128,27 +128,6 @@ set autoindent smartindent
 
 " Autoreload the file if it has been changed outside of vim
 set autoread
-
-" ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
-
-" Wrapper func for Pydoc call
-function PydocFunc(name) abort
-	execute '!pydoc3 '.expand(a:name)
-endfunction
-
-command -nargs=1 Pydoc call PydocFunc('<args>')
-
-" ########## CUSTOM SIMPLE COMMANDS ###########
-
-" Remove all trailing spaces
-" This is the only way this command seems to work. It angers me.
-command Rmsp execute "silent %s/ * $//g | noh"
-
-" Fully clean up file
-command Clean execute "Tbcnv | Rmsp"
-
-command Q execute "q!"
-command W execute "wq"
 
 " ########## MAPPINGS ###########
 
@@ -216,3 +195,24 @@ augroup all_files_augroup
 	" Triggers on buffer read, matches all files, and executes 'zR' in normal mode
 	autocmd BufRead * normal zR
 augroup END
+
+" ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
+
+" Wrapper func for Pydoc call
+function PydocFunc(name) abort
+	execute '!pydoc3 '.expand(a:name)
+endfunction
+
+command -nargs=1 Pydoc call PydocFunc('<args>')
+
+" ########## CUSTOM SIMPLE COMMANDS ###########
+
+" Remove all trailing spaces
+" This is the only way this command seems to work. It angers me.
+command Rmsp execute "silent %s/ * $//g | noh"
+
+" Fully clean up file
+command Clean execute "Tbcnv | Rmsp"
+
+command Q execute "q!"
+command W execute "wq"
