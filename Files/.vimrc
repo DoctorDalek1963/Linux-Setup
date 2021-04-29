@@ -201,24 +201,18 @@ nnoremap <leader>l :!clear<cr><cr>
 
 " ########## AUTOMATIC COMMANDS ##########
 
-augroup all
-    autocmd!
-    " Open all folds by default
-    " Triggers on buffer read, matches all files, and executes 'zR' in normal mode
-    autocmd BufRead * normal zR
+augroup tabs_augroup
+	autocmd!
+	" Set a tab to be width 2
+	autocmd FileType haskell set tabstop=2
+	autocmd FileType haskell set shiftwidth=2
+	" Use spaces instead of tabs
+	autocmd FileType python,haskell set expandtab
 augroup END
 
-augroup python
-    autocmd!
-    " Use spaces instead of tabs
-    autocmd BufRead *.py set expandtab
-    " Set a colour at column 121 so that I know my rough limit for line length in Python
-    autocmd BufRead *.py set colorcolumn=121
-augroup END
-
-augroup haskell
-    autocmd!
-    " Set a tab to be width 2 in a Haskell file
-    autocmd BufRead *.hs set tabstop=2
-    autocmd BufRead *.hs set shiftwidth=2
+augroup all_files_augroup
+	autocmd!
+	" Open all folds by default
+	" Triggers on buffer read, matches all files, and executes 'zR' in normal mode
+	autocmd BufRead * normal zR
 augroup END
