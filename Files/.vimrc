@@ -36,29 +36,29 @@ Plug 'maximbaz/lightline-ale'
 " The following lightline configuration has just be taken from https://github.com/maximbaz/lightline-ale
 " I understand almost none of it, but it makes things work, so I keep it
 let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_infos': 'lightline#ale#infos',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
+	\  'linter_checking': 'lightline#ale#checking',
+	\  'linter_infos': 'lightline#ale#infos',
+	\  'linter_warnings': 'lightline#ale#warnings',
+	\  'linter_errors': 'lightline#ale#errors',
+	\  'linter_ok': 'lightline#ale#ok',
+	\ }
 
 let g:lightline.component_type = {
-      \     'linter_checking': 'right',
-      \     'linter_infos': 'right',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'right',
-      \ }
+	\	 'linter_checking': 'right',
+	\	 'linter_infos': 'right',
+	\	 'linter_warnings': 'warning',
+	\	 'linter_errors': 'error',
+	\	 'linter_ok': 'right',
+	\ }
 
 " This will set the ALE linting stuff on the far right, and then my normal vim file info stuff to the left of that
 let g:lightline.active = {
-      \ 'right': [
-      \            [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
-      \            [ 'lineinfo' ],
-      \            [ 'percent' ],
-      \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ }
+	\ 'right': [
+	\			[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+	\			[ 'lineinfo' ],
+	\			[ 'percent' ],
+	\			[ 'fileformat', 'fileencoding', 'filetype' ] ]
+	\ }
 
 let g:lightline#ale#indicator_checking = "\uf110 "
 let g:lightline#ale#indicator_infos = "\uf129 "
@@ -133,7 +133,7 @@ set autoread
 
 " Wrapper func for Pydoc call
 function PydocFunc(name) abort
-    execute '!pydoc3 '.expand(a:name)
+	execute '!pydoc3 '.expand(a:name)
 endfunction
 
 command -nargs=1 Pydoc call PydocFunc('<args>')
