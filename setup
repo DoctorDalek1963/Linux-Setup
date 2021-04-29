@@ -1,226 +1,226 @@
 #!/usr/bin/env bash
 
 CheckWithVersionFlagAndInstall() {
-    $1 --version &> /dev/null # Redirect stdout and stderr to /dev/null to avoid outputting anything to the terminal
-    if [ $? -ne 0 ]; then
-        sudo apt install -y $1
-    fi
+	$1 --version &> /dev/null # Redirect stdout and stderr to /dev/null to avoid outputting anything to the terminal
+	if [ $? -ne 0 ]; then
+		sudo apt install -y $1
+	fi
 }
 
 OptionalMkdir() {
-    # If the directory doesn't exist, make it
-    if [ ! -d $1 ]; then
-        mkdir -p $1
-    fi
+	# If the directory doesn't exist, make it
+	if [ ! -d $1 ]; then
+		mkdir -p $1
+	fi
 }
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
-    echo
-    echo "$(<Files/setup_help)" # Read the help from a file. This is in quotes to allow for line breaks
-    echo
-    exit 0
+	echo
+	echo "$(<Files/setup_help)" # Read the help from a file. This is in quotes to allow for line breaks
+	echo
+	exit 0
 fi
 
 # If no arguments are supplied
 if [ $# -eq 0 ]; then
-    echo "setup must be suplied with at least one valid argument. See --help or -h for all arguments."
-    exit 1
+	echo "setup must be suplied with at least one valid argument. See --help or -h for all arguments."
+	exit 1
 fi
 
 # This is just a big ol' switch statement
 while [ $# -ne 0 ]; do
-    case "$1" in
-        ########## Do all the options
-        'all')
-            ##### Files
+	case "$1" in
+		########## Do all the options
+		'all')
+			##### Files
 
-            cp Files/.vimrc ~
-            cp Files/.bash_aliases ~ && source ~/.bash_aliases
-            cp Files/.bashrc ~ && source ~/.bashrc
-            cp Files/.gitconfig ~
-            cp Files/.tern-config ~
+			cp Files/.vimrc ~
+			cp Files/.bash_aliases ~ && source ~/.bash_aliases
+			cp Files/.bashrc ~ && source ~/.bashrc
+			cp Files/.gitconfig ~
+			cp Files/.tern-config ~
 
-            OptionalMkdir ~/.config/neofetch
-            cp Files/neofetch_config ~/.config/neofetch/config.conf
+			OptionalMkdir ~/.config/neofetch
+			cp Files/neofetch_config ~/.config/neofetch/config.conf
 
-            OptionalMkdir ~/.config/terminator
-            cp Files/terminator_config ~/.config/terminator/config
+			OptionalMkdir ~/.config/terminator
+			cp Files/terminator_config ~/.config/terminator/config
 
-            ##### Misc Software
+			##### Misc Software
 
-            CheckWithVersionFlagAndInstall neofetch
-            CheckWithVersionFlagAndInstall terminator
+			CheckWithVersionFlagAndInstall neofetch
+			CheckWithVersionFlagAndInstall terminator
 
-            ##### Plugins
+			##### Plugins
 
-            CheckWithVersionFlagAndInstall curl
+			CheckWithVersionFlagAndInstall curl
 
-            # Install vim-plug in autoload directory
-            curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			# Install vim-plug in autoload directory
+			curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-            # Clone github repo for Vundle into proper directory
-            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+			# Clone github repo for Vundle into proper directory
+			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-            vim -c "PlugInstall" -c "qa!"
-            vim -c "PlugUpdate" -c "qa!"
+			vim -c "PlugInstall" -c "qa!"
+			vim -c "PlugUpdate" -c "qa!"
 
-            vim -c "PluginInstall" -c "qa!"
-            vim -c "PluginUpdate" -c "qa!"
+			vim -c "PluginInstall" -c "qa!"
+			vim -c "PluginUpdate" -c "qa!"
 
-            sudo apt install -y build-essential cmake vim-nox python3-dev
-            sudo apt install -y mono-complete golang nodejs default-jdk npm
-            python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-            exit
-        ;;
+			sudo apt install -y build-essential cmake vim-nox python3-dev
+			sudo apt install -y mono-complete golang nodejs default-jdk npm
+			python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+			exit
+		;;
 
-        'files')
-            cp Files/.vimrc ~
-            cp Files/.bash_aliases ~ && source ~/.bash_aliases
-            cp Files/.bashrc ~ && source ~/.bashrc
-            cp Files/.gitconfig ~
-            cp Files/.tern-config ~
+		'files')
+			cp Files/.vimrc ~
+			cp Files/.bash_aliases ~ && source ~/.bash_aliases
+			cp Files/.bashrc ~ && source ~/.bashrc
+			cp Files/.gitconfig ~
+			cp Files/.tern-config ~
 
-            OptionalMkdir ~/.config/neofetch
-            cp Files/neofetch_config ~/.config/neofetch/config.conf
+			OptionalMkdir ~/.config/neofetch
+			cp Files/neofetch_config ~/.config/neofetch/config.conf
 
-            OptionalMkdir ~/.config/terminator
-            cp Files/terminator_config ~/.config/terminator/config
+			OptionalMkdir ~/.config/terminator
+			cp Files/terminator_config ~/.config/terminator/config
 
-            shift
-            continue
-        ;;
+			shift
+			continue
+		;;
 
-        'misc-software')
-            CheckWithVersionFlagAndInstall neofetch
-            CheckWithVersionFlagAndInstall terminator
-        ;;
+		'misc-software')
+			CheckWithVersionFlagAndInstall neofetch
+			CheckWithVersionFlagAndInstall terminator
+		;;
 
-        'vim-plugins')
-            CheckWithVersionFlagAndInstall curl
+		'vim-plugins')
+			CheckWithVersionFlagAndInstall curl
 
-            # Install vim-plug in autoload directory
-            curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			# Install vim-plug in autoload directory
+			curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-            # Clone github repo for Vundle into proper directory
-            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+			# Clone github repo for Vundle into proper directory
+			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-            vim -c "PlugInstall" -c "qa!"
-            vim -c "PlugUpdate" -c "qa!"
+			vim -c "PlugInstall" -c "qa!"
+			vim -c "PlugUpdate" -c "qa!"
 
-            vim -c "PluginInstall" -c "qa!"
-            vim -c "PluginUpdate" -c "qa!"
+			vim -c "PluginInstall" -c "qa!"
+			vim -c "PluginUpdate" -c "qa!"
 
-            sudo apt install -y build-essential cmake vim-nox python3-dev
-            sudo apt install -y mono-complete golang nodejs default-jdk npm
-            python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+			sudo apt install -y build-essential cmake vim-nox python3-dev
+			sudo apt install -y mono-complete golang nodejs default-jdk npm
+			python3 ~/.vim/bundle/YouCompleteMe/install.py --all
 
-            shift
-            continue
-        ;;
+			shift
+			continue
+		;;
 
-        ########## Files
-        'vimrc')
-            cp Files/.vimrc ~
-            shift
-            continue
-        ;;
+		########## Files
+		'vimrc')
+			cp Files/.vimrc ~
+			shift
+			continue
+		;;
 
-        'bash-aliases')
-            cp Files/.bash_aliases ~ && source ~/.bash_aliases
-            shift
-            continue
-        ;;
+		'bash-aliases')
+			cp Files/.bash_aliases ~ && source ~/.bash_aliases
+			shift
+			continue
+		;;
 
-        'bashrc')
-            cp Files/.bashrc ~ && source ~/.bashrc
-            shift
-            continue
-        ;;
+		'bashrc')
+			cp Files/.bashrc ~ && source ~/.bashrc
+			shift
+			continue
+		;;
 
-        'gitconfig')
-            cp Files/.gitconfig ~
-            shift
-            continue
-        ;;
+		'gitconfig')
+			cp Files/.gitconfig ~
+			shift
+			continue
+		;;
 
-        'tern-config')
-            cp Files/.tern-config ~
-            shift
-            continue
-        ;;
+		'tern-config')
+			cp Files/.tern-config ~
+			shift
+			continue
+		;;
 
-        'neofetch-config')
-            # Make directory if it doesn't exist
-            OptionalMkdir ~/.config/neofetch
-            cp Files/neofetch_config ~/.config/neofetch/config.conf
-            shift
-            continue
-        ;;
+		'neofetch-config')
+			# Make directory if it doesn't exist
+			OptionalMkdir ~/.config/neofetch
+			cp Files/neofetch_config ~/.config/neofetch/config.conf
+			shift
+			continue
+		;;
 
-        'terminator-config')
-            OptionalMkdir ~/.config/terminator
-            cp Files/terminator_config ~/.config/terminator/config
-            shift
-            continue
-        ;;
+		'terminator-config')
+			OptionalMkdir ~/.config/terminator
+			cp Files/terminator_config ~/.config/terminator/config
+			shift
+			continue
+		;;
 
-        ########## Misc Software
-        'install-neofetch')
-            CheckWithVersionFlagAndInstall neofetch
-            shift
-            continue
-        ;;
+		########## Misc Software
+		'install-neofetch')
+			CheckWithVersionFlagAndInstall neofetch
+			shift
+			continue
+		;;
 
-        'install-terminator')
-            CheckWithVersionFlagAndInstall terminator
-            shift
-            continue
-        ;;
+		'install-terminator')
+			CheckWithVersionFlagAndInstall terminator
+			shift
+			continue
+		;;
 
-        ########## Plugins
-        'install-vim-plug')
-            CheckWithVersionFlagAndInstall curl
+		########## Plugins
+		'install-vim-plug')
+			CheckWithVersionFlagAndInstall curl
 
-            # Install vim-plug in autoload directory
-            curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-            shift
-            continue
-        ;;
+			# Install vim-plug in autoload directory
+			curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			shift
+			continue
+		;;
 
-        'install-vundle')
-            # Clone github repo for Vundle into proper directory
-            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-            shift
-            continue
-        ;;
+		'install-vundle')
+			# Clone github repo for Vundle into proper directory
+			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+			shift
+			continue
+		;;
 
-        'install-vim-plug-plugins')
-            vim -c "PlugInstall" -c "qa!"
-            vim -c "PlugUpdate" -c "qa!"
-            shift
-            continue
-        ;;
+		'install-vim-plug-plugins')
+			vim -c "PlugInstall" -c "qa!"
+			vim -c "PlugUpdate" -c "qa!"
+			shift
+			continue
+		;;
 
-        'install-ycm-depend')
-            sudo apt install -y build-essential cmake vim-nox python3-dev
-            sudo apt install -y mono-complete golang nodejs default-jdk npm
-            python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-            shift
-            continue
-        ;;
+		'install-ycm-depend')
+			sudo apt install -y build-essential cmake vim-nox python3-dev
+			sudo apt install -y mono-complete golang nodejs default-jdk npm
+			python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+			shift
+			continue
+		;;
 
-        'install-vundle-plugins')
-            vim -c "PluginInstall" -c "qa!"
-            vim -c "PluginUpdate" -c "qa!"
-            shift
-            continue
-        ;;
+		'install-vundle-plugins')
+			vim -c "PluginInstall" -c "qa!"
+			vim -c "PluginUpdate" -c "qa!"
+			shift
+			continue
+		;;
 
-        *)
-            echo "'$1' is not a recognised argument. See --help or -h for all recognised arguments."
-            shift
-            continue
-        ;;
+		*)
+			echo "'$1' is not a recognised argument. See --help or -h for all recognised arguments."
+			shift
+			continue
+		;;
 
-    esac
+	esac
 done

@@ -54,10 +54,10 @@ alias myip="curl ipinfo.io/ip;echo"
 
 # Make a directory and cd into it
 mkcd () {
-    if [ ! -d $1 ]; then
-        mkdir -p -- "$1"
-    fi
-    cd -P -- "$1"
+	if [ ! -d $1 ]; then
+		mkdir -p -- "$1"
+	fi
+	cd -P -- "$1"
 }
 
 # Start ssh-agent
@@ -90,16 +90,16 @@ alias grephist="cat ~/.bash_history | grep"
 
 # Copy Unicode code point (passed as $1)
 CopyUnicodeCodePoint() {
-    string="\\u$1"
-    python -c "print('$string', end='')" | xclip -selection c
+	string="\\u$1"
+	python -c "print('$string', end='')" | xclip -selection c
 }
 alias cpunicp=CopyUnicodeCodePoint
 
 # Create executable file and open it with vim
 CreateAndVimExecutable() {
-    touch $1
-    chmod +x $1
-    vim $1
+	touch $1
+	chmod +x $1
+	vim $1
 }
 alias vex=CreateAndVimExecutable
 
@@ -107,6 +107,6 @@ alias vex=CreateAndVimExecutable
 alias clip="xclip -selection c"
 
 Base64Decode() {
-    echo $1 | base64 -d
+	echo $1 | base64 -d
 }
 alias b64d="Base64Decode"
