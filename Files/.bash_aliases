@@ -52,6 +52,13 @@ alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt-get -y up
 # Echo my public IP address from ipinfo.io/ip
 alias myip="curl ipinfo.io/ip;echo"
 
+# Make a directory without complaining that it already exists
+mkd() {
+	if [ ! -d $1 ]; then
+		mkdir -p -- "$1"
+	fi
+}
+
 # Make a directory and cd into it
 mkcd () {
 	if [ ! -d $1 ]; then
