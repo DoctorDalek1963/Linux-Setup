@@ -6,7 +6,7 @@ Commands:
 
   files                      Copies all files to your home directory and sources them if appropriate.
   misc-software              Installs all misc software available to be installed by this script.
-  vim-plugins                Installs all plugin managers and installs and updates all plugins.
+  vim-plugins                Installs all plugin managers and installs and updates all plugins (does not install YouCompleteMe dependencies).
 
   vimrc                      Copies .vimrc to your home direcory.
   bash-aliases               Copies .bash_aliases to your home directory and sources it.

@@ -110,10 +110,6 @@ while [ $# -ne 0 ]; do
 			vim -c "PluginInstall" -c "qa!"
 			vim -c "PluginUpdate" -c "qa!"
 
-			sudo apt install -y build-essential cmake vim-nox python3-dev
-			sudo apt install -y mono-complete golang nodejs default-jdk npm
-			python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-
 			shift
 			continue
 		;;
