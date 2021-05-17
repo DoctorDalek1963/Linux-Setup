@@ -37,7 +37,8 @@ fi
 
 # This whole function just builds the PS1
 build_prompt() {
-	force_color_prompt=yes
+	local force_color_prompt=yes
+	local color_prompt=
 
 	if [ -n "$force_color_prompt" ]; then
 		if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -52,7 +53,6 @@ build_prompt() {
 	else
 		PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
 	fi
-	unset color_prompt force_color_prompt
 
 	# If this is an xterm set the title to user@host:dir
 	case "$TERM" in
