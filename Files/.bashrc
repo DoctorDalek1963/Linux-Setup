@@ -63,21 +63,28 @@ build_prompt() {
 		;;
 	esac
 
-	# Add git information and $ to prompt
-	if [ -f ~/.git-prompt.sh ]; then
-		GIT_PS1_SHOWDIRTYSTATE=true
-		GIT_PS1_SHOWSTASHSTATE=true
-		GIT_PS1_SHOWUNTRACKEDFILES=true
-		GIT_PS1_SHOWUPSTREAM="auto"
-		GIT_PS1_HIDE_IF_PWD_IGNORED=true
-
-		source ~/.git-prompt.sh
-
-		if [ "$color_prompt" = yes ]; then
-			PS1="$PS1\[\033[01;31m\]$(__git_ps1 " [%s] ")\[\033[00m\]"
+	if [ ! -f ~/.git-prompt.sh ]; then
+		if [ -f ~/git-prompt.sh ]; then
+			mv ~/git-prompt.sh ~/.git-prompt.sh
 		else
-			PS1="$PS1$(__git_ps1 " [%s] ")"
+			echo "GETTING ~/.git-prompt.sh"
+			curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh &> /dev/null
 		fi
+	fi
+
+	# Add git information and $ to prompt
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWSTASHSTATE=true
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWUPSTREAM="auto"
+	GIT_PS1_HIDE_IF_PWD_IGNORED=true
+
+	source ~/.git-prompt.sh
+
+	if [ "$color_prompt" = yes ]; then
+		PS1="$PS1\[\033[01;31m\]$(__git_ps1 " [%s] ")\[\033[00m\]"
+	else
+		PS1="$PS1$(__git_ps1 " [%s] ")"
 	fi
 
 	PS1="$PS1\$ "
