@@ -51,6 +51,12 @@ while [ $# -ne 0 ]; do
 			CheckWithVersionFlagAndInstall neofetch
 			CheckWithVersionFlagAndInstall terminator
 
+			# Font
+			curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -o hnf.zip &> /dev/null
+			OptionalMkdir ~/.fonts
+			tar -xzvf hnf.zip -C ~/.fonts
+			rm hnf.zip
+
 			##### Plugins
 
 			CheckWithVersionFlagAndInstall curl
@@ -93,6 +99,15 @@ while [ $# -ne 0 ]; do
 		'misc-software')
 			CheckWithVersionFlagAndInstall neofetch
 			CheckWithVersionFlagAndInstall terminator
+		;;
+
+		'fonts')
+			curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -o hnf.zip &> /dev/null
+			OptionalMkdir ~/.fonts
+			tar -xzvf hnf.zip -C ~/.fonts
+			rm hnf.zip
+			shift
+			continue
 		;;
 
 		'vim-plugins')

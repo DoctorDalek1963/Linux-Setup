@@ -6,6 +6,7 @@ Commands:
 
   files                      Copies all files to your home directory and sources them if appropriate.
   misc-software              Installs all misc software available to be installed by this script.
+  fonts                      Installs the recommend fonts.
   vim-plugins                Installs all plugin managers and installs and updates all plugins (does not install YouCompleteMe dependencies).
 
   vimrc                      Copies .vimrc to your home direcory.
