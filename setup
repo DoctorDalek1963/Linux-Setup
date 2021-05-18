@@ -99,6 +99,8 @@ while [ $# -ne 0 ]; do
 		'misc-software')
 			CheckWithVersionFlagAndInstall neofetch
 			CheckWithVersionFlagAndInstall terminator
+			shift
+			continue
 		;;
 
 		'fonts')
