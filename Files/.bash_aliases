@@ -66,9 +66,7 @@ mkd() {
 
 # Make a directory and cd into it
 mkcd () {
-	if [ ! -d $1 ]; then
-		mkdir -p -- "$1"
-	fi
+	mkd "$1"
 	cd -P -- "$1"
 }
 
