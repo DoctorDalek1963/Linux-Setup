@@ -21,6 +21,51 @@ GetFontZip() {
 	rm $2
 }
 
+AllFiles() {
+	cp Files/.vimrc ~
+	cp Files/.bash_aliases ~ && source ~/.bash_aliases
+	cp Files/.bashrc ~ && source ~/.bashrc
+	cp Files/.gitconfig ~
+	cp Files/.tern-config ~
+
+	OptionalMkdir ~/.config/neofetch
+	cp Files/neofetch_config ~/.config/neofetch/config.conf
+
+	OptionalMkdir ~/.config/terminator
+	cp Files/terminator_config ~/.config/terminator/config
+}
+
+MiscSoftware() {
+	CheckWithVersionFlagAndInstall neofetch
+	CheckWithVersionFlagAndInstall terminator
+}
+
+InstallVimPluginManagers() {
+	CheckWithVersionFlagAndInstall curl
+
+	# Install vim-plug in autoload directory
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	# Clone github repo for Vundle into proper directory
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+}
+
+InstallAndUpdateVimPlugins() {
+	# Vim plug
+	vim -c "PlugInstall" -c "qa!"
+	vim -c "PlugUpdate" -c "qa!"
+
+	# Vundle
+	vim -c "PluginInstall" -c "qa!"
+	vim -c "PluginUpdate" -c "qa!"
+}
+
+InstallYCMDependencies() {
+	sudo apt install -y build-essential cmake vim-nox python3-dev
+	sudo apt install -y mono-complete golang nodejs default-jdk npm
+	python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+}
+
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
 	echo
 	echo "$(<Files/setup_help)" # Read the help from a file. This is in quotes to allow for line breaks
@@ -37,71 +82,42 @@ fi
 # This is just a big ol' switch statement
 while [ $# -ne 0 ]; do
 	case "$1" in
-		########## Do all the options
 		'all')
-			##### Files
+			AllFiles
 
-			cp Files/.vimrc ~
-			cp Files/.bash_aliases ~ && source ~/.bash_aliases
-			cp Files/.bashrc ~ && source ~/.bashrc
-			cp Files/.gitconfig ~
-			cp Files/.tern-config ~
-
-			OptionalMkdir ~/.config/neofetch
-			cp Files/neofetch_config ~/.config/neofetch/config.conf
-
-			OptionalMkdir ~/.config/terminator
-			cp Files/terminator_config ~/.config/terminator/config
-
-			##### Misc Software
-
-			CheckWithVersionFlagAndInstall neofetch
-			CheckWithVersionFlagAndInstall terminator
+			MiscSoftware
 
 			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 
-			##### Plugins
+			InstallVimPluginManagers
 
-			CheckWithVersionFlagAndInstall curl
+			InstallAndUpdateVimPlugins
 
-			# Install vim-plug in autoload directory
-			curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			InstallYCMDependencies
+			exit
+		;;
 
-			# Clone github repo for Vundle into proper directory
-			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+		'all-except-ycm')
+			AllFiles
 
-			vim -c "PlugInstall" -c "qa!"
-			vim -c "PlugUpdate" -c "qa!"
+			MiscSoftware
 
-			vim -c "PluginInstall" -c "qa!"
-			vim -c "PluginUpdate" -c "qa!"
+			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 
-			sudo apt install -y build-essential cmake vim-nox python3-dev
-			sudo apt install -y mono-complete golang nodejs default-jdk npm
-			python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+			InstallVimPluginManagers
+
+			InstallAndUpdateVimPlugins
 			exit
 		;;
 
 		'files')
-			cp Files/.vimrc ~
-			cp Files/.bash_aliases ~ && source ~/.bash_aliases
-			cp Files/.bashrc ~ && source ~/.bashrc
-			cp Files/.gitconfig ~
-			cp Files/.tern-config ~
-
-			OptionalMkdir ~/.config/neofetch
-			cp Files/neofetch_config ~/.config/neofetch/config.conf
-
-			OptionalMkdir ~/.config/terminator
-			cp Files/terminator_config ~/.config/terminator/config
-
+			AllFiles
 			shift
 			continue
 		;;
 
 		'misc-software')
-			CheckWithVersionFlagAndInstall neofetch
-			CheckWithVersionFlagAndInstall terminator
+			MiscSoftware
 			shift
 			continue
 		;;
@@ -113,19 +129,9 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'vim-plugins')
-			CheckWithVersionFlagAndInstall curl
+			InstallVimPluginManagers
 
-			# Install vim-plug in autoload directory
-			curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-			# Clone github repo for Vundle into proper directory
-			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-			vim -c "PlugInstall" -c "qa!"
-			vim -c "PlugUpdate" -c "qa!"
-
-			vim -c "PluginInstall" -c "qa!"
-			vim -c "PluginUpdate" -c "qa!"
+			InstallAndUpdateVimPlugins
 
 			shift
 			continue
@@ -207,24 +213,14 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
-		'install-vim-plug-plugins')
-			vim -c "PlugInstall" -c "qa!"
-			vim -c "PlugUpdate" -c "qa!"
+		'install-and-update-vim-plugins')
+			InstallAndUpdateVimPlugins
 			shift
 			continue
 		;;
 
 		'install-ycm-depend')
-			sudo apt install -y build-essential cmake vim-nox python3-dev
-			sudo apt install -y mono-complete golang nodejs default-jdk npm
-			python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-			shift
-			continue
-		;;
-
-		'install-vundle-plugins')
-			vim -c "PluginInstall" -c "qa!"
-			vim -c "PluginUpdate" -c "qa!"
+			InstallYCMDependencies
 			shift
 			continue
 		;;

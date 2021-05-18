@@ -2,29 +2,29 @@ Usage:
   ./setup <command>
 
 Commands:
-  all                        Copies all files and installs everything.
+  all                              Copies all files and installs everything.
+  all-except-ycm                   Copies all files and installs everything, except YCM dependencies (you will need to delete YCM from the plugins in ~/.vimrc).
 
-  files                      Copies all files to your home directory and sources them if appropriate.
-  misc-software              Installs all misc software available to be installed by this script.
-  fonts                      Installs the recommend fonts.
-  vim-plugins                Installs all plugin managers and installs and updates all plugins (does not install YouCompleteMe dependencies).
+  files                            Copies all files to your home directory and sources them if appropriate.
+  misc-software                    Installs all misc software available to be installed by this script.
+  fonts                            Installs the recommend fonts.
+  vim-plugins                      Installs all plugin managers and installs and updates all plugins (does not install YouCompleteMe dependencies).
 
-  vimrc                      Copies .vimrc to your home direcory.
-  bash-aliases               Copies .bash_aliases to your home directory and sources it.
-  bashrc                     Copies .bashrc to your home directory and sources it.
-  gitconfig                  Copies .gitconfig to your home directory.
-  tern-config                Copies .tern-config to your home directory.
-  neofetch-config            Copies neofetch config to its proper directory.
-  terminator-config          Copies terminator config to its proper directory.
+  vimrc                            Copies .vimrc to your home direcory.
+  bash-aliases                     Copies .bash_aliases to your home directory and sources it.
+  bashrc                           Copies .bashrc to your home directory and sources it.
+  gitconfig                        Copies .gitconfig to your home directory.
+  tern-config                      Copies .tern-config to your home directory.
+  neofetch-config                  Copies neofetch config to its proper directory.
+  terminator-config                Copies terminator config to its proper directory.
 
-  install-neofetch           Installs neofetch.
-  install-terminator         Installs terminator.
+  install-neofetch                 Installs neofetch.
+  install-terminator               Installs terminator.
 
-  install-vim-plug           Installs vim-plug (and curl if it's not installed).
-  install-vundle             Installs Vundle.
-  install-vim-plug-plugins   Installs and updates all vim-plug plugins in .vimrc.
-  install-ycm-depend         Installs all the dependencies for YouCompleteMe (this may take a long time).
-  install-vundle-plugins     Installs and updates all Vundle plugins in .vimrc.
+  install-vim-plug                 Installs vim-plug.
+  install-vundle                   Installs Vundle.
+  install-and-update-vim-plugins   Installs and updates all plugins in ~/.vimrc.
+  install-ycm-depend               Installs all the dependencies for YouCompleteMe (this may take a long time).
 
 Options:
-  -h, --help                 Show help.
+  -h, --help                       Show help.
