@@ -14,6 +14,13 @@ OptionalMkdir() {
 	fi
 }
 
+GetFontZip() {
+	wget $1
+	OptionalMkdir ~/.fonts
+	unzip $2 -d ~/.fonts
+	rm $2
+}
+
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
 	echo
 	echo "$(<Files/setup_help)" # Read the help from a file. This is in quotes to allow for line breaks
@@ -51,11 +58,7 @@ while [ $# -ne 0 ]; do
 			CheckWithVersionFlagAndInstall neofetch
 			CheckWithVersionFlagAndInstall terminator
 
-			# Font
-			curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -o hnf.zip &> /dev/null
-			OptionalMkdir ~/.fonts
-			tar -xzvf hnf.zip -C ~/.fonts
-			rm hnf.zip
+			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 
 			##### Plugins
 
@@ -104,10 +107,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'fonts')
-			curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -o hnf.zip &> /dev/null
-			OptionalMkdir ~/.fonts
-			tar -xzvf hnf.zip -C ~/.fonts
-			rm hnf.zip
+			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 			shift
 			continue
 		;;
