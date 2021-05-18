@@ -17,8 +17,15 @@ OptionalMkdir() {
 GetFontZip() {
 	wget $1
 	OptionalMkdir ~/.fonts
-	unzip $2 -d ~/.fonts
+	unzip -j $2 -d ~/.fonts
 	rm $2
+}
+
+AllFonts() {
+	# Hack
+	GetFontZip https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip Hack-v3.003-ttf.zip
+	# Hack Nerd Font
+	GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 }
 
 AllFiles() {
@@ -87,7 +94,7 @@ while [ $# -ne 0 ]; do
 
 			MiscSoftware
 
-			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
+			AllFonts
 
 			InstallVimPluginManagers
 
@@ -102,7 +109,7 @@ while [ $# -ne 0 ]; do
 
 			MiscSoftware
 
-			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
+			AllFonts
 
 			InstallVimPluginManagers
 
@@ -123,7 +130,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'fonts')
-			GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
+			AllFonts
 			shift
 			continue
 		;;
