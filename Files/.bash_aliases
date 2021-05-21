@@ -93,7 +93,10 @@ alias gpl="git pull"
 alias gfp="git fetch;git pull"
 alias gl="git log"
 
-alias gstall="python /home/dyson/repos/gst_all.py"
+alias gstall="python ~/repos/git_all.py status"
+alias gfall="python ~/repos/git_all.py fetch"
+alias gplall="python ~/repos/git_all.py pull"
+alias gpall="python ~/repos/git_all.py push"
 
 # Search long-form history
 alias grephist="cat ~/.bash_history | grep"
