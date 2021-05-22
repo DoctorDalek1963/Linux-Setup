@@ -28,6 +28,13 @@ AllFonts() {
 	GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 }
 
+RemoveYCMFromVimrc() {
+	# We delete the line in .vimrc that loads the YCM plugin, and replace it with a comment
+	# The -i flag here means 'in place'. We change the file directly, rather than printing the result to stdout
+	# The optional 'in' at the end of Plug allows vim-plug or vundle to be used
+	sed "s/^Plug\(in\)\? 'ycm-core\/YouCompleteMe'/\" YCM REMOVED/g" ~/.vimrc -i
+}
+
 AllFiles() {
 	cp Files/.vimrc ~
 	cp Files/.bash_aliases ~ && source ~/.bash_aliases
@@ -107,10 +114,8 @@ while [ $# -ne 0 ]; do
 		'all-except-ycm')
 			AllFiles
 
-			# We delete the line in .vimrc that loads the YCM plugin, and replace it with a comment
-			# The -i flag here means 'in place'. We change the file directly, rather than printing the result to stdout
 			# We do this before installing any vim plugins or even managers, so that YCM doesn't complain
-			sed "s/Plugin 'ycm-core\/YouCompleteMe'/\" YCM REMOVED/g" ~/.vimrc -i
+			RemoveYCMFromVimrc
 
 			MiscSoftware
 
@@ -124,6 +129,12 @@ while [ $# -ne 0 ]; do
 
 		'files')
 			AllFiles
+			shift
+			continue
+		;;
+
+		'remove-ycm-from-vimrc')
+			RemoveYCMFromVimrc
 			shift
 			continue
 		;;

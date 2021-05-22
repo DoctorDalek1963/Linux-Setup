@@ -3,9 +3,10 @@ Usage:
 
 Commands:
   all                              Copies all files and installs everything.
-  all-except-ycm                   Copies all files and installs everything, except YCM dependencies (you will need to delete YCM from the plugins in ~/.vimrc).
+  all-except-ycm                   Copies all files and installs everything, except YCM dependencies.
 
   files                            Copies all files to your home directory and sources them if appropriate.
+  remove-ycm-from-vimrc            Remove the line in ~/.vimrc which loads YCM.
   misc-software                    Installs all misc software available to be installed by this script.
   fonts                            Installs the recommend fonts.
   vim-plugins                      Installs all plugin managers and installs and updates all plugins (does not install YouCompleteMe dependencies).
