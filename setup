@@ -107,6 +107,11 @@ while [ $# -ne 0 ]; do
 		'all-except-ycm')
 			AllFiles
 
+			# We delete the line in .vimrc that loads the YCM plugin, and replace it with a comment
+			# The -i flag here means 'in place'. We change the file directly, rather than printing the result to stdout
+			# We do this before installing any vim plugins or even managers, so that YCM doesn't complain
+			sed "s/Plugin 'ycm-core\/YouCompleteMe'/\" YCM REMOVED/g" ~/.vimrc -i
+
 			MiscSoftware
 
 			AllFonts
