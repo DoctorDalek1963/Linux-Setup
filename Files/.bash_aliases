@@ -102,25 +102,23 @@ alias gpall="python ~/repos/git_all.py push"
 # Search long-form history
 alias grephist="cat ~/.bash_history | grep"
 
-# Copy Unicode code point (passed as $1)
-CopyUnicodeCodePoint() {
+# Copy Unicode code point
+cpunicp() {
 	string="\\u$1"
 	python -c "print('$string', end='')" | xclip -selection c
 }
-alias cpunicp=CopyUnicodeCodePoint
 
 # Create executable file and open it with vim
-CreateAndVimExecutable() {
+vex() {
 	touch $1
 	chmod +x $1
 	vim $1
 }
-alias vex=CreateAndVimExecutable
 
 # Pipe to clip for easy copying
 alias clip="xclip -selection c"
 
-Base64Decode() {
+# Decode base 64
+b64d() {
 	echo $1 | base64 -d
 }
-alias b64d="Base64Decode"
