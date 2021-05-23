@@ -68,7 +68,8 @@ build_prompt() {
 			mv ~/git-prompt.sh ~/.git-prompt.sh
 		else
 			echo "GETTING ~/.git-prompt.sh"
-			curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh &> /dev/null
+			wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+			mv git-prompt.sh .git-prompt.sh
 		fi
 	fi
 
