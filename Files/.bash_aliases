@@ -3,6 +3,7 @@ alias c="clear"
 alias g="git"
 alias n="nohup"
 alias p="python"
+alias t="touch"
 alias v="vim"
 alias x="exit"
 
