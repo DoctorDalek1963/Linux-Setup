@@ -203,6 +203,12 @@ augroup vimrc_augroup
 	autocmd BufRead ~/.vimrc normal ggV89Gzf
 augroup END
 
+augroup python_augroup
+	autocmd!
+	" Set a colour column at column 120 in Python files
+	autocmd FileType python set colorcolumn=120
+augroup END
+
 " ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
 
 " Wrapper func for Pydoc call
