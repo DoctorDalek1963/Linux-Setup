@@ -226,3 +226,9 @@ command Rmsp execute "silent %s/ * $//g | noh"
 
 command Q execute "q!"
 command W execute "wq"
+
+" Setup bulk renaming
+" This treats each line in the buffer as a file name and sets up a bash mv
+" command with all the destinations lined up as the first argument to allow
+" for easier use of visual block selection
+command SRen execute 'g/.*/execute "normal Imv -t \"\<Esc>xA\"\<Esc>xhvi\"y0f\"pa\" " | noh | normal ggf"l'
