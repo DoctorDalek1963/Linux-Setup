@@ -1,6 +1,6 @@
 " ########## PLUGIN STUFF ########## {{{
 
-" Use vim-plug to handle plugins
+" vim-plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
@@ -18,6 +18,7 @@ let g:onedark_terminal_italics=1
 
 Plug 'sheerun/vim-polyglot'
 
+" ALE {{{
 Plug 'dense-analysis/ale'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -25,7 +26,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Use pylintrc in this directory. This allows me to configure line length and other options
 let g:ale_python_pylint_options = '--rcfile=~/.vim/plugged/ale/ale_linters/python/.pylintrc'
+" }}}
 
+" Lightline {{{
 Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'onedark'}
 
@@ -61,31 +64,38 @@ let g:lightline#ale#indicator_checking = "\uf110 "
 let g:lightline#ale#indicator_infos = "\uf129 "
 let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
+" }}}
 call plug#end()
+" }}}
 
+" Vundle {{{
 set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
 
-" Use Vundle to handle other plugins
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
 Plugin 'ycm-core/YouCompleteMe'
 
+" identLine {{{
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_fileTypeExclude = ['json', 'markdown']
+" }}}
 
+" UltiSnips {{{
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="¬"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+" }}}
 
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
+" }}}
 " }}}
 
 " ########## MISC THINGS ########## {{{
@@ -134,6 +144,8 @@ set autoread
 
 " ########## MAPPINGS ########### {{{
 
+" ### Window navigation {{{
+
 " Easier 4 directional navigation
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -143,18 +155,9 @@ nnoremap <C-l> <C-w>l
 " Easier splitting into new panes
 nnoremap <Bar> <C-w>v<C-w>l
 nnoremap - <C-w>s<C-w>j
+" }}}
 
-" Duplicate line with Ctrl+D
-nnoremap <C-d> yyp
-
-" Don't skip wrapped line with arrow keys
-nnoremap <up> g<up>
-nnoremap <down> g<down>
-
-" Toggle folding with space
-nnoremap <space> za
-
-" ### Writing files and quitting vim
+" ### Writing files and quitting vim {{{
 
 " Quit vim completely
 nnoremap <leader>q :qa<cr>
@@ -168,8 +171,9 @@ nnoremap <leader>W :wqa<cr>
 "
 " Write current file
 nnoremap <leader><leader> :w<cr>
+" }}}
 
-" ### Running files
+" ### Running files {{{
 
 " Run current file
 nnoremap <leader>r :!"%:p"<cr>
@@ -178,15 +182,33 @@ nnoremap <leader>r :!"%:p"<cr>
 " The space at the end of this line is intentional
 nnoremap <leader>a :!"%:p" 
 
+" Clear the terminal and run the current file
+nnoremap <leader>R :!clear<cr><cr>:!"%:p"<cr>
+" }}}
+
+" ### Misc maps {{{
+
+" Duplicate line with Ctrl+D
+nnoremap <C-d> yyp
+
+" Don't skip wrapped line with arrow keys
+nnoremap <up> g<up>
+nnoremap <down> g<down>
+
+" Toggle folding with space
+nnoremap <space> za
+
 " Clear the terminal
 nnoremap <leader>l :!clear<cr><cr>
 
 " Remove search highlight
 nnoremap <leader>n :nohlsearch<cr>
 " }}}
+" }}}
 
 " ########## AUTOMATIC COMMANDS ########## {{{
 
+" Tabs {{{
 augroup tabs_augroup
 	autocmd!
 	" Set a tab to be width 2
@@ -195,7 +217,9 @@ augroup tabs_augroup
 	" Use spaces instead of tabs
 	autocmd FileType python,haskell setlocal expandtab
 augroup END
+" }}}
 
+" All files {{{
 augroup all_files_augroup
 	autocmd!
 	" Open all folds by default, unless in a 'vim' filetype
@@ -203,7 +227,9 @@ augroup all_files_augroup
 	" If it's not, it returns -1, which is < 0, so we do 'normal zR'
 	autocmd BufRead * if index(['vim'], &ft) < 0 | normal zR
 augroup END
+" }}}
 
+" FileType vim {{{
 augroup vimrc_augroup
 	autocmd!
 	" Remove double quotes from buffer autopairs to prevent it from messing with comments
@@ -213,12 +239,15 @@ augroup vimrc_augroup
 	autocmd FileType vim setlocal foldmethod=marker
 	autocmd FileType vim normal zM
 augroup END
+" }}}
 
+" Python {{{
 augroup python_augroup
 	autocmd!
 	" Set a colour column at column 120 in Python files
 	autocmd FileType python setlocal colorcolumn=120
 augroup END
+" }}}
 " }}}
 
 " ########## CUSTOM SIMPLE COMMANDS ########### {{{
