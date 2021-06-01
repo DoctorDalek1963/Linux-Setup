@@ -134,6 +134,7 @@ set noexpandtab
 
 set foldenable
 set foldmethod=indent
+set foldlevelstart=999
 
 " Better indents
 set autoindent smartindent
@@ -219,25 +220,15 @@ augroup tabs_augroup
 augroup END
 " }}}
 
-" All files {{{
-augroup all_files_augroup
-	autocmd!
-	" Open all folds by default, unless in a 'vim' filetype
-	" This index() function checks if the filetype (&ft) is in the list
-	" If it's not, it returns -1, which is < 0, so we do 'normal zR'
-	autocmd BufRead * if index(['vim'], &ft) < 0 | normal zR
-augroup END
-" }}}
-
 " FileType vim {{{
 augroup vimrc_augroup
 	autocmd!
 	" Remove double quotes from buffer autopairs to prevent it from messing with comments
 	autocmd FileType vim let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
 
-	" Set foldmethod to marker and fold every section
 	autocmd FileType vim setlocal foldmethod=marker
-	autocmd FileType vim normal zM
+	" Fold up every section
+	autocmd FileType vim setlocal foldlevel=0
 augroup END
 " }}}
 
