@@ -201,6 +201,9 @@ augroup END
 
 augroup vimrc_augroup
 	autocmd!
+	" Remove double quotes from buffer autopairs to prevent it from messing with comments
+	autocmd FileType vim let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
+
 	" Set foldmethod to manual and fold the plugin stuff at the top of the file
 	autocmd BufRead ~/.vimrc setlocal foldmethod=manual
 	autocmd BufRead ~/.vimrc normal ggV89Gzf
