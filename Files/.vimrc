@@ -209,15 +209,6 @@ augroup python_augroup
 	autocmd FileType python set colorcolumn=120
 augroup END
 
-" ########## CUSTOM FUNCTIONS FOR COMMANDS ##########
-
-" Wrapper func for Pydoc call
-function PydocFunc(name) abort
-	execute '!pydoc3 '.expand(a:name)
-endfunction
-
-command -nargs=1 Pydoc call PydocFunc('<args>')
-
 " ########## CUSTOM SIMPLE COMMANDS ###########
 
 " Remove all trailing spaces
