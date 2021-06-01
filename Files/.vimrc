@@ -186,10 +186,10 @@ nnoremap <leader>n :nohlsearch<cr>
 augroup tabs_augroup
 	autocmd!
 	" Set a tab to be width 2
-	autocmd FileType haskell set tabstop=2
-	autocmd FileType haskell set shiftwidth=2
+	autocmd FileType haskell setlocal tabstop=2
+	autocmd FileType haskell setlocal shiftwidth=2
 	" Use spaces instead of tabs
-	autocmd FileType python,haskell set expandtab
+	autocmd FileType python,haskell setlocal expandtab
 augroup END
 
 augroup all_files_augroup
@@ -202,14 +202,14 @@ augroup END
 augroup vimrc_augroup
 	autocmd!
 	" Set foldmethod to manual and fold the plugin stuff at the top of the file
-	autocmd BufRead ~/.vimrc set foldmethod=manual
+	autocmd BufRead ~/.vimrc setlocal foldmethod=manual
 	autocmd BufRead ~/.vimrc normal ggV89Gzf
 augroup END
 
 augroup python_augroup
 	autocmd!
 	" Set a colour column at column 120 in Python files
-	autocmd FileType python set colorcolumn=120
+	autocmd FileType python setlocal colorcolumn=120
 augroup END
 
 " ########## CUSTOM SIMPLE COMMANDS ###########
