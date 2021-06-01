@@ -141,8 +141,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Easier splitting into new panes
-nnoremap <Bar> <C-w>v<C-l>
-nnoremap - <C-w>s<C-j>
+nnoremap <Bar> <C-w>v<C-w>l
+nnoremap - <C-w>s<C-w>j
 
 " Duplicate line with Ctrl+D
 nnoremap <C-d> yyp
