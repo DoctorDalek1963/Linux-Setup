@@ -198,9 +198,10 @@ augroup END
 
 augroup all_files_augroup
 	autocmd!
-	" Open all folds by default
-	" Triggers on buffer read, matches all files, and executes 'zR' in normal mode
-	autocmd BufRead * normal zR
+	" Open all folds by default, unless in a 'vim' filetype
+	" This index() function checks if the filetype (&ft) is in the list
+	" If it's not, it returns -1, which is < 0, so we do 'normal zR'
+	autocmd BufRead * if index(['vim'], &ft) < 0 | normal zR
 augroup END
 
 augroup vimrc_augroup
