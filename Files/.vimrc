@@ -1,4 +1,4 @@
-" ########## PLUGIN STUFF ##########
+" ########## PLUGIN STUFF ########## {{{
 
 " Use vim-plug to handle plugins
 call plug#begin('~/.vim/plugged')
@@ -86,8 +86,9 @@ let g:UltiSnipsEditSplit="vertical"
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
+" }}}
 
-" ########## MISC THINGS ##########
+" ########## MISC THINGS ########## {{{
 
 " Set the mapleader
 let mapleader = '\'
@@ -96,8 +97,9 @@ syntax on
 filetype indent plugin on
 
 colorscheme onedark
+" }}}
 
-" ########## SET THINGS ##########
+" ########## SET THINGS ########## {{{
 
 set laststatus=2 " Let lightline status bar work
 set noshowmode " Hide original status bar
@@ -128,8 +130,9 @@ set autoindent smartindent
 
 " Autoreload the file if it has been changed outside of vim
 set autoread
+" }}}
 
-" ########## MAPPINGS ###########
+" ########## MAPPINGS ########### {{{
 
 " Easier 4 directional navigation
 nnoremap <C-j> <C-w>j
@@ -180,8 +183,9 @@ nnoremap <leader>l :!clear<cr><cr>
 
 " Remove search highlight
 nnoremap <leader>n :nohlsearch<cr>
+" }}}
 
-" ########## AUTOMATIC COMMANDS ##########
+" ########## AUTOMATIC COMMANDS ########## {{{
 
 augroup tabs_augroup
 	autocmd!
@@ -204,9 +208,9 @@ augroup vimrc_augroup
 	" Remove double quotes from buffer autopairs to prevent it from messing with comments
 	autocmd FileType vim let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
 
-	" Set foldmethod to manual and fold the plugin stuff at the top of the file
-	autocmd BufRead ~/.vimrc setlocal foldmethod=manual
-	autocmd BufRead ~/.vimrc normal ggV89Gzf
+	" Set foldmethod to marker and fold every section
+	autocmd FileType vim setlocal foldmethod=marker
+	autocmd FileType vim normal zM
 augroup END
 
 augroup python_augroup
@@ -214,8 +218,9 @@ augroup python_augroup
 	" Set a colour column at column 120 in Python files
 	autocmd FileType python setlocal colorcolumn=120
 augroup END
+" }}}
 
-" ########## CUSTOM SIMPLE COMMANDS ###########
+" ########## CUSTOM SIMPLE COMMANDS ########### {{{
 
 " Remove all trailing spaces
 " This is the only way this command seems to work. It angers me.
@@ -229,3 +234,4 @@ command W execute "wq"
 " command with all the destinations lined up as the first argument to allow
 " for easier use of visual block selection
 command SRen execute 'g/.*/execute "normal Imv -t \"\<Esc>xA\"\<Esc>xhvi\"y0f\"pa\" " | noh | normal ggf"l'
+" }}}
