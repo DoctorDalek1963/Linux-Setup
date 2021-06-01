@@ -178,6 +178,9 @@ nnoremap <leader>a :!"%:p"
 " Clear the terminal
 nnoremap <leader>l :!clear<cr><cr>
 
+" Remove search highlight
+nnoremap <leader>n :nohlsearch<cr>
+
 " ########## AUTOMATIC COMMANDS ##########
 
 augroup tabs_augroup
