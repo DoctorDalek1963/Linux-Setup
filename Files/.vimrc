@@ -132,36 +132,36 @@ set autoread
 " ########## MAPPINGS ###########
 
 " Easier 4 directional navigation
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Easier splitting into new panes
-nmap <Bar> <C-w>v<C-l>
-nmap - <C-w>s<C-j>
+nnoremap <Bar> <C-w>v<C-l>
+nnoremap - <C-w>s<C-j>
 
 " Duplicate line with Ctrl+D
-nmap <C-d> yyp
+nnoremap <C-d> yyp
 
 " Don't skip wrapped line with arrow keys
-nmap <up> g<up>
-nmap <down> g<down>
+nnoremap <up> g<up>
+nnoremap <down> g<down>
 
 " Toggle folding with space
-nmap <space> za
+nnoremap <space> za
 
 " ### Writing files and quitting vim
 
 " Quit vim completely
-nmap <leader>q :qa<cr>
+nnoremap <leader>q :qa<cr>
 " Force quit completely
-nmap <leader>Q :qa!<cr>
+nnoremap <leader>Q :qa!<cr>
 
 " Write all open files
-nmap <leader>w :wa<cr>
+nnoremap <leader>w :wa<cr>
 " Write all open files and quit
-nmap <leader>W :wqa<cr>
+nnoremap <leader>W :wqa<cr>
 "
 " Write current file
 nnoremap <leader><leader> :w<cr>
