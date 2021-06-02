@@ -248,7 +248,7 @@ augroup END
 " }}}
 " }}}
 
-" ########## CUSTOM SIMPLE COMMANDS ########### {{{
+" ########## SIMPLE COMMANDS ########### {{{
 
 " Remove all trailing spaces
 " This is the only way this command seems to work. It angers me.
@@ -256,10 +256,19 @@ command Rmsp execute "silent %s/ * $//g | noh"
 
 command Q execute "q!"
 command W execute "wq"
+" }}}
 
-" Setup bulk renaming
-" This treats each line in the buffer as a file name and sets up a bash mv
-" command with all the destinations lined up as the first argument to allow
-" for easier use of visual block selection
-command SRen execute 'g/.*/execute "normal Imv -t \"\<Esc>xA\"\<Esc>xhvi\"y0f\"pa\" " | noh | normal ggf"l'
+" ########## FUNCTIONS AND ASSOCIATED COMMANDS ########## {{{
+
+function! SetupRename()
+	execute 'g/.*/execute "normal Imv \"\<Esc>xA\"\<Esc>xhvi\"y0f\"pa\" "'
+	nohlsearch
+	" TODO: Increase spacin on each line so that the block on the right is all aligned
+	" Loop over every line and get the column of the third " character
+	" The maximum of these column values in the desired value
+	" Loop over every line and add enough spaces to get to that desired value
+	execute 'normal ggf";;l'
+endfunction
+
+command SRen call SetupRename()
 " }}}
