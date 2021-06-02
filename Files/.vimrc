@@ -205,6 +205,9 @@ nnoremap <leader>l :!clear<cr><cr>
 
 " Remove search highlight
 nnoremap <leader>n :nohlsearch<cr>
+
+" Add a semicolon to the end of a line
+nnoremap <leader>; mqA;<esc>`q
 " }}}
 " }}}
 
