@@ -198,6 +198,7 @@ nnoremap <down> g<down>
 
 " Toggle folding with space
 nnoremap <space> za
+nnoremap <leader><space> zA
 
 " Clear the terminal
 nnoremap <leader>l :!clear<cr><cr>
