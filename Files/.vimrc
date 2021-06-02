@@ -208,6 +208,9 @@ nnoremap <leader>n :nohlsearch<cr>
 
 " Add a semicolon to the end of a line
 nnoremap <leader>; mqA;<esc>`q
+
+" Always use very magic regex mode
+nnoremap / /\v
 " }}}
 " }}}
 
