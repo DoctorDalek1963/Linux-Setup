@@ -12,6 +12,8 @@ alias la="ls -a"
 alias ll="ls -la"
 alias lh="ls -lah"
 
+alias ipy="ipython"
+
 # Variable that holds the directory of the git repo holding this file and its associates
 git_repo="~/repos/Linux-Setup/Files"
 
