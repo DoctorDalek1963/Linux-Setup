@@ -141,6 +141,9 @@ set autoindent smartindent
 
 " Autoreload the file if it has been changed outside of vim
 set autoread
+
+" Use British English as the language for spell checking
+set spelllang=en_gb
 " }}}
 
 " ########## MAPPINGS ########### {{{
@@ -211,6 +214,9 @@ nnoremap <leader>; mqA;<esc>`q
 
 " Always use very magic regex mode
 nnoremap / /\v
+
+" Toggle spell check
+nnoremap <leader>s :set spell!<cr>
 " }}}
 " }}}
 
