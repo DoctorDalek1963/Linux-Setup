@@ -41,6 +41,7 @@ AllFiles() {
 	cp Files/.bashrc ~ && source ~/.bashrc
 	cp Files/.gitconfig ~
 	cp Files/.tern-config ~
+	cp Files/.pylintrc ~
 
 	OptionalMkdir ~/.config/neofetch
 	cp Files/neofetch_config ~/.config/neofetch/config.conf
@@ -187,6 +188,12 @@ while [ $# -ne 0 ]; do
 
 		'tern-config')
 			cp Files/.tern-config ~
+			shift
+			continue
+		;;
+
+		'.pylintrc')
+			cp Files/..pylintrc ~
 			shift
 			continue
 		;;
