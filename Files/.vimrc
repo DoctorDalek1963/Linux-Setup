@@ -172,7 +172,7 @@ nnoremap <leader>Q :qa!<cr>
 nnoremap <leader>w :wa<cr>
 " Write all open files and quit
 nnoremap <leader>W :wqa<cr>
-"
+
 " Write current file
 nnoremap <leader><leader> :w<cr>
 " }}}
@@ -234,7 +234,7 @@ augroup END
 " }}}
 
 " FileType vim {{{
-augroup vimrc_augroup
+augroup vim_augroup
 	autocmd!
 	" Remove double quotes from buffer autopairs to prevent it from messing with comments
 	autocmd FileType vim let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
