@@ -34,3 +34,9 @@ nmap <C-l> <C-w>l
 " Write current file
 nnoremap <leader>w :w<Enter>
 nnoremap <leader><leader> :w<Enter>
+
+" Add a semicolon to the end of a line
+nnoremap <leader>; mqA;<esc>`q
+
+" Remove search highlight
+nnoremap <leader>n :nohlsearch<cr>
