@@ -17,7 +17,7 @@ OptionalMkdir() {
 GetFontZip() {
 	wget $1
 	OptionalMkdir ~/.fonts
-	unzip -j $2 -d ~/.fonts
+	unzip -u -j $2 -d ~/.fonts
 	rm $2
 }
 
