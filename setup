@@ -37,6 +37,7 @@ RemoveYCMFromVimrc() {
 
 AllFiles() {
 	cp Files/.vimrc ~
+	cp Files/.ideavimrc ~
 	cp Files/.bash_aliases ~ && source ~/.bash_aliases
 	cp Files/.bashrc ~ && source ~/.bashrc
 	cp Files/.gitconfig ~
@@ -167,6 +168,13 @@ while [ $# -ne 0 ]; do
 			shift
 			continue
 		;;
+
+		'ideavimrc')
+			cp Files/.ideavimrc ~
+			shift
+			continue
+		;;
+
 
 		'bash-aliases')
 			cp Files/.bash_aliases ~ && source ~/.bash_aliases
