@@ -120,6 +120,11 @@ vex() {
 # Pipe to clip for easy copying
 alias clip="xclip -selection c"
 
+# Easily copy a file
+cclip() {
+	cat $1 | clip
+}
+
 # Decode base 64
 b64d() {
 	echo $1 | base64 -d
