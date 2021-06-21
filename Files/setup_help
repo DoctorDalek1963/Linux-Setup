@@ -18,6 +18,7 @@ Commands:
   gitconfig                        Copies .gitconfig to your home directory.
   tern-config                      Copies .tern-config to your home directory.
   pylintrc                         Copies .pylintrc to your home direcory.
+  ipython_config                   Copies ipython_config.py its proper directory.
   neofetch-config                  Copies neofetch config to its proper directory.
   terminator-config                Copies terminator config to its proper directory.
 
