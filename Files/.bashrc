@@ -89,6 +89,16 @@ build_prompt() {
 	fi
 
 	PS1="$PS1\$ "
+	
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		# If there is a venv, we only want the last two dirs in the path, so we grep it
+		venv=$(echo $VIRTUAL_ENV | grep -Eo "[^/]*/[^/]*$")
+		# We then disable the normal venv prompt addition
+		export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+		# We then add the venv to the start of the PS1, in a nice cyan colour
+		PS1="\[\033[01;36m\](venv:$venv)\[\033[00m\] $PS1"
+	fi
 }
 
 export PROMPT_COMMAND=build_prompt
