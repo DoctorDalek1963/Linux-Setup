@@ -209,7 +209,7 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
-		'ipython_config')
+		'ipython-config')
 			OptionalMkdir ~/.ipython/profile_default
 			cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 			shift
