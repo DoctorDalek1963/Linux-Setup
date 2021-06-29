@@ -99,8 +99,12 @@ build_prompt() {
 		# We then disable the normal venv prompt addition
 		export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-		# We then add the venv to the start of the PS1, in a nice cyan colour
-		PS1="\[\033[01;36m\]($venv)\[\033[00m\] $PS1"
+		# We then add the venv to the start of the PS1, in a nice cyan colour if possible
+		if [ "$color_prompt" = yes ]; then
+			PS1="\[\033[01;36m\]($venv)\[\033[00m\] $PS1"
+		else
+			PS1="($venv) $PS1"
+		fi
 	fi
 
 	PS1="$PS1 \$ "
