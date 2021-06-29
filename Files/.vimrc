@@ -23,9 +23,6 @@ Plug 'dense-analysis/ale'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
-
-" Use pylintrc in this directory. This allows me to configure line length and other options
-let g:ale_python_pylint_options = '--rcfile=~/.vim/plugged/ale/ale_linters/python/.pylintrc'
 " }}}
 
 " Lightline {{{
