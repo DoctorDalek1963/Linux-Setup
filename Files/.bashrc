@@ -35,6 +35,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# We want the PS1 to be extended by default
+export EXTENDED_PS1=1
+
 # This whole function just builds the PS1
 build_prompt() {
 	local force_color_prompt=yes
@@ -63,42 +66,44 @@ build_prompt() {
 		;;
 	esac
 
-	if [ ! -f ~/.git-prompt.sh ]; then
-		if [ -f ~/git-prompt.sh ]; then
-			mv ~/git-prompt.sh ~/.git-prompt.sh
+	if [ $EXTENDED_PS1 -ne 0 ]; then
+		if [ ! -f ~/.git-prompt.sh ]; then
+			if [ -f ~/git-prompt.sh ]; then
+				mv ~/git-prompt.sh ~/.git-prompt.sh
+			else
+				echo "GETTING ~/.git-prompt.sh"
+				wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+				mv git-prompt.sh ~/.git-prompt.sh
+			fi
+		fi
+
+		# Add git information and $ to prompt
+		GIT_PS1_SHOWDIRTYSTATE=true
+		GIT_PS1_SHOWSTASHSTATE=true
+		GIT_PS1_SHOWUNTRACKEDFILES=true
+		GIT_PS1_SHOWUPSTREAM="auto"
+		GIT_PS1_HIDE_IF_PWD_IGNORED=true
+
+		source ~/.git-prompt.sh
+
+		if [ "$color_prompt" = yes ]; then
+			PS1="$PS1\[\033[01;31m\]$(__git_ps1 " [%s]")\[\033[00m\]"
 		else
-			echo "GETTING ~/.git-prompt.sh"
-			wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-			mv git-prompt.sh ~/.git-prompt.sh
+			PS1="$PS1$(__git_ps1 " [%s]")"
 		fi
 	fi
 
-	# Add git information and $ to prompt
-	GIT_PS1_SHOWDIRTYSTATE=true
-	GIT_PS1_SHOWSTASHSTATE=true
-	GIT_PS1_SHOWUNTRACKEDFILES=true
-	GIT_PS1_SHOWUPSTREAM="auto"
-	GIT_PS1_HIDE_IF_PWD_IGNORED=true
-
-	source ~/.git-prompt.sh
-
-	if [ "$color_prompt" = yes ]; then
-		PS1="$PS1\[\033[01;31m\]$(__git_ps1 " [%s] ")\[\033[00m\]"
-	else
-		PS1="$PS1$(__git_ps1 " [%s] ")"
-	fi
-
-	PS1="$PS1\$ "
-	
-	if [[ -n "$VIRTUAL_ENV" ]]; then
+	if [ -n "$VIRTUAL_ENV" ] && [ $EXTENDED_PS1 -ne 0 ]; then
 		# If there is a venv, we only want the last two dirs in the path, so we grep it
 		venv=$(echo $VIRTUAL_ENV | grep -Eo "[^/]*/[^/]*$")
 		# We then disable the normal venv prompt addition
 		export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 		# We then add the venv to the start of the PS1, in a nice cyan colour
-		PS1="\[\033[01;36m\](venv:$venv)\[\033[00m\] $PS1"
+		PS1="\[\033[01;36m\]($venv)\[\033[00m\] $PS1"
 	fi
+
+	PS1="$PS1 \$ "
 }
 
 export PROMPT_COMMAND=build_prompt
