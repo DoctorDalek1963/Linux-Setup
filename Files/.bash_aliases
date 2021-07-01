@@ -101,6 +101,9 @@ alias gfall="python ~/repos/git_all.py fetch"
 alias gplall="python ~/repos/git_all.py pull"
 alias gpall="python ~/repos/git_all.py push"
 
+# This alias is for my EPQ Activity Log
+alias gcmaddacca="git commit -m 'Add Activity Log entry'"
+
 # Search long-form history
 alias grephist="cat ~/.bash_history | grep"
 
