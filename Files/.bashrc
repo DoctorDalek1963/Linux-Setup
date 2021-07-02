@@ -36,7 +36,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # We want the PS1 to be extended by default
-export EXTENDED_PS1=1
+EXTENDED_PS1=1
 
 # This whole function just builds the PS1
 build_prompt() {
@@ -97,7 +97,7 @@ build_prompt() {
 		# If there is a venv, we only want the last two dirs in the path, so we grep it
 		venv=$(echo $VIRTUAL_ENV | grep -Eo "[^/]*/[^/]*$")
 		# We then disable the normal venv prompt addition
-		export VIRTUAL_ENV_DISABLE_PROMPT=1
+		VIRTUAL_ENV_DISABLE_PROMPT=1
 
 		# We then add the venv to the start of the PS1, in a nice cyan colour if possible
 		if [ "$color_prompt" = yes ]; then
@@ -110,7 +110,7 @@ build_prompt() {
 	PS1="$PS1 \$ "
 }
 
-export PROMPT_COMMAND=build_prompt
+PROMPT_COMMAND=build_prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -158,12 +158,13 @@ fi
 
 export ATHAME_ENABLED=0 # Disable athame
 
-# This is a compatibility PATH update for WSL
-export PATH=/home/dyson/.local/bin:$PATH
+if [ -d ~/.local/bin ]; then
+	PATH="~/.local/bin:$PATH"
+fi
 
 # Add every directory in /opt to PATH
 for dir in /opt/*; do
-	export PATH="$PATH:$dir"
+	PATH="$PATH:$dir"
 done
 
 # Run neofetch when terminal is opened
