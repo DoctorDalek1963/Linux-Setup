@@ -132,3 +132,15 @@ cclip() {
 b64d() {
 	echo $1 | base64 -d
 }
+
+# Move a file to a directory and cd into it
+mvcd() {
+	mv "$1" "$2"
+	[ -d "$2" ] && cd "$2"
+}
+
+# Copy a file to a directory and cd into it
+cpcd() {
+	cp "$1" "$2"
+	[ -d "$2" ] && cd "$2"
+}
