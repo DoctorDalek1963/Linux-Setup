@@ -93,7 +93,7 @@ alias gst="git status"
 alias ga="git add -A"
 alias gf="git fetch"
 alias gpl="git pull"
-alias gfp="git fetch && git pull"
+alias gfpl="git fetch && git pull"
 alias gl="git log"
 
 alias gstall="python ~/repos/git_all.py status"
