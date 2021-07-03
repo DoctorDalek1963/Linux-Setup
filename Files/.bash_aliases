@@ -15,36 +15,36 @@ alias lh="ls -lah"
 alias ipy="python -m IPython"
 
 # Variable that holds the directory of the git repo holding this file and its associates
-git_repo="~/repos/Linux-Setup/Files"
+git_repo="$HOME/repos/Linux-Setup/Files"
 
 # Deal with ~/.vimrc in single commands
-alias upvrc="cp ~/.vimrc $git_repo && echo \~/.vimrc updated in git repo"
+alias upvrc="cp ~/.vimrc '$git_repo' && echo \~/.vimrc updated in git repo"
 alias vvrc="vim ~/.vimrc"
 
 # Deal with ~/.ideavimrc in single commands
-alias upivrc="cp ~/.ideavimrc $git_repo && echo \~/.ideavimrc updated in git repo"
+alias upivrc="cp ~/.ideavimrc '$git_repo' && echo \~/.ideavimrc updated in git repo"
 alias vivrc="vim ~/.ideavimrc"
 
 # Deal with ~/.bash_aliases in single commands
 alias srcbal="source ~/.bash_aliases && echo \~/.bash_aliases sourced"
-alias upbal="cp ~/.bash_aliases $git_repo && echo \~/.bash_aliases updated in git repo"
+alias upbal="cp ~/.bash_aliases '$git_repo' && echo \~/.bash_aliases updated in git repo"
 alias vbal="vim ~/.bash_aliases"
 
 # Deal with ~/.bashrc in single commands
 alias srcbrc="source ~/.bashrc && echo \~/.bashrc sourced"
-alias upbrc="cp ~/.bashrc $git_repo && echo \~/.bashrc updated in git repo"
+alias upbrc="cp ~/.bashrc '$git_repo' && echo \~/.bashrc updated in git repo"
 alias vbrc="vim ~/.bashrc"
 
 # Deal with ~/.gitconfig in single commands
-alias upgc="cp ~/.gitconfig $git_repo && echo \~/.gitconfig updated in git repo"
+alias upgc="cp ~/.gitconfig '$git_repo' && echo \~/.gitconfig updated in git repo"
 alias vgc="vim ~/.gitconfig"
 
 # Deal with neofetch config in single commands
-alias upnf="cp ~/.config/neofetch/config.conf $git_repo/neofetch_config && echo \~/.config/neofetch/config.conf updated in git repo"
+alias upnf="cp ~/.config/neofetch/config.conf '$git_repo'/neofetch_config && echo \~/.config/neofetch/config.conf updated in git repo"
 alias vnf="vim ~/.config/neofetch/config.conf"
 
 # Deal with terminator config in single commands
-alias uptmf="cp ~/.config/terminator/config $git_repo/terminator_config && echo \~/.config/terminator/config updated in git repo"
+alias uptmf="cp ~/.config/terminator/config '$git_repo'/terminator_config && echo \~/.config/terminator/config updated in git repo"
 alias vtmf="vim ~/.config/terminator/config"
 
 # Source and update everything
@@ -62,7 +62,7 @@ alias myip="curl ipinfo.io/ip;echo"
 
 # Make a directory without complaining that it already exists
 mkd() {
-	if [ ! -d $1 ]; then
+	if [ ! -d "$1" ]; then
 		mkdir -p -- "$1"
 	fi
 }
@@ -115,9 +115,9 @@ cpunicp() {
 
 # Create executable file and open it with vim
 vex() {
-	touch $1
-	chmod +x $1
-	vim $1
+	touch "$1"
+	chmod +x "$1"
+	vim "$1"
 }
 
 # Pipe to clip for easy copying
@@ -125,12 +125,12 @@ alias clip="xclip -selection c"
 
 # Easily copy a file
 cclip() {
-	cat $1 | clip
+	cat "$1" | clip
 }
 
 # Decode base 64
 b64d() {
-	echo $1 | base64 -d
+	echo "$1" | base64 -d
 }
 
 # Move a file to a directory and cd into it
