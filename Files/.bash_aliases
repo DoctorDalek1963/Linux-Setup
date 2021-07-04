@@ -89,6 +89,7 @@ alias addjsghssh="ssh-add ~/.ssh/john_smith_github"
 alias gitswitch="bash ~/repos/misc-personal/bash/gitswitch.sh"
 
 alias gp="git push"
+alias gpx="git push && exit"
 alias gst="git status"
 alias ga="git add -A"
 alias gf="git fetch"
@@ -99,6 +100,7 @@ alias gl="git log"
 alias gstall="python ~/repos/git_all.py status"
 alias gfall="python ~/repos/git_all.py fetch"
 alias gplall="python ~/repos/git_all.py pull"
+alias gfplall="python ~/repos/git_all.py fetch && python ~/repos/git_all.py pull"
 alias gpall="python ~/repos/git_all.py push"
 
 # This alias is for my EPQ Activity Log
