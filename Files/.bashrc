@@ -158,10 +158,6 @@ fi
 
 export ATHAME_ENABLED=0 # Disable athame
 
-if [ -d ~/.local/bin ]; then
-	PATH="~/.local/bin:$PATH"
-fi
-
 # Add every directory in /opt to PATH
 for dir in /opt/*; do
 	PATH="$PATH:$dir"
