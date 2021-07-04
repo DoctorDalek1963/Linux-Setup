@@ -169,3 +169,7 @@ done
 
 # Run neofetch when terminal is opened
 neofetch
+
+# Configure PATH for sdkman
+export SDKMAN_DIR="$HOME/.sdkman"
+[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "/home/dyson/.sdkman/bin/sdkman-init.sh"
