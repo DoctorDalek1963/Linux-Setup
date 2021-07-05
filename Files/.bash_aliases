@@ -135,14 +135,25 @@ b64d() {
 	echo "$1" | base64 -d
 }
 
+customCD() {
+	# If it's a directory, just cd there
+	if [ -d "$1" ]; then
+		cd "$1"
+
+	# If it's a file, cd into the parent directory
+	elif [ -f "$1" ]; then
+		cd $(echo "$1" | grep -Po ".*(?=/[^/]+$)")
+	fi
+}
+
 # Move a file to a directory and cd into it
 mvcd() {
 	mv "$1" "$2"
-	[ -d "$2" ] && cd "$2"
+	customCD "$2"
 }
 
 # Copy a file to a directory and cd into it
 cpcd() {
 	cp "$1" "$2"
-	[ -d "$2" ] && cd "$2"
+	customCD "$2"
 }
