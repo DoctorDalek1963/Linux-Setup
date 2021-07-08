@@ -142,7 +142,7 @@ customCD() {
 
 	# If it's a file, cd into the parent directory
 	elif [ -f "$1" ]; then
-		cd $(echo "$1" | grep -Po ".*(?=/[^/]+$)")
+		cd $(dirname "$1")
 	fi
 }
 
