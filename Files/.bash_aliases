@@ -55,7 +55,7 @@ alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 
 # Update and upgrade apt and apt-get libraries
-alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt-get -y update && sudo apt-get -y upgrade;echo;sudo apt -y autoremove;echo;sudo apt-get -y autoremove;echo;echo apt and apt-get updated and upgraded"
+alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove;echo;echo 'apt and apt-get updated and upgraded'"
 
 # Echo my public IP address from ipinfo.io/ip
 alias myip="curl ipinfo.io/ip;echo"
