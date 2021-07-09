@@ -160,7 +160,7 @@ export ATHAME_ENABLED=0 # Disable athame
 
 # Add every directory in /opt to PATH
 for dir in /opt/*; do
-	PATH="$PATH:$dir"
+	[ -d "$dir" ] && PATH="$PATH:$dir"
 done
 
 # Run neofetch when terminal is opened
