@@ -47,9 +47,15 @@ alias vnf="vim ~/.config/neofetch/config.conf"
 alias uptmf="cp ~/.config/terminator/config '$git_repo'/terminator_config && echo \~/.config/terminator/config updated in git repo"
 alias vtmf="vim ~/.config/terminator/config"
 
+alias upipyc="cp ~/.ipython/profile_default/ipython_config.py '$git_repo' && echo \~/.ipython/profile_default/ipython_config.py updated in git repo"
+alias vipyc="vim ~/.ipython/profile_default/ipython_config.py"
+
+alias uppylrc="cp ~/.pylintrc '$git_repo' && echo \~/.pylintrc updated in git repo"
+alias vpylrc="vim ~/.pylintrc"
+
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upbal;upbrc;upgc;upnf;uptmf;echo;echo Everything updated"
+alias upall="upvrc;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
