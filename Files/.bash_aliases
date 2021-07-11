@@ -66,19 +66,6 @@ alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autore
 # Echo my public IP address from ipinfo.io/ip
 alias myip="curl ipinfo.io/ip;echo"
 
-# Make a directory without complaining that it already exists
-mkd() {
-	if [ ! -d "$1" ]; then
-		mkdir -p -- "$1"
-	fi
-}
-
-# Make a directory and cd into it
-mkcd () {
-	mkd "$1"
-	cd -P -- "$1"
-}
-
 # Start ssh-agent
 alias sshag="eval \"\$(ssh-agent -s)\""
 # List ssh keys in agent
@@ -141,25 +128,67 @@ b64d() {
 	echo "$1" | base64 -d
 }
 
-customCD() {
+# Make a directory without complaining that it already exists
+mkd() {
+	if [ ! -d "$1" ]; then
+		mkdir -p -- "$1"
+	fi
+}
+
+# Make a directory and cd into it
+mkcd () {
+	mkd "$1"
+	cd -- "$1"
+}
+
+# Make a directory and push it onto to the stack
+mkpushd() {
+	mkd "$1"
+	pushd -- "$1"
+}
+
+_custom_cd_or_pushd() {
+	# We use eval to allow for code reuse for the cd and pushd versions
+	# THIS FUNCTION SHOULD NEVER BE CALLED DIRECTLY BY THE USER
+
 	# If it's a directory, just cd there
-	if [ -d "$1" ]; then
-		cd "$1"
+	if [ -d "$2" ]; then
+		eval $1 -- "$2"
 
 	# If it's a file, cd into the parent directory
-	elif [ -f "$1" ]; then
-		cd $(dirname "$1")
+	elif [ -f "$2" ]; then
+		eval $1 -- '$(dirname "$2")'
 	fi
+}
+
+custom_cd() {
+	_custom_cd_or_pushd cd "$1"
+}
+
+custom_pushd() {
+	_custom_cd_or_pushd pushd "$1"
 }
 
 # Move a file to a directory and cd into it
 mvcd() {
-	mv "$1" "$2"
-	customCD "$2"
+	mv -- "$1" "$2"
+	custom_cd "$2"
+}
+
+# Move a file to a directory and push it onto to the stack
+mvpushd() {
+	mv -- "$1" "$2"
+	custom_pushd "$2"
 }
 
 # Copy a file to a directory and cd into it
 cpcd() {
-	cp "$1" "$2"
-	customCD "$2"
+	cp -- "$1" "$2"
+	custom_cd "$2"
+}
+
+# Make a directory and push it onto to the stack
+cppushd() {
+	cp -- "$1" "$2"
+	custom_pushd "$2"
 }
