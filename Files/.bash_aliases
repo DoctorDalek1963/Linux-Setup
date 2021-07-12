@@ -14,6 +14,22 @@ alias lh="ls -lah"
 
 alias ipy="python -m IPython"
 
+# List all processes in a user-oriented format with ASCII art hierarchy by default
+alias ps="ps axuf"
+
+# An easily grepable ps
+psg() {
+	if [ "$1" != "" ]; then
+		# This just prints the first line of output - the headers of the table
+		\ps axuf | head -n 1
+		# The "grep -v grep" in the middle filters out the grep process
+		# Then the grep at the end just finds $1, in my prefered perl syntax
+		\ps axuf | grep -v grep | grep -P "$1"
+	else
+		echo "Please supply something to grep for."
+	fi
+}
+
 # Variable that holds the directory of the git repo holding this file and its associates
 git_repo="$HOME/repos/Linux-Setup/Files"
 
