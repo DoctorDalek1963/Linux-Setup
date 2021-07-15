@@ -80,8 +80,11 @@ alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 # Update and upgrade apt and apt-get libraries
 alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove;echo;echo 'apt and apt-get updated and upgraded'"
 
-# Echo my public IP address from ipinfo.io/ip
-alias myip="curl ipinfo.io/ip;echo"
+# This is a function because if it's an alias, the curl command gets
+# evaluated when the file is sourced rather than when the alias is run
+myip() {
+	echo $(curl --silent ipinfo.io/ip)
+}
 
 # Start ssh-agent
 alias sshag="eval \"\$(ssh-agent -s)\""
