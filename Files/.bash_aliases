@@ -212,3 +212,15 @@ cppushd() {
 	cp -- "$1" "$2"
 	custom_pushd "$2"
 }
+
+source_dotdotdot() {
+	# If ... is a symlink, source it
+	if [ -L "..." ]; then
+		echo "Sourcing $(readlink ...)"
+		source ...
+	else
+		echo "No '...' symlink to source"
+	fi
+}
+# Bash doesn't like a function with this name, so we just alias it
+alias ..="source_dotdotdot"
