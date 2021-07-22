@@ -24,6 +24,9 @@ Commands:
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.
+  install-bat                      Installs bat.
+  install-fuck                     Installs fuck.
+  install-exa                      Installs exa.
 
   install-vim-plug                 Installs vim-plug.
   install-vundle                   Installs Vundle.

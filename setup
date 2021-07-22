@@ -55,6 +55,20 @@ AllFiles() {
 MiscSoftware() {
 	CheckWithWhichAndInstallWithAPT neofetch
 	CheckWithWhichAndInstallWithAPT terminator
+	CheckWithWhichAndInstallWithAPT bat
+
+	which fuck &> /dev/null || sudo pip3 install thefuck
+
+	which exa &> /dev/null
+	if [ $? -ne 0 ]; then
+		# Install rustup if necessary
+		which rustc &> /dev/null
+		if [ $? -ne 0 ]; then
+			curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+		fi
+
+		cargo install exa
+	fi
 }
 
 InstallVimPluginManagers() {
@@ -239,6 +253,31 @@ while [ $# -ne 0 ]; do
 			CheckWithWhichAndInstallWithAPT terminator
 			shift
 			continue
+		;;
+
+		'install-bat')
+			CheckWithWhichAndInstallWithAPT bat
+			shift
+			continue
+		;;
+
+		'install-fuck')
+			which fuck &> /dev/null || sudo pip3 install thefuck
+			shift
+			continue
+		;;
+
+		'install-exa')
+			which exa &> /dev/null
+			if [ $? -ne 0 ]; then
+				# Install rustup if necessary
+				which rustc &> /dev/null
+				if [ $? -ne 0 ]; then
+					curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+				fi
+
+				cargo install exa
+			fi
 		;;
 
 		########## Plugins
