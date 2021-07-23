@@ -163,9 +163,6 @@ for dir in /opt/*; do
 	[ -d "$dir" ] && PATH="$PATH:$dir"
 done
 
-# Run neofetch when terminal is opened
-neofetch
-
 # Configure PATH for sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
