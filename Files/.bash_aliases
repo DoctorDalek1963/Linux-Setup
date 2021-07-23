@@ -143,6 +143,10 @@ cclip() {
 	cat "$1" | clip
 }
 
+clipo() {
+	echo "$(clip -o)"
+}
+
 # Decode base 64
 b64d() {
 	echo "$1" | base64 -d
