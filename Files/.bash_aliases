@@ -232,6 +232,6 @@ alias ..="source_dotdotdot"
 # If batcat exists but bat doesn't, alias it
 which batcat &> /dev/null && which bat &> /dev/null || alias bat="batcat"
 
-which fuck &> /dev/null || eval "$(thefuck --alias)"
+eval "$(thefuck --alias)"
 
 which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
