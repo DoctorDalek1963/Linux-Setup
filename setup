@@ -69,6 +69,12 @@ MiscSoftware() {
 
 		cargo install exa
 	fi
+
+	which unimatrix &> /dev/null
+	if [ $? -eq 0 ]; then
+		sudo curl -L https://raw.githubusercontent.com/will8211/unimatrix/master/unimatrix.py -o /usr/local/bin/unimatrix
+		sudo chmod a+rx /usr/local/bin/unimatrix
+	fi
 }
 
 InstallVimPluginManagers() {
@@ -277,6 +283,14 @@ while [ $# -ne 0 ]; do
 				fi
 
 				cargo install exa
+			fi
+		;;
+
+		'install-unimatrix')
+			which unimatrix &> /dev/null
+			if [ $? -eq 0 ]; then
+				sudo curl -L https://raw.githubusercontent.com/will8211/unimatrix/master/unimatrix.py -o /usr/local/bin/unimatrix
+				sudo chmod a+rx /usr/local/bin/unimatrix
 			fi
 		;;
 

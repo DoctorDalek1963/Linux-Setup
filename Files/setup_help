@@ -27,6 +27,7 @@ Commands:
   install-bat                      Installs bat.
   install-fuck                     Installs fuck.
   install-exa                      Installs exa.
+  install-unimatrix                Installs unimatrix.
 
   install-vim-plug                 Installs vim-plug.
   install-vundle                   Installs Vundle.
