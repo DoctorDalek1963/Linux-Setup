@@ -1,6 +1,7 @@
 # Single letter aliases
 alias c="clear"
 alias g="git"
+alias j="julia"
 alias n="nohup"
 alias p="python"
 alias t="touch"
