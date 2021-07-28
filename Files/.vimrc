@@ -91,6 +91,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'JuliaEditorSupport/julia-vim'
 call vundle#end()
 " }}}
 " }}}
