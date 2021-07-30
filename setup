@@ -43,6 +43,9 @@ AllFiles() {
 
 	OptionalMkdir ~/.config/terminator
 	cp Files/terminator_config ~/.config/terminator/config
+
+	OptionalMkdir ~/.vim
+	cp Files/coc-settings.json ~/.vim/coc-settings.json
 }
 
 MiscSoftware() {
@@ -209,6 +212,13 @@ while [ $# -ne 0 ]; do
 		'terminator-config')
 			OptionalMkdir ~/.config/terminator
 			cp Files/terminator_config ~/.config/terminator/config
+			shift
+			continue
+		;;
+
+		'coc-settings')
+			OptionalMkdir ~/.vim
+			cp Files/coc-settings.json ~/.vim/coc-settings.json
 			shift
 			continue
 		;;

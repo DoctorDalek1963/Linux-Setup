@@ -19,6 +19,7 @@ Commands:
   ipython-config                   Copies ipython_config.py its proper directory.
   neofetch-config                  Copies neofetch config to its proper directory.
   terminator-config                Copies terminator config to its proper directory.
+  coc-settings                     Copies coc-settings.json to its proper directory.
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.
