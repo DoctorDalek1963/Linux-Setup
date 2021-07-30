@@ -26,13 +26,6 @@ AllFonts() {
 	GetFontZip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip Hack.zip
 }
 
-RemoveYCMFromVimrc() {
-	# We delete the line in .vimrc that loads the YCM plugin, and replace it with a comment
-	# The -i flag here means 'in place'. We change the file directly, rather than printing the result to stdout
-	# The optional 'in' at the end of Plug allows vim-plug or vundle to be used
-	sed "s/^Plug\(in\)\? 'ycm-core\/YouCompleteMe'/\" YCM REMOVED/g" ~/.vimrc -i
-}
-
 AllFiles() {
 	cp Files/.vimrc ~
 	cp Files/.ideavimrc ~
@@ -77,30 +70,24 @@ MiscSoftware() {
 	fi
 }
 
-InstallVimPluginManagers() {
+InstallVimPlug() {
 	CheckWithWhichAndInstallWithAPT curl
 
 	# Install vim-plug in autoload directory
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-	# Clone github repo for Vundle into proper directory
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 
 InstallAndUpdateVimPlugins() {
-	# Vim plug
 	vim -c "PlugInstall" -c "qa!"
 	vim -c "PlugUpdate" -c "qa!"
-
-	# Vundle
-	vim -c "PluginInstall" -c "qa!"
-	vim -c "PluginUpdate" -c "qa!"
 }
 
-InstallYCMDependencies() {
-	sudo apt install -y build-essential cmake vim-nox python3-dev
-	sudo apt install -y mono-complete golang nodejs default-jdk npm
-	python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+InstallLanguageServers() {
+	npm i -g bash-language-server
+	npm install -g dockerfile-language-server-nodejs
+	which ghcup &> /dev/null && ghcup install hls
+	which julia &> /dev/null && julia -e "using Pkg;Pkg.add(\"LanguageServer\");Pkg.add(\"SymbolServer\");Pkg.add(\"StaticLint\")"
+	pip install 'python-language-server[all]'
 }
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
@@ -126,38 +113,16 @@ while [ $# -ne 0 ]; do
 
 			AllFonts
 
-			InstallVimPluginManagers
+			InstallVimPlug
 
 			InstallAndUpdateVimPlugins
 
-			InstallYCMDependencies
-			exit
-		;;
-
-		'all-except-ycm')
-			AllFiles
-
-			# We do this before installing any vim plugins or even managers, so that YCM doesn't complain
-			RemoveYCMFromVimrc
-
-			MiscSoftware
-
-			AllFonts
-
-			InstallVimPluginManagers
-
-			InstallAndUpdateVimPlugins
+			InstallLanguageServers
 			exit
 		;;
 
 		'files')
 			AllFiles
-			shift
-			continue
-		;;
-
-		'remove-ycm-from-vimrc')
-			RemoveYCMFromVimrc
 			shift
 			continue
 		;;
@@ -175,7 +140,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'vim-plugins')
-			InstallVimPluginManagers
+			InstallVimPlug
 
 			InstallAndUpdateVimPlugins
 
@@ -304,21 +269,14 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
-		'install-vundle')
-			# Clone github repo for Vundle into proper directory
-			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-			shift
-			continue
-		;;
-
 		'install-and-update-vim-plugins')
 			InstallAndUpdateVimPlugins
 			shift
 			continue
 		;;
 
-		'install-ycm-depend')
-			InstallYCMDependencies
+		'install-language-servers')
+			InstallLanguageServers
 			shift
 			continue
 		;;

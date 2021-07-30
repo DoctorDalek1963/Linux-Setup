@@ -3,13 +3,11 @@ Usage:
 
 Commands:
   all                              Copies all files and installs everything.
-  all-except-ycm                   Copies all files and installs everything, except YCM dependencies.
 
   files                            Copies all files to your home directory and sources them if appropriate.
-  remove-ycm-from-vimrc            Remove the line in ~/.vimrc which loads YCM.
   misc-software                    Installs all misc software available to be installed by this script.
   fonts                            Installs the recommend fonts.
-  vim-plugins                      Installs all plugin managers and installs and updates all plugins (does not install YouCompleteMe dependencies).
+  vim-plugins                      Installs vim-plug and installs and updates all plugins.
 
   vimrc                            Copies .vimrc to your home direcory.
   ideavimrc                        Copies .ideavimrc to your home direcory.
@@ -30,9 +28,9 @@ Commands:
   install-unimatrix                Installs unimatrix.
 
   install-vim-plug                 Installs vim-plug.
-  install-vundle                   Installs Vundle.
   install-and-update-vim-plugins   Installs and updates all plugins in ~/.vimrc.
-  install-ycm-depend               Installs all the dependencies for YouCompleteMe (this may take a long time).
+
+  install-language-servers         Installs all my commonly used language servers.
 
 Options:
   -h, --help                       Show help.

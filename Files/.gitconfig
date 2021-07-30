@@ -2,7 +2,7 @@
 	name = DoctorDalek1963
 	email = 69600500+DoctorDalek1963@users.noreply.github.com
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = main
 [alias]

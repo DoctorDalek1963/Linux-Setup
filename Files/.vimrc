@@ -1,7 +1,8 @@
 " ########## PLUGIN STUFF ########## {{{
-
-" vim-plug {{{
+" I'm using vim-plug to manage all of my plugins
 call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim'
+
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
 
@@ -17,6 +18,29 @@ let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'honza/vim-snippets'
+
+Plug 'JuliaEditorSupport/julia-vim'
+let g:latex_to_unicode_tab = 0
+let g:latex_to_unicode_auto = 1
+
+" identLine {{{
+Plug 'Yggdroot/indentLine'
+let g:indentLine_defaultGroup = 'SpecialKey'
+let g:indentLine_char = '|'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_fileTypeExclude = ['json', 'markdown']
+" }}}
+
+" UltiSnips {{{
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="¬"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+" }}}
 
 " ALE {{{
 Plug 'dense-analysis/ale'
@@ -62,38 +86,63 @@ let g:lightline#ale#indicator_infos = "\uf129 "
 let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 " }}}
+
+" deoplete {{{
+"set pyxversion=3
+
+"if has('nvim')
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
+"else
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+
+"let g:deoplete#enable_at_startup = 1
+
+"" ncm2 plugins {{{
+"Plug 'https://github.com/ncm2/ncm2'
+
+"Plug 'https://github.com/ncm2/ncm2-bufword'
+"Plug 'https://github.com/ncm2/ncm2-path'
+"Plug 'https://github.com/ncm2/ncm2-github'
+"Plug 'https://github.com/ncm2/ncm2-'
+" }}}
+" }}}
 call plug#end()
 " }}}
 
-" Vundle {{{
-set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle
+" ########## COC.NVIM CONFIG ########## {{{
+let g:coc_global_extensions = [
+			\ 'coc-json',
+			\ 'coc-pyright',
+			\ 'coc-pairs',
+			\ 'coc-snippets',
+			\ 'coc-ultisnips',
+			\ 'coc-sh',
+			\ 'coc-html',
+			\ 'coc-tsserver',
+			\ 'coc-julia'
+			\ ]
 
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim' " Let Vundle manage itself
-Plugin 'ycm-core/YouCompleteMe'
+" These options are just copied from https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
 
-" identLine {{{
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_defaultGroup = 'SpecialKey'
-let g:indentLine_char = '|'
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_fileTypeExclude = ['json', 'markdown']
-" }}}
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-" UltiSnips {{{
-Plugin 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="¬"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-" }}}
+inoremap <silent><expr> <Tab>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<Tab>" :
+		\ coc#refresh()
 
-Plugin 'honza/vim-snippets'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'JuliaEditorSupport/julia-vim'
-call vundle#end()
-" }}}
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 
 " ########## MISC THINGS ########## {{{
@@ -144,7 +193,7 @@ set autoread
 set spelllang=en_gb
 " }}}
 
-" ########## MAPPINGS ########### {{{
+" ########## MAPPINGS ########## {{{
 
 " ### Window navigation {{{
 
@@ -235,7 +284,7 @@ augroup END
 augroup vim_augroup
 	autocmd!
 	" Remove double quotes from buffer autopairs to prevent it from messing with comments
-	autocmd FileType vim let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
+	autocmd FileType vim let b:coc_pairs_disabled = ['"']
 
 	autocmd FileType vim setlocal foldmethod=marker
 	" Fold up every section
@@ -252,7 +301,7 @@ augroup END
 " }}}
 " }}}
 
-" ########## SIMPLE COMMANDS ########### {{{
+" ########## SIMPLE COMMANDS ########## {{{
 
 " Remove all trailing spaces
 " This is the only way this command seems to work. It angers me.
