@@ -236,6 +236,12 @@ source_dotdotdot() {
 # Bash doesn't like a function with this name, so we just alias it
 alias ..="source_dotdotdot"
 
+tiny_prompt() {
+	# Make the prompt small, optimal for small terminal panes
+	export PROMPT_COMMAND=
+	export PS1="\$ "
+}
+
 # If batcat exists but bat doesn't, alias it
 which batcat &> /dev/null && which bat &> /dev/null || alias bat="batcat"
 
