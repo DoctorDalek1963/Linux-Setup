@@ -42,6 +42,10 @@ git_repo="$HOME/repos/Linux-Setup/Files"
 alias upvrc="cp ~/.vimrc '$git_repo' && echo \~/.vimrc updated in git repo"
 alias vvrc="vim ~/.vimrc"
 
+# Deal with ~/.config/nvim/init.vim in single commands
+alias upinitv="cp ~/.config/nvim/init.vim '$git_repo' && echo \~/.config/nvim/init.vim updated in git repo"
+alias vinitv="vim ~/.config/nvim/init.vim"
+
 # Deal with ~/.ideavimrc in single commands
 alias upivrc="cp ~/.ideavimrc '$git_repo' && echo \~/.ideavimrc updated in git repo"
 alias vivrc="vim ~/.ideavimrc"
@@ -74,12 +78,12 @@ alias vipyc="vim ~/.ipython/profile_default/ipython_config.py"
 alias uppylrc="cp ~/.pylintrc '$git_repo' && echo \~/.pylintrc updated in git repo"
 alias vpylrc="vim ~/.pylintrc"
 
-alias upcocset="cp ~/.vim/coc-settings.json '$git_repo' && echo \~/.vim/coc-settings.json updated in git repo"
-alias vcocset="vim ~/.vim/coc-settings.json"
+alias upcocset="cp ~/.config/nvim/coc-settings.json '$git_repo' && echo \~/.config/nvim/coc-settings.json updated in git repo"
+alias vcocset="vim ~/.config/nvim/coc-settings.json"
 
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;echo;echo Everything updated"
+alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure

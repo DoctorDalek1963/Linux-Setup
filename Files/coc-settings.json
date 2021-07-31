@@ -1,10 +1,5 @@
 {
 	"languageserver": {
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"]
-		},
 		"dockerfile": {
 			"command": "docker-langserver",
 			"filetypes": ["dockerfile"],
@@ -15,11 +10,6 @@
 			"args": ["--lsp"],
 			"rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
 			"filetypes": ["haskell", "lhaskell"]
-		},
-		"julia": {
-			"command": "/usr/bin/julia",
-			"args" : ["--startup-file=no", "--history-file=no", "-e", "using LanguageServer;using Pkg;import StaticLint;import SymbolServer;env_path = dirname(Pkg.Types.Context().env.project_file);debug = false;server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, \"\");server.runlinter = true;runserver();"],
-			"filetypes": ["julia"]
 		}
 	}
 }

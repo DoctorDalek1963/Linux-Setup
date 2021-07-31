@@ -20,6 +20,7 @@ Commands:
   neofetch-config                  Copies neofetch config to its proper directory.
   terminator-config                Copies terminator config to its proper directory.
   coc-settings                     Copies coc-settings.json to its proper directory.
+  init.vim                         Copies init.vim to its proper directory.
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.

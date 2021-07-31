@@ -12,14 +12,11 @@ let g:rainbow_active = 1 " Turn on rainbow parentheses
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'joshdick/onedark.vim'
 let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
-
-Plug 'sheerun/vim-polyglot'
-
-Plug 'honza/vim-snippets'
 
 Plug 'JuliaEditorSupport/julia-vim'
 let g:latex_to_unicode_tab = 0
@@ -40,6 +37,8 @@ let g:UltiSnipsExpandTrigger="¬"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+
+Plug 'honza/vim-snippets'
 " }}}
 
 " ALE {{{
@@ -54,14 +53,15 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'onedark'}
 
 Plug 'maximbaz/lightline-ale'
-" The following lightline configuration has just be taken from https://github.com/maximbaz/lightline-ale
-" I understand almost none of it, but it makes things work, so I keep it
+Plug 'josa42/vim-lightline-coc'
+
 let g:lightline.component_expand = {
 	\	'linter_checking': 'lightline#ale#checking',
 	\	'linter_infos': 'lightline#ale#infos',
 	\	'linter_warnings': 'lightline#ale#warnings',
 	\	'linter_errors': 'lightline#ale#errors',
 	\	'linter_ok': 'lightline#ale#ok',
+	\	'coc_status': 'lightline#coc#status'
 	\ }
 
 let g:lightline.component_type = {
@@ -78,7 +78,13 @@ let g:lightline.active = {
 	\		[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
 	\		[ 'lineinfo' ],
 	\		[ 'percent' ],
-	\		[ 'fileformat', 'fileencoding', 'filetype' ] ]
+	\		[ 'fileformat', 'fileencoding', 'filetype' ]
+	\	],
+	\	'left': [
+	\		[ 'mode' ],
+	\		[ 'readonly', 'filename', 'modified' ],
+	\		[ 'coc_status' ]
+	\	]
 	\ }
 
 let g:lightline#ale#indicator_checking = "\uf110 "
@@ -86,63 +92,24 @@ let g:lightline#ale#indicator_infos = "\uf129 "
 let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 " }}}
-
-" deoplete {{{
-"set pyxversion=3
-
-"if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
-"else
-  "Plug 'Shougo/deoplete.nvim'
-  "Plug 'roxma/nvim-yarp'
-  "Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-
-"let g:deoplete#enable_at_startup = 1
-
-"" ncm2 plugins {{{
-"Plug 'https://github.com/ncm2/ncm2'
-
-"Plug 'https://github.com/ncm2/ncm2-bufword'
-"Plug 'https://github.com/ncm2/ncm2-path'
-"Plug 'https://github.com/ncm2/ncm2-github'
-"Plug 'https://github.com/ncm2/ncm2-'
-" }}}
-" }}}
 call plug#end()
 " }}}
 
 " ########## COC.NVIM CONFIG ########## {{{
 let g:coc_global_extensions = [
-			\ 'coc-json',
-			\ 'coc-pyright',
-			\ 'coc-pairs',
-			\ 'coc-snippets',
-			\ 'coc-ultisnips',
-			\ 'coc-sh',
 			\ 'coc-html',
+			\ 'coc-java',
+			\ 'coc-json',
+			\ 'coc-julia',
+			\ 'coc-pairs',
+			\ 'coc-pyright',
+			\ 'coc-sh',
+			\ 'coc-snippets',
 			\ 'coc-tsserver',
-			\ 'coc-julia'
+			\ 'coc-ultisnips',
+			\ 'coc-vimlsp',
+			\ 'coc-yank'
 			\ ]
-
-" These options are just copied from https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<Tab>" :
-		\ coc#refresh()
-
-" use <c-space>for trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 
 " ########## MISC THINGS ########## {{{
@@ -247,7 +214,7 @@ nnoremap <up> g<up>
 nnoremap <down> g<down>
 
 " Toggle folding with space
-nnoremap <space> za
+nnoremap <space><space> za
 nnoremap <leader><space> zA
 
 " Clear the terminal
