@@ -163,6 +163,13 @@ set spelllang=en_gb
 
 " ########## MAPPINGS ########## {{{
 
+" ### COC Hover Window Scrolling {{{
+" 1 moves forward, 0 moves backward
+" The second 1 just means 1 line at a time
+nnoremap <S-Down> :call coc#float#scroll(1, 1)<CR>
+nnoremap <S-Up> :call coc#float#scroll(0, 1)<CR>
+" }}}
+
 " ### Window navigation {{{
 
 " Easier 4 directional navigation
