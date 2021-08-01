@@ -89,7 +89,7 @@ alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 
 # Update and upgrade apt and apt-get libraries
-alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove;echo;echo 'apt and apt-get updated and upgraded'"
+alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove --purge;echo;echo 'apt and apt-get updated and upgraded'"
 
 # This is a function because if it's an alias, the curl command gets
 # evaluated when the file is sourced rather than when the alias is run
