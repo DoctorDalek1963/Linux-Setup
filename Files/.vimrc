@@ -210,6 +210,9 @@ nnoremap <leader>R :!clear<cr><cr>:!"%:p"<cr>
 " Duplicate line with Ctrl+D
 nnoremap <C-d> yyp
 
+" Clear a line
+nnoremap D cc<Esc>
+
 " Don't skip wrapped line with arrow keys
 nnoremap <up> g<up>
 nnoremap <down> g<down>
