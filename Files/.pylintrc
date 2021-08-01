@@ -15,6 +15,9 @@ persistent=no
 # usually to register additional checkers.
 load-plugins=
 
+extension-pkg-whitelist=
+    PyQt5
+
 
 [MESSAGES CONTROL]
 
@@ -87,12 +90,10 @@ method-rgx=[a-z_][a-z0-9_]{2,50}$
 attr-rgx=[a-z_][a-z0-9_]{2,50}$
 
 # Regular expression which should only match correct argument names
-# I'm specifically accepting all single lowercase letter argument names
-argument-rgx=([a-z_][a-z0-9_]{1,50}|[a-z])$
+argument-rgx=[a-z_][a-z0-9_]{1,50}$
 
 # Regular expression which should only match correct variable names
-# I'm specifically accepting all single lowercase letter variable names
-variable-rgx=([a-z_][a-z0-9_]{1,50}|[a-z])$
+variable-rgx=[a-z_][a-z0-9_]{1,50}$
 
 # Regular expression which should only match correct attribute names in class
 # bodies
@@ -103,7 +104,7 @@ class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$
 inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=ex,Run,_
+good-names=ex,Run,_,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
