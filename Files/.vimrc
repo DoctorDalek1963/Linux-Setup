@@ -45,7 +45,8 @@ Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
+" The '%(code): %' will completely disappear if there is no error code
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %(code): %%s'
 " }}}
 
 " Lightline {{{
