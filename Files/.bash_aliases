@@ -240,6 +240,27 @@ source_dotdotdot() {
 # Bash doesn't like a function with this name, so we just alias it
 alias ..="source_dotdotdot"
 
+_small_prompt_function() {
+	if [ "$(pwd)" = "/" ]; then
+		directory="/"
+	else
+		directory=$(pwd | grep -Po '(/[^/]+)?(/[^/]+)?/[^/]+$')
+		# If this is a real directory, then we can just leave it
+		# because / is the root, but if not, we need to add a .. to
+		# show that this directory isn't absolute
+		if [ ! -d "$directory" ]; then
+			directory="..$directory"
+		fi
+	fi
+
+	PS1="\[\033[01;34m\]$directory\[\033[00m\] \[\033[01;31m\]\$ \[\033[00m\]"
+}
+
+small_prompt() {
+	# Make the prompt small but keep directory
+	export PROMPT_COMMAND=_small_prompt_function
+}
+
 tiny_prompt() {
 	# Make the prompt small, optimal for small terminal panes
 	export PROMPT_COMMAND=
