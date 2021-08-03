@@ -88,6 +88,16 @@ let g:lightline.active = {
 	\	]
 	\ }
 
+let g:lightline.inactive = {
+	\	'right': [
+	\		[ 'lineinfo' ],
+	\		[ 'percent' ]
+	\	],
+	\	'left': [
+	\		[ 'filename', 'modified' ]
+	\	]
+	\ }
+
 let g:lightline#ale#indicator_checking = "\uf110 "
 let g:lightline#ale#indicator_infos = "\uf129 "
 let g:lightline#ale#indicator_warnings = "\uf071 "
