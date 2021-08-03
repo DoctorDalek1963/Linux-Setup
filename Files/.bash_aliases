@@ -243,7 +243,7 @@ alias ..="source_dotdotdot"
 tiny_prompt() {
 	# Make the prompt small, optimal for small terminal panes
 	export PROMPT_COMMAND=
-	export PS1="\$ "
+	export PS1="\[\033[01;31m\]\$ \[\033[00m\]"
 }
 
 # If batcat exists but bat doesn't, alias it
