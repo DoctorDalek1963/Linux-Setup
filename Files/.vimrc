@@ -175,8 +175,8 @@ set spelllang=en_gb
 " ### COC Hover Window Scrolling {{{
 " 1 moves forward, 0 moves backward
 " The second 1 just means 1 line at a time
-nnoremap <S-Down> :call coc#float#scroll(1, 1)<CR>
-nnoremap <S-Up> :call coc#float#scroll(0, 1)<CR>
+nnoremap <silent> <S-Down> :call coc#float#scroll(1, 1)<CR>
+nnoremap <silent> <S-Up> :call coc#float#scroll(0, 1)<CR>
 " }}}
 
 " ### Window navigation {{{
@@ -200,7 +200,7 @@ nnoremap <leader>q :qa<cr>
 nnoremap <leader>Q :qa!<cr>
 
 " Write all open files
-nnoremap <leader>w :wa<cr>
+nnoremap <silent> <leader>w :wa<cr>
 " Write all open files and quit
 nnoremap <leader>W :wqa<cr>
 
@@ -241,7 +241,7 @@ nnoremap <leader><space> zA
 nnoremap <leader>l :!clear<cr><cr>
 
 " Remove search highlight
-nnoremap <leader>n :nohlsearch<cr>
+nnoremap <silent> <leader>n :nohlsearch<cr>
 
 " Add a semicolon to the end of a line
 nnoremap <leader>; mqA;<esc>`q
@@ -250,7 +250,7 @@ nnoremap <leader>; mqA;<esc>`q
 nnoremap / /\v
 
 " Toggle spell check
-nnoremap <leader>s :set spell!<cr>
+nnoremap <silent> <leader>s :set spell!<cr>
 " }}}
 " }}}
 
