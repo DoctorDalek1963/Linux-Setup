@@ -1,5 +1,11 @@
 # Use neovim if it exists
-which nvim &> /dev/null && alias vim="nvim"
+which nvim &> /dev/null
+if [ $? -eq 0 ]; then
+	alias vim="nvim"
+	export EDITOR=$(which nvim)
+else
+	export EDITOR=$(which vim)
+fi
 
 # Single letter aliases
 alias c="clear"
