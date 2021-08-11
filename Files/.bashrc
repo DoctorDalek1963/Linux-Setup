@@ -40,8 +40,12 @@ EXTENDED_PS1=1
 
 # This whole function just builds the PS1
 build_prompt() {
+	local exit_code="$?" # We need this first to catch it
+
 	local force_color_prompt=yes
 	local color_prompt=
+
+	PS1=""
 
 	if [ -n "$force_color_prompt" ]; then
 		if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -104,6 +108,17 @@ build_prompt() {
 			PS1="\[\033[01;36m\]($venv)\[\033[00m\] $PS1"
 		else
 			PS1="($venv) $PS1"
+		fi
+	fi
+
+	if [ $exit_code -ne 0 ] && [ $EXTENDED_PS1 -ne 0 ]; then
+		to_be_replaced=$(errno $exit_code | grep -Po '[A-Z]+ \d+ ')
+		text=$(errno $exit_code | sed "s/$to_be_replaced//g")
+
+		if [ "$color_prompt" = yes ]; then
+			PS1="\[\033[01;31m\]<$exit_code: $text>\[\033[00m\] $PS1"
+		else
+			PS1="<$exit_code: $text> $PS1"
 		fi
 	fi
 
