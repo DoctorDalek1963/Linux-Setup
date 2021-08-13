@@ -11,7 +11,6 @@ fi
 alias c="clear"
 alias g="git"
 alias j="julia"
-alias n="nohup"
 alias p="python"
 alias t="touch"
 alias v="vim"
@@ -39,6 +38,11 @@ psg() {
 	else
 		echo "Please supply something to grep for."
 	fi
+}
+
+# A custom nohup command to run a command silently in the background
+no() {
+	nohup $1 > /dev/null &
 }
 
 # Variable that holds the directory of the git repo holding this file and its associates
