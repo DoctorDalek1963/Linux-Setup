@@ -22,6 +22,7 @@ alias ll="ls -la"
 alias lh="ls -lah"
 
 alias ipy="python -m IPython"
+alias jnb="jupyter notebook"
 alias pmhttp="python -m http.server"
 
 # List all processes in a user-oriented format with ASCII art hierarchy by default
