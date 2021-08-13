@@ -43,7 +43,7 @@ psg() {
 
 # A custom nohup command to run a command silently in the background
 no() {
-	nohup $1 > /dev/null &
+	eval "nohup $@ > /dev/null &"
 }
 
 # Variable that holds the directory of the git repo holding this file and its associates
