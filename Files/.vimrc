@@ -251,6 +251,11 @@ nnoremap / /\v
 
 " Toggle spell check
 nnoremap <silent> <leader>s :set spell!<cr>
+
+" Copy whole file to clipboard in normal mode
+nnoremap <leader>cp :w !xclip -selection c<CR><CR>
+" Visual mode version that copies selection
+vnoremap <leader>cp "+y
 " }}}
 " }}}
 
