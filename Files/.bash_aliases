@@ -104,6 +104,7 @@ alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autore
 
 # This is a function because if it's an alias, the curl command gets
 # evaluated when the file is sourced rather than when the alias is run
+# We need to run it through echo to get a newline at the end
 myip() {
 	echo $(curl --silent ipinfo.io/ip)
 }
