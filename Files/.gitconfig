@@ -36,3 +36,5 @@
 [filter "nostore"]
 	clean = cat %f | tr "\\n" "·" | sed 's/"store": {[^{}]*},//g' | tr "·" "\\n"
 	smudge = cat
+[pull]
+	rebase = false
