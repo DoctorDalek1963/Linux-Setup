@@ -296,8 +296,7 @@ augroup END
 " ########## SIMPLE COMMANDS ########## {{{
 
 " Remove all trailing spaces
-" This is the only way this command seems to work. It angers me.
-command Rmsp execute "silent %s/ * $//g | noh"
+command Rmsp execute '%s/\s\+$//e'
 
 command Q execute "q!"
 command W execute "wq"
