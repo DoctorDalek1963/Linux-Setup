@@ -290,3 +290,5 @@ which batcat &> /dev/null && which bat &> /dev/null || alias bat="batcat"
 eval "$(thefuck --alias)"
 
 which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
+
+alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
