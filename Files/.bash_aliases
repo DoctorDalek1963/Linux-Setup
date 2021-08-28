@@ -292,3 +292,8 @@ eval "$(thefuck --alias)"
 which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
 
 alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
+
+# Print the binary encoding (UTF-8 by default) of the input
+uft8bin() {
+	echo $(echo -n "$*" | xxd -b | grep -iPo "(?<=[0-9a-f]{8}: )[01 ]+" | tr -d "\n" | xargs | tr " " ":")
+}
