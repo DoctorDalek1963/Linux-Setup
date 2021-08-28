@@ -112,13 +112,10 @@ build_prompt() {
 	fi
 
 	if [ $exit_code -ne 0 ] && [ $EXTENDED_PS1 -ne 0 ]; then
-		to_be_replaced=$(errno $exit_code | grep -Po '[A-Z]+ \d+ ')
-		text=$(errno $exit_code | sed "s/$to_be_replaced//g")
-
 		if [ "$color_prompt" = yes ]; then
-			PS1="\[\033[01;31m\]<$exit_code: $text>\[\033[00m\] $PS1"
+			PS1="\[\033[01;31m\]$exit_code\[\033[00m\] $PS1"
 		else
-			PS1="<$exit_code: $text> $PS1"
+			PS1="$exit_code $PS1"
 		fi
 	fi
 
