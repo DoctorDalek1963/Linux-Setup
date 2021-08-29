@@ -294,6 +294,16 @@ which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --c
 alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
 
 # Print the binary encoding (UTF-8 by default) of the input
-uft8bin() {
-	echo $(echo -n "$*" | xxd -b | grep -iPo "(?<=[0-9a-f]{8}: )[01 ]+" | tr -d "\n" | xargs | tr " " ":")
+utf8() {
+	case "$1" in
+		'-b')
+			echo $(echo -n "$2" | xxd -b | grep -iPo "(?<=[0-9a-f]{8}: )([01]{8} )+" | tr -d "\n" | xargs | tr " " ":")
+			;;
+		'-h')
+			echo $(echo -n "$2" | xxd -g 1 | grep -iPo "(?<=[0-9a-f]{8}: )([0-9a-f]{2} )+" | tr -d "\n" | xargs | tr " " ":")
+			;;
+		*)
+			echo "Usage: utf8 < -b | -h > <string>"
+			;;
+	esac
 }
