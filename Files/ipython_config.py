@@ -2,7 +2,9 @@ c.InteractiveShell.confirm_exit = False
 
 c.InteractiveShellApp.exec_lines = [
     'import numpy as np',
-    'import math as m'
+    'import math as m',
+    'import sympy as sp',
+    'sp.init_printing()'
 ]
 
 c.InteractiveShell.autocall = 1
