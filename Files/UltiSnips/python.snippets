@@ -1,0 +1,5 @@
+snippet reprc "A basic repr implementation" b
+def __repr__(self) -> str:
+    """Return a repr of the $2 object."""
+    return f'<{self.__class__.__module__}.{self.__class__.__name__} object with $1>'
+endsnippet

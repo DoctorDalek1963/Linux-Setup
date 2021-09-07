@@ -105,6 +105,8 @@ alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 
+alias upsnips="cp -r ~/.vim/UltiSnips $git_repo/UltiSnips"
+
 # Update and upgrade apt and apt-get libraries
 alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove --purge;echo;echo 'apt and apt-get updated and upgraded'"
 
