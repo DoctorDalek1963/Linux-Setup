@@ -48,7 +48,7 @@ AllFiles() {
 	cp Files/init.vim ~/.config/nvim/init.vim
 	cp Files/coc-settings.json ~/.config/nvim/coc-settings.json
 
-	cp -r Files/UltiSnips ~/.vim/
+	cp -r Files/UltiSnips ~/.config/nvim/
 }
 
 MiscSoftware() {
@@ -234,7 +234,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'vim-ultisnips')
-			cp -r Files/UltiSnips ~/.vim/
+			cp -r Files/UltiSnips ~/.config/nvim/
 			shift
 			continue
 		;;
