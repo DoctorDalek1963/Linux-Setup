@@ -98,9 +98,12 @@ alias vpylrc="vim ~/.pylintrc"
 alias upcocset="cp ~/.config/nvim/coc-settings.json '$git_repo' && echo \~/.config/nvim/coc-settings.json updated in git repo"
 alias vcocset="vim ~/.config/nvim/coc-settings.json"
 
+alias upxcomp="cp ~/.XCompose '$git_repo' && echo \~/.XCompose updated in git repo"
+alias vxcomp="vim ~/.XCompose"
+
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;echo;echo Everything updated"
+alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;upxcomp;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
