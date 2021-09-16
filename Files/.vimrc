@@ -22,6 +22,8 @@ Plug 'JuliaEditorSupport/julia-vim'
 let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 1
 
+Plug 'godlygeek/tabular'
+
 " identLine {{{
 Plug 'Yggdroot/indentLine'
 let g:indentLine_defaultGroup = 'SpecialKey'
