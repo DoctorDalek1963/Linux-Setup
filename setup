@@ -34,6 +34,7 @@ AllFiles() {
 	cp Files/.gitconfig ~
 	cp Files/.tern-config ~
 	cp Files/.pylintrc ~
+	cp Files/.XCompose ~
 
 	OptionalMkdir ~/.ipython/profile_default
 	cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
@@ -235,6 +236,12 @@ while [ $# -ne 0 ]; do
 
 		'vim-ultisnips')
 			cp -r Files/UltiSnips ~/.config/nvim/
+			shift
+			continue
+		;;
+
+		'xcompose')
+			cp Files/.XCompose ~
 			shift
 			continue
 		;;
