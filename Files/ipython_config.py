@@ -4,6 +4,9 @@ c.InteractiveShellApp.exec_lines = [
     'import numpy as np',
     'import math as m',
     'import sympy as sp',
+    'a, b, c, d, i, j, l, r, t, u, v, w, x, y, z = sp.symbols("a b c d i j l r t u v w x y z")',
+    'k, m, n, p, q = sp.symbols("k m n p q", integer=True)',
+    'f, g, h = sp.symbols("f g h", cls=sp.Function)',
     'sp.init_printing()'
 ]
 
