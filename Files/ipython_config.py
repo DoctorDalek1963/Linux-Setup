@@ -2,7 +2,7 @@ c.InteractiveShell.confirm_exit = False
 
 c.InteractiveShellApp.exec_lines = [
     'import numpy as np',
-    'import math as m',
+    'import math as ma',
     'import sympy as sp',
     'a, b, c, d, i, j, l, r, t, u, v, w, x, y, z = sp.symbols("a b c d i j l r t u v w x y z")',
     'k, m, n, p, q = sp.symbols("k m n p q", integer=True)',
