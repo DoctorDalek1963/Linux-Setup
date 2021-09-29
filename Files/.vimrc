@@ -247,6 +247,9 @@ nnoremap <silent> <leader>n :nohlsearch<cr>
 " Add a semicolon to the end of a line
 nnoremap <leader>; mqA;<esc>`q
 
+" Add a colon to the end of the line and start a new line
+nnoremap <leader>: A:<esc>o
+
 " Always use very magic regex mode
 nnoremap / /\v
 
