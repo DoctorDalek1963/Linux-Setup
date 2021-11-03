@@ -1,6 +1,8 @@
 c.InteractiveShell.confirm_exit = False
 
 c.InteractiveShellApp.exec_lines = [
+    '%load_ext autoreload',
+    '%autoreload 2',
     'import numpy as np',
     'import math as ma',
     'import sympy as sp',
