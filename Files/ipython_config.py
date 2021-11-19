@@ -4,6 +4,7 @@ c.InteractiveShellApp.exec_lines = [
     '%load_ext autoreload',
     '%autoreload 2',
     'import numpy as np',
+    'from numpy import linalg as la',
     'import math as ma',
     'import sympy as sp',
     'a, b, c, d, i, j, l, r, t, u, v, w, x, y, z = sp.symbols("a b c d i j l r t u v w x y z")',
