@@ -34,9 +34,8 @@ psg() {
 	if [ "$1" != "" ]; then
 		# This just prints the first line of output - the headers of the table
 		\ps axuf | head -n 1
-		# The "grep -v grep" in the middle filters out the grep process
-		# Then the grep at the end just finds $1, in my prefered perl syntax
-		\ps axuf | grep -v grep | grep -P "$1"
+		# This runs ps, filters out this specific grep command, and then greps for whatever I pass as args
+		eval "\ps axuf | grep -v \"$(alias grep | \grep -Po "(?<=')[^']+(?=')") -P $@\" | grep -P $@"
 	else
 		echo "Please supply something to grep for."
 	fi
