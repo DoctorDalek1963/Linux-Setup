@@ -41,6 +41,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 Plug 'honza/vim-snippets'
+let g:ultisnips_python_quoting_style="single"
 " }}}
 
 " ALE {{{
