@@ -1,7 +1,7 @@
 " ########## PLUGIN STUFF ########## {{{
 " I'm using vim-plug to manage all of my plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
@@ -217,7 +217,7 @@ nnoremap <leader>r :!"%:p"<cr>
 
 " Run current file with arguments
 " The space at the end of this line is intentional
-nnoremap <leader>a :!"%:p" 
+nnoremap <leader>A :!"%:p" 
 
 " Clear the terminal and run the current file
 nnoremap <leader>R :!clear<cr><cr>:!"%:p"<cr>
