@@ -3,14 +3,36 @@ c.InteractiveShell.confirm_exit = False
 c.InteractiveShellApp.exec_lines = [
     '%load_ext autoreload',
     '%autoreload 2',
-    'import numpy as np',
-    'from numpy import linalg as la',
     'import math as ma',
-    'import sympy as sp',
-    'a, b, c, d, i, j, l, r, t, u, v, w, x, y, z = sp.symbols("a b c d i j l r t u v w x y z")',
-    'k, m, n, p, q = sp.symbols("k m n p q", integer=True)',
-    'f, g, h = sp.symbols("f g h", cls=sp.Function)',
-    'sp.init_printing()'
+    '''
+try:
+    import numpy as np
+    from numpy import linalg as la
+
+except ModuleNotFoundError:
+    pass
+''',
+    '''
+try:
+    import sympy as sp
+    a, b, c, d, i, j, l, r, t, u, v, w, x, y, z = sp.symbols("a b c d i j l r t u v w x y z")
+    k, m, n, p, q = sp.symbols("k m n p q", integer=True)
+    f, g, h = sp.symbols("f g h", cls=sp.Function)
+    sp.init_printing()
+
+except ModuleNotFoundError:
+    pass
+''',
+    '''
+try:
+    import bitstring
+
+    def get_bits(*args, **kwargs) -> str:
+        return bitstring.BitArray(*args, **kwargs).bin
+
+except ModuleNotFoundError:
+    pass
+'''
 ]
 
 c.InteractiveShell.autocall = 1
