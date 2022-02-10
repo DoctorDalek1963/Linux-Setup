@@ -25,6 +25,7 @@ alias ipy="python -m IPython"
 alias jnb="jupyter notebook"
 alias pnb="julia -e 'import Pluto; Pluto.run()'"
 alias pmhttp="python -m http.server"
+alias pip="python -m pip"
 
 # List all processes in a user-oriented format with ASCII art hierarchy by default
 alias ps="ps axuf"
