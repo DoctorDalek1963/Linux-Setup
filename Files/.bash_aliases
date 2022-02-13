@@ -298,6 +298,7 @@ eval "$(thefuck --alias)"
 which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
 
 alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
+alias youtube-dl-a="youtube-dl --config-location ~/.config/youtube-dl/albums.conf"
 
 # Print the binary encoding (UTF-8 by default) of the input
 utf8() {
