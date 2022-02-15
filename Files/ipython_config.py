@@ -10,7 +10,9 @@ try:
     from numpy import linalg as la
 
 except ModuleNotFoundError:
-    pass
+    print('----------------------')
+    print('Unable to import NumPy')
+    print('----------------------')
 ''',
     '''
 try:
@@ -21,7 +23,9 @@ try:
     sp.init_printing()
 
 except ModuleNotFoundError:
-    pass
+    print('----------------------')
+    print('Unable to import SymPy')
+    print('----------------------')
 ''',
     '''
 try:
@@ -31,7 +35,9 @@ try:
         return bitstring.BitArray(*args, **kwargs).bin
 
 except ModuleNotFoundError:
-    pass
+    print('--------------------------')
+    print('Unable to import bitstring')
+    print('--------------------------')
 '''
 ]
 
