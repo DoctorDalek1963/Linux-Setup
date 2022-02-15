@@ -40,4 +40,6 @@
 [pull]
 	rebase = false
 [commit]
-	gpgsign = true
+	gpgSign = true
+[tag]
+	gpgSign = true
