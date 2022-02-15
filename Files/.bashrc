@@ -186,3 +186,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+
+# Configure paths for TeXLive
+[ -d "$HOME/.texlive/2021/texmf-dist/doc/man" ] && MANPATH="$HOME/.texlive/2021/texmf-dist/doc/man:$MANPATH"
+[ -d "$HOME/.texlive/2021/texmf-dist/doc/info" ] && INFOPATH="$HOME/.texlive/2021/texmf-dist/doc/info:$INFOPATH"
+[ -d "$HOME/.texlive/2021/bin/x86_64-linux" ] && PATH="$HOME/.texlive/2021/bin/x86_64-linux:$PATH"
