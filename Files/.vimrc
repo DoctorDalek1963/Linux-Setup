@@ -24,7 +24,10 @@ let g:latex_to_unicode_auto = 1
 
 Plug 'godlygeek/tabular'
 
-" identLine {{{
+Plug 'unblevable/quick-scope'
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" indentLine {{{
 Plug 'Yggdroot/indentLine'
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
