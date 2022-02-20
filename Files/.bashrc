@@ -174,6 +174,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Source personal completion scripts
+if [ -d $HOME/.local/misc/bash-completion ]; then
+	for f in $HOME/.local/misc/bash-completion/*; do
+		. "$f"
+	done
+fi
+
 export ATHAME_ENABLED=0 # Disable athame
 
 # Add every directory in /opt to PATH
