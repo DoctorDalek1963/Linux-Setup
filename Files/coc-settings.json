@@ -1,4 +1,6 @@
 {
+	"suggest.labelMaxLength": 100,
+	"yank.priority": 10,
 	"languageserver": {
 		"dockerfile": {
 			"command": "docker-langserver",

@@ -124,6 +124,7 @@ let g:coc_global_extensions = [
 			\ 'coc-tsserver',
 			\ 'coc-ultisnips',
 			\ 'coc-vimlsp',
+			\ 'coc-yank',
 			\ ]
 " }}}
 
@@ -182,6 +183,10 @@ set spelllang=en_gb
 " The second 1 just means 1 line at a time
 nnoremap <silent> <S-Down> :call coc#float#scroll(1, 1)<CR>
 nnoremap <silent> <S-Up> :call coc#float#scroll(0, 1)<CR>
+" }}}
+
+" ### COC yank preview {{{
+nnoremap <silent> <space>y :CocList -A --normal yank<CR>
 " }}}
 
 " ### Window navigation {{{
