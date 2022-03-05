@@ -314,18 +314,3 @@ command Rmsp execute '%s/\s\+$//e'
 command Q execute "q!"
 command W execute "wq"
 " }}}
-
-" ########## FUNCTIONS AND ASSOCIATED COMMANDS ########## {{{
-
-function! SetupRename()
-	execute 'g/.*/execute "normal Imv \"\<Esc>xA\"\<Esc>xhvi\"y0f\"pa\" "'
-	nohlsearch
-	" TODO: Increase spacin on each line so that the block on the right is all aligned
-	" Loop over every line and get the column of the third " character
-	" The maximum of these column values in the desired value
-	" Loop over every line and add enough spaces to get to that desired value
-	execute 'normal ggf";;l'
-endfunction
-
-command SRen call SetupRename()
-" }}}
