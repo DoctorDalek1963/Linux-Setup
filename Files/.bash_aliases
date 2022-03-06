@@ -251,7 +251,7 @@ cppushd() {
 	custom_pushd "$2"
 }
 
-source_dotdotdot() {
+_source_dotdotdot() {
 	# If ... is a symlink, source it
 	if [ -L "..." ]; then
 		echo "Sourcing $(readlink ...)"
@@ -261,7 +261,7 @@ source_dotdotdot() {
 	fi
 }
 # Bash doesn't like a function with this name, so we just alias it
-alias ..="source_dotdotdot"
+alias ..="_source_dotdotdot"
 
 _small_prompt_function() {
 	if [ "$(pwd)" = "/" ]; then
