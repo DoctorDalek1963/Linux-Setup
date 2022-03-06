@@ -27,6 +27,31 @@ alias pnb="julia -e 'import Pluto; Pluto.run()'"
 alias pmhttp="python -m http.server"
 alias pip="python -m pip"
 
+mkvenv() {
+	if [ -d ./venv ] && [ "$1" != "-f" ]; then
+		echo 'venv already exists. Use -f to force a new one'
+		return 1
+	elif [ -d ./venv ] && [ "$1" == "-f" ]; then
+		rm -rf ./venv
+	fi
+
+	python -m venv venv
+	. ./venv/bin/activate
+	ln -f -s ./venv/bin/activate ...
+	python -m pip install --upgrade pip
+}
+
+rmvenv() {
+	if [ ! -d ./venv ]; then
+		echo 'venv does not exist'
+		return 1
+	fi
+
+	deactivate
+	[ -f ... ] && rm ...
+	rm -rf ./venv
+}
+
 # List all processes in a user-oriented format with ASCII art hierarchy by default
 alias ps="ps axuf"
 
