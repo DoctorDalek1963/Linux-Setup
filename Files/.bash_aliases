@@ -135,8 +135,8 @@ alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
 
 alias upsnips="cp -r ~/.config/nvim/UltiSnips $git_repo/UltiSnips"
 
-# Update and upgrade apt and apt-get libraries
-alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove --purge;echo;echo 'apt and apt-get updated and upgraded'"
+# Update and upgrade apt libraries
+alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove --purge;echo;echo 'apt updated and upgraded'"
 
 # This is a function because if it's an alias, the curl command gets
 # evaluated when the file is sourced rather than when the alias is run
