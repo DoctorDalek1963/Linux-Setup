@@ -43,3 +43,5 @@
 	gpgSign = true
 [tag]
 	gpgSign = true
+[push]
+	followTags = true
