@@ -38,6 +38,15 @@ except ModuleNotFoundError:
     print('--------------------------')
     print('Unable to import bitstring')
     print('--------------------------')
+''',
+    '''
+try:
+    from probcalc import P, B, Po
+
+except ModuleNotFoundError:
+    print('-------------------------')
+    print('Unable to import probcalc')
+    print('-------------------------')
 '''
 ]
 
