@@ -100,8 +100,8 @@ build_prompt() {
 	fi
 
 	if [ -n "$VIRTUAL_ENV" ] && [ $EXTENDED_PS1 -ne 0 ]; then
-		# If there is a venv, we only want the last two dirs in the path, so we grep it
-		venv=$(echo $VIRTUAL_ENV | grep -Eo "[^/]*/[^/]*$")
+		# If there is a venv, we only want the penultimate dir in the path, so we grep it
+		venv=$(echo $VIRTUAL_ENV | grep -Po "[^/]*(?=/[^/]*$)")
 		# We then disable the normal venv prompt addition
 		VIRTUAL_ENV_DISABLE_PROMPT=1
 
