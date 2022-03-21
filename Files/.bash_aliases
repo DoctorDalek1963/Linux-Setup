@@ -52,6 +52,10 @@ rmvenv() {
 	rm -rf ./venv
 }
 
+initvenv() {
+	pip install numpy sympy bitstring IPython
+}
+
 # List all processes in a user-oriented format with ASCII art hierarchy by default
 alias ps="ps axuf"
 
