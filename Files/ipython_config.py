@@ -22,6 +22,12 @@ try:
     f, g, h = sp.symbols("f g h", cls=sp.Function)
     sp.init_printing()
 
+    def matrix_minors(matrix: sp.Matrix) -> sp.Matrix:
+        return sp.Matrix([
+            [matrix.minor(row, col) for col in range(matrix.T.rows)]
+            for row in range(matrix.rows)
+        ])
+
 except ModuleNotFoundError:
     print('----------------------')
     print('Unable to import SymPy')
