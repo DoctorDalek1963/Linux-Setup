@@ -121,7 +121,7 @@ build_prompt() {
 		fi
 	fi
 
-	PS1="$PS1 \$ "
+	PS1="$PS1\n\[\033[01;32m\]\$\[\033[00m\] "
 }
 
 PROMPT_COMMAND=build_prompt
