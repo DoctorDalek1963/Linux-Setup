@@ -1,6 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# === Defaults
 
 # If not running interactively, don't do anything
 case $- in
@@ -8,34 +6,45 @@ case $- in
 	  *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
+# Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
+# Append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2500
 
-# check the window size after each command and, if necessary,
+# Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+# shopt -s globstar
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/lib"
-
-# make less more friendly for non-text input files, see lesspipe(1)
+# Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
+# Set variable identifying the chroot you work in (used in the PS1)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
+
+# Enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+	. /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+	. /etc/bash_completion
+  fi
+fi
+
+# === PS1
 
 # We want the PS1 to be extended by default
 EXTENDED_PS1=1
@@ -126,7 +135,9 @@ build_prompt() {
 
 PROMPT_COMMAND=build_prompt
 
-# enable color support of ls and also add handy aliases
+# === Aliases and colours
+
+# Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
@@ -142,10 +153,10 @@ else
 	alias diff='diff --side-by-side'
 fi
 
-# colored GCC warnings and errors
+# Colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
+# Some more ls aliases
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
@@ -154,25 +165,12 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Load the separate ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-  fi
-fi
+# === Custom scripts
 
 # Source personal completion scripts
 if [ -d $HOME/.local/misc/bash-completion ]; then
@@ -181,12 +179,10 @@ if [ -d $HOME/.local/misc/bash-completion ]; then
 	done
 fi
 
-export ATHAME_ENABLED=0 # Disable athame
+# Add dirs in /opt to PATH
+[ -f /opt/add_to_path ] && . /opt/add_to_path
 
-# Add every directory in /opt to PATH
-for dir in /opt/*; do
-	[ -d "$dir" ] && PATH="$PATH:$dir"
-done
+# === PATH config
 
 # Configure PATH for sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -198,3 +194,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -d "$HOME/.texlive/2021/texmf-dist/doc/man" ] && MANPATH="$HOME/.texlive/2021/texmf-dist/doc/man:$MANPATH"
 [ -d "$HOME/.texlive/2021/texmf-dist/doc/info" ] && INFOPATH="$HOME/.texlive/2021/texmf-dist/doc/info:$INFOPATH"
 [ -d "$HOME/.texlive/2021/bin/x86_64-linux" ] && PATH="$HOME/.texlive/2021/bin/x86_64-linux:$PATH"
+
+# === Environment variables
+
+export ATHAME_ENABLED=0
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/lib"

@@ -179,9 +179,6 @@ alias gplall="python ~/repos/git_all.py pull"
 alias gfplall="python ~/repos/git_all.py fetch && python ~/repos/git_all.py pull"
 alias gpall="python ~/repos/git_all.py push"
 
-# This alias is for my EPQ Activity Log
-alias gcmaddacca="git commit -m 'Add Activity Log entry'"
-
 # Search long-form history
 alias grephist="cat ~/.bash_history | grep"
 
@@ -193,9 +190,10 @@ cpunicp() {
 
 # Create executable file and open it with vim
 vex() {
-	touch "$1"
-	chmod +x "$1"
 	vim "$1"
+	if [ -f "$1" ]; then
+		chmod +x "$1"
+	fi
 }
 
 # Pipe to clip for easy copying
@@ -289,6 +287,7 @@ _source_dotdotdot() {
 		echo "No '...' symlink to source"
 	fi
 }
+
 # Bash doesn't like a function with this name, so we just alias it
 alias ..="_source_dotdotdot"
 
@@ -322,8 +321,6 @@ tiny_prompt() {
 # If batcat exists but bat doesn't, alias it
 which batcat &> /dev/null && which bat &> /dev/null || alias bat="batcat"
 
-eval "$(thefuck --alias)"
-
 which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
 
 alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
@@ -339,7 +336,7 @@ utf8() {
 			echo $(echo -n "$2" | xxd -g 1 | grep -iPo "(?<=[0-9a-f]{8}: )([0-9a-f]{2} )+" | tr -d "\n" | xargs | tr " " ":")
 			;;
 		*)
-			echo "Usage: utf8 < -b | -h > <string>"
+			echo "Usage: utf8 -b|-h string"
 			;;
 	esac
 }
