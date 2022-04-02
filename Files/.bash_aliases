@@ -8,7 +8,7 @@ else
 fi
 
 # Single letter aliases
-alias c="clear"
+alias c="cat"
 alias g="git"
 alias j="julia"
 alias p="python"
@@ -17,6 +17,7 @@ alias v="vim"
 alias x="exit"
 
 # Two letter simple aliases
+alias cl="clear"
 alias la="ls -a"
 alias ll="ls -la"
 alias lh="ls -lah"
