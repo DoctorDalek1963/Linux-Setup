@@ -24,6 +24,8 @@ let g:latex_to_unicode_auto = 1
 
 Plug 'godlygeek/tabular'
 
+Plug 'jeetsukumaran/vim-pythonsense'
+
 Plug 'unblevable/quick-scope'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
