@@ -341,3 +341,5 @@ utf8() {
 			;;
 	esac
 }
+
+alias rclone="rclone --progress --bwlimit=\"09:00,256 23:00,off\""
