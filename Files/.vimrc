@@ -299,6 +299,13 @@ augroup vim_augroup
 augroup END
 " }}}
 
+" FileType markdown {{{
+augroup markdown_augroup
+	autocmd!
+	autocmd FileType markdown setlocal linebreak " Wrap on word
+augroup END
+" }}}
+
 " Python {{{
 augroup python_augroup
 	autocmd!
