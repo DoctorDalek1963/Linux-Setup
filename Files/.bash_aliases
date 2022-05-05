@@ -181,7 +181,7 @@ alias gfplall="python ~/repos/git_all.py fetch && python ~/repos/git_all.py pull
 alias gpall="python ~/repos/git_all.py push"
 
 # Search long-form history
-alias grephist="cat ~/.bash_history | grep"
+alias grephist="cat ~/.bash_history | grep --"
 
 # Copy Unicode code point
 cpunicp() {
