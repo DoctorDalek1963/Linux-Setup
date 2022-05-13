@@ -29,6 +29,7 @@
 	apa = add -p -A
 	ae = add -e
 	aea = add -e -A
+	sw = switch
 	unstage = restore --staged
 	uncommit = reset --soft HEAD~1
 [filter "nousagecount"]
