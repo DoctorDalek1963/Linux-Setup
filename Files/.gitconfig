@@ -7,28 +7,28 @@
 [init]
 	defaultBranch = main
 [alias]
-	co = checkout
+	a = add
+	aa = add -A
+	ae = add -e
+	aea = add -e -A
+	ap = add -p
+	apa = add -p -A
 	br = branch
 	c = commit
 	ca = commit -a
-	cm = commit -m
 	cam = commit -a -m
 	cane = commit --amend --no-edit
+	cm = commit -m
+	co = checkout
 	fixm = commit --amend
-	st = status
-	sh = show
 	l = log
-	last = log -1 HEAD
-	puom = push -u origin main
-	lo = log --pretty=oneline --abbrev-commit
 	la = log --abbrev-commit
+	last = log -1 HEAD
 	lg = log --graph
-	a = add
-	aa = add -A
-	ap = add -p
-	apa = add -p -A
-	ae = add -e
-	aea = add -e -A
+	lo = log --pretty=oneline --abbrev-commit
+	puom = push -u origin main
+	sh = show
+	st = status
 	sw = switch
 	unstage = restore --staged
 	uncommit = reset --soft HEAD~1
