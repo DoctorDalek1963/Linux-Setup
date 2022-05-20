@@ -26,6 +26,7 @@
 	last = log -1 HEAD
 	lg = log --graph
 	lo = log --pretty=oneline --abbrev-commit
+	pfwl = push --force-with-lease
 	puom = push -u origin main
 	sh = show
 	st = status

@@ -166,6 +166,7 @@ alias addjsghssh="ssh-add ~/.ssh/john_smith_github"
 alias gitswitch="bash ~/repos/misc-personal/bash/gitswitch.sh"
 
 alias gp="git push"
+alias gpfwl="git push --force-with-lease"
 alias gpx="git push && exit"
 alias gst="git status"
 alias ga="git add -A"
