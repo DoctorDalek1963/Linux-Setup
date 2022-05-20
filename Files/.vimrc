@@ -299,10 +299,12 @@ augroup vim_augroup
 augroup END
 " }}}
 
-" FileType markdown {{{
-augroup markdown_augroup
+" Defaults {{{
+augroup defaults_augroup
 	autocmd!
-	autocmd FileType markdown setlocal linebreak " Wrap on word
+	autocmd FileType markdown,tex setlocal linebreak " Wrap on word
+	autocmd FileType markdown,tex setlocal spell " Highlight spelling errors
+	autocmd FileType tex setlocal conceallevel=0 " Don't hide anything
 augroup END
 " }}}
 
