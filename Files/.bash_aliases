@@ -345,3 +345,5 @@ utf8() {
 }
 
 alias rclone="rclone --progress --bwlimit=\"09:00,256 23:00,off\""
+
+alias resetwifi="nmcli networking off && nmcli networking on"
