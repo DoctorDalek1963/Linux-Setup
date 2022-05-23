@@ -55,6 +55,7 @@ rmvenv() {
 
 initvenv() {
 	pip install numpy sympy bitstring IPython
+	[ -f ./requirements.txt ] && pip install -r requirements.txt
 }
 
 # List all processes in a user-oriented format with ASCII art hierarchy by default
