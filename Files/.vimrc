@@ -81,6 +81,14 @@ let g:lightline.component_type = {
 	\	'linter_ok': 'right',
 	\ }
 
+let g:lightline.component_function = {
+	\	'readonly': 'LightlineReadonly'
+	\ }
+
+function! LightlineReadonly()
+	return &readonly && &filetype !=# 'help' ? 'RO' : ''
+endfunction
+
 " This will set the ALE linting stuff on the far right, and then my normal vim file info stuff to the left of that
 let g:lightline.active = {
 	\	'right': [
