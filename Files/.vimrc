@@ -81,13 +81,22 @@ let g:lightline.component_type = {
 	\	'linter_ok': 'right',
 	\ }
 
-let g:lightline.component_function = {
-	\	'readonly': 'LightlineReadonly'
-	\ }
-
 function! LightlineReadonly()
 	return &readonly && &filetype !=# 'help' ? 'RO' : ''
 endfunction
+
+function! VisualWordsAndChars()
+	if mode()=="v"
+		return wordcount().visual_words . "W " . wordcount().visual_chars . "C"
+	else
+		return ""
+	endif
+endfunction
+
+let g:lightline.component_function = {
+	\	'readonly': 'LightlineReadonly',
+	\	'visualwordsandchars': 'VisualWordsAndChars'
+	\ }
 
 " This will set the ALE linting stuff on the far right, and then my normal vim file info stuff to the left of that
 let g:lightline.active = {
@@ -95,7 +104,8 @@ let g:lightline.active = {
 	\		[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
 	\		[ 'lineinfo' ],
 	\		[ 'percent' ],
-	\		[ 'fileformat', 'fileencoding', 'filetype' ]
+	\		[ 'fileformat', 'fileencoding', 'filetype' ],
+	\		[ 'visualwordsandchars' ],
 	\	],
 	\	'left': [
 	\		[ 'mode' ],
