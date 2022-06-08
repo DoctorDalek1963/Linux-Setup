@@ -58,7 +58,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %(code): %%s'
 
 let g:ale_linters = {
-	\	'tex': []
+	\	'tex': [],
+	\	'cpp': []
 	\ }
 " }}}
 
