@@ -98,6 +98,7 @@ InstallLanguageServers() {
 	which ghcup &> /dev/null && ghcup install hls
 	which julia &> /dev/null && julia -e "using Pkg;Pkg.add(\"LanguageServer\");Pkg.add(\"SymbolServer\");Pkg.add(\"StaticLint\")"
 	pip install 'python-language-server[all]'
+	CheckWithWhichAndInstallWithAPT ccls
 }
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
