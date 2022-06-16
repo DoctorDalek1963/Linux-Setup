@@ -139,11 +139,14 @@ alias vcocset="vim ~/.config/nvim/coc-settings.json"
 alias upxcomp="cp ~/.XCompose '$git_repo' && echo \~/.XCompose updated in git repo"
 alias vxcomp="vim ~/.XCompose"
 
+alias upis="cp ~/.sage/init.sage '$git_repo' && echo \~/.sage/init.sage updated in git repo"
+alias vis="vim ~/.sage/init.sage"
+
 alias upsnips="cp -r ~/.config/nvim/UltiSnips '$git_repo/UltiSnips' && echo \~/.config/nvim/UltiSnips/ updated in git repo"
 
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;upxcomp;upsnips;echo;echo Everything updated"
+alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;upxcomp;upis;upsnips;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 # Update and upgrade apt libraries

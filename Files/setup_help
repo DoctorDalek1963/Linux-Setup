@@ -22,6 +22,7 @@ Commands:
   coc-settings                     Copies coc-settings.json to its proper directory.
   init.vim                         Copies init.vim to its proper directory.
   vim-ultisnips                    Copies UltiSnips folder to its proper directory.
+  init.sage                        Copies init.sage to its proper directory.
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.

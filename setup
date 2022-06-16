@@ -39,6 +39,9 @@ AllFiles() {
 	OptionalMkdir ~/.ipython/profile_default
 	cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 
+	OptionalMkdir ~/.sage
+	cp Files/init.sage ~/.sage/init.sage
+
 	OptionalMkdir ~/.config/neofetch
 	cp Files/neofetch_config ~/.config/neofetch/config.conf
 
@@ -202,6 +205,13 @@ while [ $# -ne 0 ]; do
 		'ipython-config')
 			OptionalMkdir ~/.ipython/profile_default
 			cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+			shift
+			continue
+		;;
+
+		'init.sage')
+			OptionalMkdir ~/.sage
+			cp Files/init.sage ~/.sage/init.sage
 			shift
 			continue
 		;;
