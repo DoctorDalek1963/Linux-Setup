@@ -139,14 +139,12 @@ alias vcocset="vim ~/.config/nvim/coc-settings.json"
 alias upxcomp="cp ~/.XCompose '$git_repo' && echo \~/.XCompose updated in git repo"
 alias vxcomp="vim ~/.XCompose"
 
+alias upsnips="cp -r ~/.config/nvim/UltiSnips '$git_repo/UltiSnips' && echo \~/.config/nvim/UltiSnips/ updated in git repo"
+
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;upxcomp;echo;echo Everything updated"
+alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;upxcomp;upsnips;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
-
-alias fullsrcup="srcupall;echo;srcupall" # Do it twice just to be sure
-
-alias upsnips="cp -r ~/.config/nvim/UltiSnips $git_repo/UltiSnips"
 
 # Update and upgrade apt libraries
 alias suaptup="sudo apt -y update && sudo apt -y upgrade;echo;sudo apt -y autoremove --purge;echo;echo 'apt updated and upgraded'"
