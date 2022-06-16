@@ -142,7 +142,7 @@ alias vxcomp="vim ~/.XCompose"
 alias upis="cp ~/.sage/init.sage '$git_repo' && echo \~/.sage/init.sage updated in git repo"
 alias vis="vim ~/.sage/init.sage"
 
-alias upsnips="cp -r ~/.config/nvim/UltiSnips '$git_repo/UltiSnips' && echo \~/.config/nvim/UltiSnips/ updated in git repo"
+alias upsnips="cp -r ~/.config/nvim/UltiSnips '$git_repo/.' && echo \~/.config/nvim/UltiSnips/ updated in git repo"
 
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
