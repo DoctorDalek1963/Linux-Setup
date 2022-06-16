@@ -25,6 +25,11 @@ let g:latex_to_unicode_auto = 1
 Plug 'godlygeek/tabular'
 
 Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'vim-python/python-syntax'
+Plug 'Konfekt/FastFold'
+
+Plug 'tmhedberg/SimpylFold'
+let g:SimpylFold_docstring_preview = 1
 
 Plug 'unblevable/quick-scope'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
