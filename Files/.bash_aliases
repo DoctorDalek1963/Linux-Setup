@@ -149,7 +149,7 @@ alias upsnips="cp -r ~/.config/nvim/UltiSnips '$git_repo/.' && echo \~/.config/n
 
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upinitv;upivrc;upbal;upbrc;upgc;upnf;uptmf;upipyc;uppylrc;upcocset;upxcomp;upis;upsnips;echo;echo Everything updated"
+alias upall="upvrc;upinitv;upcocset;upsnips;upivrc;echo;upbrc;upbal;upxcomp;upgc;upnf;uptmf;echo;upipyc;uppylrc;echo;upsjl;upis;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 # Update and upgrade apt libraries
