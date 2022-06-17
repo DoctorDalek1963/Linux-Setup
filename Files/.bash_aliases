@@ -139,6 +139,9 @@ alias vcocset="vim ~/.config/nvim/coc-settings.json"
 alias upxcomp="cp ~/.XCompose '$git_repo' && echo \~/.XCompose updated in git repo"
 alias vxcomp="vim ~/.XCompose"
 
+alias vsjl="vim ~/.julia/config/startup.jl"
+alias upsjl="cp ~/.julia/config/startup.jl '$git_repo' && echo \~/.julia/config/startup.jl updated in git repo"
+
 alias upis="cp ~/.sage/init.sage '$git_repo' && echo \~/.sage/init.sage updated in git repo"
 alias vis="vim ~/.sage/init.sage"
 

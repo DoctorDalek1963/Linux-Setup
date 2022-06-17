@@ -39,6 +39,9 @@ AllFiles() {
 	OptionalMkdir ~/.ipython/profile_default
 	cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 
+	OptionalMkdir ~/.julia/config
+	cp Files/startup.jl ~/.julia/config/startup.jl
+
 	OptionalMkdir ~/.sage
 	cp Files/init.sage ~/.sage/init.sage
 
@@ -206,6 +209,13 @@ while [ $# -ne 0 ]; do
 		'ipython-config')
 			OptionalMkdir ~/.ipython/profile_default
 			cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+			shift
+			continue
+		;;
+
+		'startup.jl')
+			OptionalMkdir ~/.julia/config
+			cp Files/startup.jl ~/.julia/config/startup.jl
 			shift
 			continue
 		;;
