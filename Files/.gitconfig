@@ -47,3 +47,5 @@
 	gpgSign = true
 [push]
 	followTags = true
+[fetch]
+	prune = true
