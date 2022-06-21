@@ -5,4 +5,16 @@ f = function('f')(x)
 g = function('g')(x)
 h = function('h')(x)
 
+try:
+    import numpy as np
+
+    def rad2deg(x, /):
+        return np.rad2deg(float(x))
+
+    def deg2rad(x, /):
+        return np.deg2rad(float(x))
+
+except ModuleNotFoundError:
+    pass
+
 %display unicode_art
