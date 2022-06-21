@@ -1,5 +1,6 @@
 _ = var('a b c d s t u v y z')
 _ = var('k m n p q', domain=ZZ)
+del _
 
 f = function('f')(x)
 g = function('g')(x)
