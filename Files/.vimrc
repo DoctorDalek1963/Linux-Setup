@@ -291,8 +291,9 @@ nnoremap <leader>l :!clear<cr><cr>
 " Remove search highlight
 nnoremap <silent> <leader>n :nohlsearch<cr>
 
-" Add a semicolon to the end of a line
+" Add a semicolon or comma to the end of a line
 nnoremap <leader>; mqA;<esc>`q
+nnoremap <leader>, mqA,<esc>`q
 
 " Add a colon to the end of the line and start a new line
 nnoremap <leader>: A:<esc>o
