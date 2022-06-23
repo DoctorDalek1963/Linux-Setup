@@ -230,8 +230,13 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Easier splitting into new panes
-nnoremap <Bar> <C-w>v<C-w>l
-nnoremap - <C-w>s<C-w>j
+" Open empty buffer by default
+nnoremap <Bar> <C-w>v<C-w>l<C-w>n<C-w>j<C-w>c
+nnoremap - <C-w>n<C-w>x<C-w>j
+
+" Open current file with leader
+nnoremap <leader><Bar> <C-w>v<C-w>l
+nnoremap <leader>- <C-w>s<C-w>j
 " }}}
 
 " ### Writing files and quitting vim {{{
