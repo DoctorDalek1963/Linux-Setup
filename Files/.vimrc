@@ -157,6 +157,7 @@ let g:coc_global_extensions = [
 			\ 'coc-tsserver',
 			\ 'coc-ultisnips',
 			\ 'coc-vimlsp',
+			\ 'coc-yank',
 			\ ]
 " }}}
 
