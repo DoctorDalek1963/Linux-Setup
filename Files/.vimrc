@@ -33,6 +33,11 @@ let g:SimpylFold_docstring_preview = 1
 
 Plug 'petRUShka/vim-sage'
 
+Plug 'lervag/vimtex'
+let g:vimtex_view_general_viewer = 'evince'
+
+let g:tex_conceal = ""
+
 Plug 'unblevable/quick-scope'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -157,6 +162,7 @@ let g:coc_global_extensions = [
 			\ 'coc-tsserver',
 			\ 'coc-ultisnips',
 			\ 'coc-vimlsp',
+			\ 'coc-vimtex',
 			\ 'coc-yank',
 			\ ]
 " }}}
@@ -165,6 +171,7 @@ let g:coc_global_extensions = [
 
 " Set the mapleader
 let mapleader = '\'
+let maplocalleader = '\'
 
 syntax on
 filetype indent plugin on
@@ -207,6 +214,9 @@ set autoread
 
 " Use British English as the language for spell checking
 set spelllang=en_gb
+
+" Never hide things
+set conceallevel=0
 " }}}
 
 " ########## MAPPINGS ########## {{{
@@ -286,7 +296,7 @@ nnoremap <space><space> za
 nnoremap <leader><space> zA
 
 " Clear the terminal
-nnoremap <leader>l :!clear<cr><cr>
+nnoremap <leader>cl :!clear<cr><cr>
 
 " Remove search highlight
 nnoremap <silent> <leader>n :nohlsearch<cr>
@@ -341,7 +351,6 @@ augroup defaults_augroup
 	autocmd!
 	autocmd FileType markdown,tex setlocal linebreak " Wrap on word
 	autocmd FileType markdown,tex setlocal spell " Highlight spelling errors
-	autocmd FileType tex setlocal conceallevel=0 " Don't hide anything
 augroup END
 " }}}
 
