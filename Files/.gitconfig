@@ -22,10 +22,10 @@
 	co = checkout
 	fixm = commit --amend
 	l = log
-	la = log --abbrev-commit
+	la = log --all --decorate
 	last = log -1 HEAD
-	lg = log --graph
-	lo = log --pretty=oneline --abbrev-commit
+	lg = log --all --decorate --oneline --graph
+	lo = log --oneline
 	pfwl = push --force-with-lease
 	puom = push -u origin main
 	sh = show
