@@ -42,8 +42,9 @@ nnoremap <leader><space> zA
 nnoremap <leader>w :w<Enter>
 nnoremap <leader><leader> :w<Enter>
 
-" Add a semicolon to the end of a line
+" Add a semicolon or comma to the end of a line
 nnoremap <leader>; mqA;<esc>`q
+nnoremap <leader>, mqA,<esc>`q
 
 " Remove search highlight
 nnoremap <leader>n :nohlsearch<cr>
