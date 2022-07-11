@@ -27,6 +27,7 @@ alias jnb="jupyter notebook"
 alias pnb="julia -e 'import Pluto; Pluto.run()'"
 alias pmhttp="python -m http.server"
 alias pip="python -m pip"
+alias pup="python -m pip install --upgrade pip"
 
 mkvenv() {
 	if [ -d ./venv ] && [ "$1" != "-f" ]; then
