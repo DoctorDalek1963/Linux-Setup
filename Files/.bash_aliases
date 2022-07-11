@@ -40,6 +40,7 @@ mkvenv() {
 	. ./venv/bin/activate
 	ln -f -s ./venv/bin/activate ...
 	python -m pip install --upgrade pip
+	python -m pip install wheel
 }
 
 rmvenv() {
