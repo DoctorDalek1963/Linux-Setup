@@ -24,7 +24,7 @@
 	l = log
 	la = log --all --decorate
 	last = log -1 HEAD
-	lg = log --all --decorate --oneline --graph
+	lg = log --branches --remotes --tags --graph --oneline --decorate --notes HEAD
 	lo = log --oneline
 	pfwl = push --force-with-lease
 	puom = push -u origin main
