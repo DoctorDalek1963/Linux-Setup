@@ -217,6 +217,8 @@ set spelllang=en_gb
 
 " Never hide things
 set conceallevel=0
+
+set scrolloff=2 " Keep two lines of context around cursor line
 " }}}
 
 " ########## MAPPINGS ########## {{{

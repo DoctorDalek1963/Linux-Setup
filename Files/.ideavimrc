@@ -23,6 +23,8 @@ autocmd FileType python set expandtab
 set foldenable
 set foldmethod=indent
 
+set scrolloff=2
+
 " ########## MAPPINGS ###########
 
 " Easier 4 directional navigation
