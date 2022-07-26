@@ -3,6 +3,14 @@ c.InteractiveShell.confirm_exit = False
 c.InteractiveShellApp.exec_lines = [
     '%load_ext autoreload',
     '%autoreload 2',
+    '''
+import os
+import re
+import sys
+
+from datetime import datetime as dt
+from datetime import timedelta as td
+    ''',
     'import math as ma',
     '''
 try:
