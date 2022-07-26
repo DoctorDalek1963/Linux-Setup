@@ -20,6 +20,7 @@
 	cane = commit --amend --no-edit
 	cm = commit -m
 	co = checkout
+	cob = checkout -b
 	fixm = commit --amend
 	l = log
 	la = log --all --decorate
