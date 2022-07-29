@@ -1,7 +1,7 @@
 " ########## PLUGIN STUFF ########## {{{
 " I'm using vim-plug to manage all of my plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'preservim/NERDTree'
 Plug 'andymass/vim-matchup'
