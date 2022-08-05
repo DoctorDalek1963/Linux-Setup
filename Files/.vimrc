@@ -168,19 +168,80 @@ let g:coc_global_extensions = [
 			\ 'coc-yank',
 			\ ]
 
-" Remapping code for pum (popup menu) taken from https://github.com/neoclide/coc.nvim/pull/3862#issue-1253872729
+" coc config taken partly from https://github.com/neoclide/coc.nvim/blob/e230811e3827f703d816013d860ec1d91e0198e3/README.md#example-vim-configuration
+" and new pum (popup menu) mappings from https://github.com/neoclide/coc.nvim/pull/3862#issue-1253872729
+
+" Backups can mess with LSPs
+set nobackup
+set nowritebackup
+
+" Faster updates means coc and gitgutter both work better
+set updatetime=100
+
+set signcolumn=yes
+
+" Confirm selection
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+" Use tab to navigate popup menu
 inoremap <silent><expr> <TAB>
 	\ coc#pum#visible() ? coc#pum#next(1):
-	\ <SID>check_back_space() ? "\<Tab>" :
+	\ CheckBackspace() ? "\<Tab>" :
 	\ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-inoremap <silent><expr> <c-space> coc#refresh()
 
+if has('nvim')
+	inoremap <silent><expr> <c-space> coc#refresh()
+else
+	inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use arrow keys to navigate popup menu
 inoremap <silent><expr> <down> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
 inoremap <silent><expr> <up> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
+
+" 'Exit' and 'Yes'
 inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
 inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
+endfunction
+
+" Symbol renaming and refactoring
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rf <Plug>(coc-refactor)
+
+" Scroll through floating windows
+" 1 moves forward, 0 moves backward
+" The second 1 just means 1 line at a time
+nnoremap <silent> <S-Down> :call coc#float#scroll(1, 1)<CR>
+nnoremap <silent> <S-Up> :call coc#float#scroll(0, 1)<CR>
+
+" Preview yanked things
+nnoremap <silent> <leader>y :CocList -A --normal yank<CR>
 " }}}
 
 " ########## MISC THINGS ########## {{{
@@ -199,8 +260,6 @@ colorscheme onedark
 
 set laststatus=2 " Let lightline status bar work
 set noshowmode " Hide original status bar
-
-set updatetime=100 " Update things faster (this reduces the delay of gitgutter)
 
 set number relativenumber " set number options
 set ruler
@@ -238,17 +297,6 @@ set scrolloff=2 " Keep two lines of context around cursor line
 " }}}
 
 " ########## MAPPINGS ########## {{{
-
-" ### COC Hover Window Scrolling {{{
-" 1 moves forward, 0 moves backward
-" The second 1 just means 1 line at a time
-nnoremap <silent> <S-Down> :call coc#float#scroll(1, 1)<CR>
-nnoremap <silent> <S-Up> :call coc#float#scroll(0, 1)<CR>
-" }}}
-
-" ### COC yank preview {{{
-nnoremap <silent> <space>y :CocList -A --normal yank<CR>
-" }}}
 
 " ### Window navigation {{{
 
