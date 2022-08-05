@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+FILES="$( cd $(dirname $0)/Files && pwd )"
+
 CheckWithWhichAndInstallWithAPT() {
 	# Redirect stdout and stderr to /dev/null to avoid outputting anything to the terminal
 	which $1 &> /dev/null || sudo apt install -y $1
@@ -27,35 +29,36 @@ AllFonts() {
 }
 
 AllFiles() {
-	cp Files/.vimrc ~
-	cp Files/.ideavimrc ~
-	cp Files/.bash_aliases ~ && source ~/.bash_aliases
-	cp Files/.bashrc ~ && source ~/.bashrc
-	cp Files/.gitconfig ~
-	cp Files/.tern-config ~
-	cp Files/.pylintrc ~
-	cp Files/.XCompose ~
+	ln -sf $FILES/.vimrc ~/.vimrc
+	ln -sf $FILES/.ideavimrc ~/.ideavimrc
+	ln -sf $FILES/.bash_aliases ~/.bash_aliases && source ~/.bash_aliases
+	ln -sf $FILES/.bashrc ~/.bashrc && source ~/.bashrc
+	ln -sf $FILES/.gitconfig ~/.gitconfig
+	ln -sf $FILES/.tern-config ~/.tern-config
+	ln -sf $FILES/.pylintrc ~/.pylintrc
+	ln -sf $FILES/.XCompose ~/.XCompose
 
 	OptionalMkdir ~/.ipython/profile_default
-	cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+	ln -sf $FILES/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 
 	OptionalMkdir ~/.julia/config
-	cp Files/startup.jl ~/.julia/config/startup.jl
+	ln -sf $FILES/startup.jl ~/.julia/config/startup.jl
 
 	OptionalMkdir ~/.sage
-	cp Files/init.sage ~/.sage/init.sage
+	ln -sf $FILES/init.sage ~/.sage/init.sage
 
 	OptionalMkdir ~/.config/neofetch
-	cp Files/neofetch_config ~/.config/neofetch/config.conf
+	ln -sf $FILES/neofetch_config ~/.config/neofetch/config.conf
 
 	OptionalMkdir ~/.config/terminator
-	cp Files/terminator_config ~/.config/terminator/config
+	ln -sf $FILES/terminator_config ~/.config/terminator/config
 
 	OptionalMkdir ~/.config/nvim
-	cp Files/init.vim ~/.config/nvim/init.vim
-	cp Files/coc-settings.json ~/.config/nvim/coc-settings.json
+	ln -sf $FILES/init.vim ~/.config/nvim/init.vim
+	ln -sf $FILES/coc-settings.json ~/.config/nvim/coc-settings.json
 
-	cp -r Files/UltiSnips ~/.config/nvim/
+	rm -rf ~/.config/nvim/UltiSnips
+	ln -sf $FILES/UltiSnips ~/.config/nvim/
 }
 
 MiscSoftware() {
@@ -164,105 +167,106 @@ while [ $# -ne 0 ]; do
 
 		########## Files
 		'vimrc')
-			cp Files/.vimrc ~
+			ln -sf $FILES/.vimrc ~/.vimrc
 			shift
 			continue
 		;;
 
 		'ideavimrc')
-			cp Files/.ideavimrc ~
+			ln -sf $FILES/.ideavimrc ~/.ideavimrc
 			shift
 			continue
 		;;
 
 
 		'bash-aliases')
-			cp Files/.bash_aliases ~ && source ~/.bash_aliases
+			ln -sf $FILES/.bash_aliases ~/.bash_aliases && source ~/.bash_aliases
 			shift
 			continue
 		;;
 
 		'bashrc')
-			cp Files/.bashrc ~ && source ~/.bashrc
+			ln -sf $FILES/.bashrc ~/.bashrc && source ~/.bashrc
 			shift
 			continue
 		;;
 
 		'gitconfig')
-			cp Files/.gitconfig ~
+			ln -sf $FILES/.gitconfig ~/.gitconfig
 			shift
 			continue
 		;;
 
 		'tern-config')
-			cp Files/.tern-config ~
+			ln -sf $FILES/.tern-config ~/.tern-config
 			shift
 			continue
 		;;
 
 		'pylintrc')
-			cp Files/.pylintrc ~
+			ln -sf $FILES/.pylintrc ~/.pylintrc
+			shift
+			continue
+		;;
+
+		'xcompose')
+			ln -sf $FILES/.XCompose ~/.XCompose
 			shift
 			continue
 		;;
 
 		'ipython-config')
 			OptionalMkdir ~/.ipython/profile_default
-			cp Files/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+			ln -sf $FILES/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 			shift
 			continue
 		;;
 
 		'startup.jl')
 			OptionalMkdir ~/.julia/config
-			cp Files/startup.jl ~/.julia/config/startup.jl
+			ln -sf $FILES/startup.jl ~/.julia/config/startup.jl
 			shift
 			continue
 		;;
 
 		'init.sage')
 			OptionalMkdir ~/.sage
-			cp Files/init.sage ~/.sage/init.sage
+			ln -sf $FILES/init.sage ~/.sage/init.sage
 			shift
 			continue
 		;;
 
 		'neofetch-config')
 			OptionalMkdir ~/.config/neofetch
-			cp Files/neofetch_config ~/.config/neofetch/config.conf
+			ln -sf $FILES/neofetch_config ~/.config/neofetch/config.conf
 			shift
 			continue
 		;;
 
 		'terminator-config')
 			OptionalMkdir ~/.config/terminator
-			cp Files/terminator_config ~/.config/terminator/config
+			ln -sf $FILES/terminator_config ~/.config/terminator/config
 			shift
 			continue
 		;;
 
 		'init.vim')
 			OptionalMkdir ~/.config/nvim
-			cp Files/init.vim ~/.config/nvim/init.vim
+			ln -sf $FILES/init.vim ~/.config/nvim/init.vim
 			shift
 			continue
 		;;
 
 		'coc-settings')
 			OptionalMkdir ~/.config/nvim
-			cp Files/coc-settings.json ~/.config/nvim/coc-settings.json
+			ln -sf $FILES/coc-settings.json ~/.config/nvim/coc-settings.json
 			shift
 			continue
 		;;
 
 		'vim-ultisnips')
-			cp -r Files/UltiSnips ~/.config/nvim/
-			shift
-			continue
-		;;
-
-		'xcompose')
-			cp Files/.XCompose ~
+			rm -rf ~/.config/nvim/UltiSnips
+			ln -sf $FILES/UltiSnips ~/.config/nvim/
 			shift
 			continue
 		;;

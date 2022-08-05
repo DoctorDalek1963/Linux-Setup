@@ -95,63 +95,28 @@ nox() {
 # Variable that holds the directory of the git repo holding this file and its associates
 git_repo="$HOME/repos/Linux-Setup/Files"
 
-# Deal with ~/.vimrc in single commands
-alias upvrc="cp ~/.vimrc '$git_repo' && echo \~/.vimrc updated in git repo"
 alias vvrc="vim ~/.vimrc"
-
-# Deal with ~/.config/nvim/init.vim in single commands
-alias upinitv="cp ~/.config/nvim/init.vim '$git_repo' && echo \~/.config/nvim/init.vim updated in git repo"
 alias vinitv="vim ~/.config/nvim/init.vim"
-
-# Deal with ~/.ideavimrc in single commands
-alias upivrc="cp ~/.ideavimrc '$git_repo' && echo \~/.ideavimrc updated in git repo"
 alias vivrc="vim ~/.ideavimrc"
 
-# Deal with ~/.bash_aliases in single commands
 alias srcbal="source ~/.bash_aliases && echo \~/.bash_aliases sourced"
-alias upbal="cp ~/.bash_aliases '$git_repo' && echo \~/.bash_aliases updated in git repo"
 alias vbal="vim ~/.bash_aliases"
 
-# Deal with ~/.bashrc in single commands
 alias srcbrc="source ~/.bashrc && echo \~/.bashrc sourced"
-alias upbrc="cp ~/.bashrc '$git_repo' && echo \~/.bashrc updated in git repo"
 alias vbrc="vim ~/.bashrc"
 
-# Deal with ~/.gitconfig in single commands
-alias upgc="cp ~/.gitconfig '$git_repo' && echo \~/.gitconfig updated in git repo"
 alias vgc="vim ~/.gitconfig"
-
-# Deal with neofetch config in single commands
-alias upnf="cp ~/.config/neofetch/config.conf '$git_repo'/neofetch_config && echo \~/.config/neofetch/config.conf updated in git repo"
 alias vnf="vim ~/.config/neofetch/config.conf"
-
-# Deal with terminator config in single commands
-alias uptmf="cp ~/.config/terminator/config '$git_repo'/terminator_config && echo \~/.config/terminator/config updated in git repo"
 alias vtmf="vim ~/.config/terminator/config"
-
-alias upipyc="cp ~/.ipython/profile_default/ipython_config.py '$git_repo' && echo \~/.ipython/profile_default/ipython_config.py updated in git repo"
 alias vipyc="vim ~/.ipython/profile_default/ipython_config.py"
-
-alias uppylrc="cp ~/.pylintrc '$git_repo' && echo \~/.pylintrc updated in git repo"
 alias vpylrc="vim ~/.pylintrc"
-
-alias upcocset="cp ~/.config/nvim/coc-settings.json '$git_repo' && echo \~/.config/nvim/coc-settings.json updated in git repo"
 alias vcocset="vim ~/.config/nvim/coc-settings.json"
-
-alias upxcomp="cp ~/.XCompose '$git_repo' && echo \~/.XCompose updated in git repo"
 alias vxcomp="vim ~/.XCompose"
-
 alias vsjl="vim ~/.julia/config/startup.jl"
-alias upsjl="cp ~/.julia/config/startup.jl '$git_repo' && echo \~/.julia/config/startup.jl updated in git repo"
-
-alias upis="cp ~/.sage/init.sage '$git_repo' && echo \~/.sage/init.sage updated in git repo"
 alias vis="vim ~/.sage/init.sage"
-
-alias upsnips="cp -r ~/.config/nvim/UltiSnips '$git_repo/.' && echo \~/.config/nvim/UltiSnips/ updated in git repo"
 
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
-alias upall="upvrc;upinitv;upcocset;upsnips;upivrc;echo;upbrc;upbal;upxcomp;upgc;upnf;uptmf;echo;upipyc;uppylrc;echo;upsjl;upis;echo;echo Everything updated"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"
 
 # Update and upgrade apt libraries
