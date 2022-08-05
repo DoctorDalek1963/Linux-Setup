@@ -15,7 +15,9 @@ Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'joshdick/onedark.vim'
-set termguicolors " 24-bit truecolor
+if has('termguicolors')
+	set termguicolors " 24-bit truecolor
+endif
 let g:onedark_terminal_italics=1
 
 Plug 'JuliaEditorSupport/julia-vim'
