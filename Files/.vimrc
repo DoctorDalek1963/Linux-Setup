@@ -415,8 +415,14 @@ augroup END
 " Defaults {{{
 augroup defaults_augroup
 	autocmd!
-	autocmd FileType markdown,tex setlocal linebreak " Wrap on word
-	autocmd FileType markdown,tex setlocal spell " Highlight spelling errors
+	" Wrap on word and highlight spelling errors
+	autocmd FileType markdown,tex,rst setlocal linebreak spell
+
+	" 80 char lines
+	autocmd FileType markdown,rst setlocal colorcolumn=100 textwidth=99
+
+	" reST tab settings
+	autocmd FileType rst setlocal tabstop=3 shiftwidth=3 expandtab
 augroup END
 " }}}
 
