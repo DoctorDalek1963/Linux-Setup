@@ -48,5 +48,6 @@
 	gpgSign = true
 [push]
 	followTags = true
+	autoSetupRemote = true
 [fetch]
 	prune = true
