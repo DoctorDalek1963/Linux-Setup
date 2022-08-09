@@ -384,6 +384,9 @@ nnoremap <silent> <leader>s :set spell!<cr>
 nnoremap <leader>cp :w !xclip -selection c<CR><CR>
 " Visual mode version that copies selection
 vnoremap <leader>cp "+y
+
+" Don't overwrite the default yank buffer when pasting
+vnoremap p pgvy
 " }}}
 " }}}
 
