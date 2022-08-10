@@ -9,22 +9,22 @@ Commands:
   fonts                            Installs the recommend fonts.
   vim-plugins                      Installs vim-plug and installs and updates all plugins.
 
-  vimrc                            Copies .vimrc to your home direcory.
-  ideavimrc                        Copies .ideavimrc to your home direcory.
-  bash-aliases                     Copies .bash_aliases to your home directory and sources it.
-  bashrc                           Copies .bashrc to your home directory and sources it.
-  gitconfig                        Copies .gitconfig to your home directory.
-  tern-config                      Copies .tern-config to your home directory.
-  pylintrc                         Copies .pylintrc to your home direcory.
+  vimrc                            Symlinks .vimrc to your home direcory.
+  ideavimrc                        Symlinks .ideavimrc to your home direcory.
+  bash-aliases                     Symlinks .bash_aliases to your home directory and sources it.
+  bashrc                           Symlinks .bashrc to your home directory and sources it.
+  gitconfig                        Symlinks .gitconfig to your home directory.
+  tern-config                      Symlinks .tern-config to your home directory.
+  pylintrc                         Symlinks .pylintrc to your home direcory.
 
-  ipython-config                   Copies ipython_config.py its proper directory.
-  neofetch-config                  Copies neofetch config to its proper directory.
-  terminator-config                Copies terminator config to its proper directory.
-  coc-settings                     Copies coc-settings.json to its proper directory.
-  init.vim                         Copies init.vim to its proper directory.
-  vim-ultisnips                    Copies UltiSnips folder to its proper directory.
-  startup.jl                       Copies startup.jl to its proper directory.
-  init.sage                        Copies init.sage to its proper directory.
+  ipython-config                   Symlinks ipython_config.py its proper directory.
+  neofetch-config                  Symlinks neofetch config to its proper directory.
+  terminator-config                Symlinks terminator config to its proper directory.
+  coc-settings                     Symlinks coc-settings.json to its proper directory.
+  init.vim                         Symlinks init.vim to its proper directory.
+  vim-ultisnips                    Symlinks UltiSnips folder to its proper directory.
+  startup.jl                       Symlinks startup.jl to its proper directory.
+  init.sage                        Symlinks init.sage to its proper directory.
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.
