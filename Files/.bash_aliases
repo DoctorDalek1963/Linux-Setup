@@ -22,6 +22,8 @@ alias la="ls -a"
 alias ll="ls -la"
 alias lh="ls -lah"
 
+alias rm="rm -v"  # If I ever accidentally delete the wrong thing, at least I know what's gone
+
 alias ipy="python -m IPython"
 alias jnb="jupyter notebook"
 alias pnb="julia -e 'import Pluto; Pluto.run()'"
