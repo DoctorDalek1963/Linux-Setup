@@ -57,6 +57,9 @@ AllFiles() {
 	ln -sf $FILES/init.vim ~/.config/nvim/init.vim
 	ln -sf $FILES/coc-settings.json ~/.config/nvim/coc-settings.json
 
+	OptionalMkdir ~/.config/nvim/lua
+	ln -sf $FILES/plugins.lua ~/.config/nvim/lua/plugins.lua
+
 	rm -rf ~/.config/nvim/UltiSnips
 	ln -sf $FILES/UltiSnips ~/.config/nvim/
 }
@@ -86,15 +89,14 @@ MiscSoftware() {
 	fi
 }
 
-InstallVimPlug() {
-	CheckWithWhichAndInstallWithAPT curl
-
-	# Install vim-plug in autoload directory
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+InstallNvimPacker() {
+	if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
+		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	fi
 }
 
 InstallAndUpdateVimPlugins() {
-	nvim -c "PlugClean" -c "PlugInstall" -c "PlugUpdate" -c "qa!"
+	nvim --headless -c "PackerCompile" -c "PackerClean" -c "PackerInstall" -c "PackerUpdate" -c "qa!"
 }
 
 InstallLanguageServers() {
@@ -129,7 +131,7 @@ while [ $# -ne 0 ]; do
 
 			AllFonts
 
-			InstallVimPlug
+			InstallNvimPacker
 
 			InstallAndUpdateVimPlugins
 
@@ -156,7 +158,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'vim-plugins')
-			InstallVimPlug
+			InstallNvimPacker
 
 			InstallAndUpdateVimPlugins
 
@@ -263,6 +265,13 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
+		'plugins.lua')
+			OptionalMkdir ~/.config/nvim/lua
+			ln -sf $FILES/plugins.lua ~/.config/nvim/lua/plugins.lua
+			shift
+			continue
+		;;
+
 		'vim-ultisnips')
 			rm -rf ~/.config/nvim/UltiSnips
 			ln -sf $FILES/UltiSnips ~/.config/nvim/
@@ -317,11 +326,8 @@ while [ $# -ne 0 ]; do
 		;;
 
 		########## Plugins
-		'install-vim-plug')
-			CheckWithWhichAndInstallWithAPT curl
-
-			# Install vim-plug in autoload directory
-			curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		'install-nvim-packer')
+			InstallNvimPacker
 			shift
 			continue
 		;;

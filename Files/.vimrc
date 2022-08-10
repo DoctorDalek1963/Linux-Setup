@@ -1,50 +1,28 @@
-" ########## PLUGIN STUFF ########## {{{
-" I'm using vim-plug to manage all of my plugins
-call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'preservim/NERDTree'
-Plug 'andymass/vim-matchup'
-
-Plug 'luochen1990/rainbow'
+" ########## PLUGIN CONFIG ########## {{{
+" luochen1990/rainbow
 let g:rainbow_active = 1 " Turn on rainbow parentheses
 
-Plug 'preservim/nerdcommenter'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
-
-Plug 'joshdick/onedark.vim'
+" joshdick/onedark.vim
 if has('termguicolors')
 	set termguicolors " 24-bit truecolor
 endif
 let g:onedark_terminal_italics=1
 
-Plug 'JuliaEditorSupport/julia-vim'
+" JuliaEditorSupport/julia-vim
 let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 1
 
-Plug 'godlygeek/tabular'
-
-Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'vim-python/python-syntax'
-Plug 'Konfekt/FastFold'
-
-Plug 'tmhedberg/SimpylFold'
+" tmhedberg/SimpylFold
 let g:SimpylFold_docstring_preview = 1
 
-Plug 'petRUShka/vim-sage'
-
-Plug 'lervag/vimtex'
+" lervag/vimtex
 let g:vimtex_view_general_viewer = 'evince'
-
 let g:tex_conceal = ""
 
-Plug 'unblevable/quick-scope'
+" unblevable/quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" indentLine {{{
-Plug 'Yggdroot/indentLine'
+" Yggdroot/indentLine {{{
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
@@ -52,19 +30,16 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_fileTypeExclude = ['json', 'markdown']
 " }}}
 
-" UltiSnips {{{
-Plug 'SirVer/ultisnips'
+" SirVer/UltiSnips and honza/vim-snippets {{{
 let g:UltiSnipsExpandTrigger="¬"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-Plug 'honza/vim-snippets'
 let g:ultisnips_python_quoting_style="single"
 " }}}
 
-" ALE {{{
-Plug 'dense-analysis/ale'
+" dense-analysis/ALE {{{
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 
@@ -77,12 +52,8 @@ let g:ale_linters = {
 	\ }
 " }}}
 
-" Lightline {{{
-Plug 'itchyny/lightline.vim'
+" itchyny/lightline.vim, maximbaz/lightline-ale, and josa42/vim-lightline-coc {{{
 let g:lightline = {'colorscheme': 'onedark'}
-
-Plug 'maximbaz/lightline-ale'
-Plug 'josa42/vim-lightline-coc'
 
 let g:lightline.component_expand = {
 	\	'linter_checking': 'lightline#ale#checking',
@@ -149,10 +120,8 @@ let g:lightline#ale#indicator_infos = "\uf129 "
 let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 " }}}
-call plug#end()
-" }}}
 
-" ########## COC.NVIM CONFIG ########## {{{
+" coc.nvim {{{
 let g:coc_global_extensions = [
 			\ 'coc-html',
 			\ 'coc-java',
@@ -242,6 +211,7 @@ nnoremap <silent> <S-Up> :call coc#float#scroll(0, 1)<CR>
 
 " Preview yanked things
 nnoremap <silent> <leader>y :CocList -A --normal yank<CR>
+" }}}
 " }}}
 
 " ########## MISC THINGS ########## {{{
@@ -434,6 +404,14 @@ augroup python_augroup
 	autocmd!
 	" Set a colour column at column 120 in Python files
 	autocmd FileType python setlocal colorcolumn=120
+augroup END
+" }}}
+
+" plugins.lua {{{
+augroup packer_config_augroup
+	autocmd!
+	" Re-compile plugins whenever config is changed
+	autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup END
 " }}}
 " }}}

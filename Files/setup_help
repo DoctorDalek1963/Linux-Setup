@@ -33,7 +33,7 @@ Commands:
   install-exa                      Installs exa.
   install-unimatrix                Installs unimatrix.
 
-  install-vim-plug                 Installs vim-plug.
+  install-nvim-packer              Installs Packer for nvim.
   install-and-update-vim-plugins   Installs and updates all plugins in ~/.vimrc.
 
   install-language-servers         Installs all my commonly used language servers.
