@@ -94,8 +94,7 @@ InstallVimPlug() {
 }
 
 InstallAndUpdateVimPlugins() {
-	nvim -c "PlugInstall" -c "qa!"
-	nvim -c "PlugUpdate" -c "qa!"
+	nvim -c "PlugClean" -c "PlugInstall" -c "PlugUpdate" -c "qa!"
 }
 
 InstallLanguageServers() {
