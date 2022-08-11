@@ -94,9 +94,6 @@ nox() {
 	exit
 }
 
-# Variable that holds the directory of the git repo holding this file and its associates
-git_repo="$HOME/repos/Linux-Setup/Files"
-
 alias vvrc="vim ~/.vimrc"
 alias vinitv="vim ~/.config/nvim/init.vim"
 alias vpl="vim ~/.config/nvim/lua/plugins.lua"
