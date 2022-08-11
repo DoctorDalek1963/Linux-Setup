@@ -6,10 +6,12 @@
 ![Repo Size](https://img.shields.io/github/repo-size/DoctorDalek1963/Linux-Setup)
 ![Code Size](https://img.shields.io/github/languages/code-size/DoctorDalek1963/Linux-Setup)
 
-This is a small, simple repo to hold files that go in my home directory when I run Linux.
+This is a small, simple repo to hold dotfiles for my Linux machines.
 
-It contains lots of configuration files. It also contains a setup script to automatically move and source these files, using command line arguments. Do `./setup -h` or `./setup --help` for help.
+For ease of use, it contains a setup script called `setup`, which can symlink the dotfiles and
+install other software, such as the `nvim` package manager `packer.nvim`, and use this to install
+all the plugins defined in `plugins.lua`.
 
-The setup script also has options to install vim-plug and Vundle, as well as installing all the plugins listed in .vimrc.
+Since this project now uses symlinks, I recommend keeping this directory cloned and up-to-date.
 
-Use `source .setup-completion.bash` to get tab autocompletion for the setup script.
+In bash, you can use `source .setup-completion.bash` to get tab autocompletion. See `./setup --help` for all the available commands.``
