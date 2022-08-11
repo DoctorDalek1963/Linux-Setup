@@ -119,14 +119,22 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	use {
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+		ft = 'markdown'
+	}
+
 	use 'preservim/NERDTree'
 	use 'preservim/nerdcommenter'
 
 	use 'andymass/vim-matchup'
 	use 'airblade/vim-gitgutter'
+	use 'sheerun/vim-polyglot'
+
 	use 'tpope/vim-surround'
 	use 'tpope/vim-repeat'
-	use 'sheerun/vim-polyglot'
+	use 'tpope/vim-fugitive'
 
 	use 'joshdick/onedark.vim'
 
