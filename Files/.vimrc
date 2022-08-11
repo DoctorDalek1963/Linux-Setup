@@ -77,16 +77,36 @@ function! LightlineReadonly()
 endfunction
 
 function! VisualWordsAndChars()
-	if mode()=="v"
+	if mode() == "v"
 		return wordcount().visual_words . "W " . wordcount().visual_chars . "C"
 	else
 		return ""
 	endif
 endfunction
 
+function! UpdateGitPS1Status()
+	let s:git_directory = substitute(resolve(expand('%:p')), '\/[^/]\+$', '', '')
+
+	if s:git_directory == '' |
+		let g:git_ps1_status = '' |
+	else |
+		let g:git_ps1_status = system('(cd ''' . s:git_directory . '''; GIT_PS1_SHOWDIRTYSTATE=true; GIT_PS1_SHOWSTASHSTATE=true; GIT_PS1_SHOWUNTRACKEDFILES=true; GIT_PS1_SHOWUPSTREAM="auto"; GIT_PS1_HIDE_IF_PWD_IGNORED=true; source ~/.git-prompt.sh; __git_ps1 "[%s]")') |
+	endif
+endfunction
+
+augroup update_git_ps1_status_augroup
+	autocmd!
+	autocmd BufEnter,BufWritePost * call UpdateGitPS1Status()
+augroup END
+
+function! GitPS1Status()
+	return g:git_ps1_status
+endfunction
+
 let g:lightline.component_function = {
 	\	'readonly': 'LightlineReadonly',
-	\	'visualwordsandchars': 'VisualWordsAndChars'
+	\	'visual_words_and_chars': 'VisualWordsAndChars',
+	\	'git_ps1_status': 'GitPS1Status'
 	\ }
 
 " This will set the ALE linting stuff on the far right, and then my normal vim file info stuff to the left of that
@@ -96,11 +116,11 @@ let g:lightline.active = {
 	\		[ 'lineinfo' ],
 	\		[ 'percent' ],
 	\		[ 'fileformat', 'fileencoding', 'filetype' ],
-	\		[ 'visualwordsandchars' ],
+	\		[ 'visual_words_and_chars' ],
 	\	],
 	\	'left': [
 	\		[ 'mode' ],
-	\		[ 'readonly', 'filename', 'modified' ],
+	\		[ 'readonly', 'git_ps1_status', 'filename', 'modified' ],
 	\		[ 'coc_status' ]
 	\	]
 	\ }
