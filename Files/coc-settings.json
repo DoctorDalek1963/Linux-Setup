@@ -30,6 +30,19 @@
 			"filetypes": ["julia"]
 		}
 	},
+	"pyright.organizeimports.provider": "isort",
+	"python.linting": {
+		"enabled": true,
+		"flake8Enabled": true,
+		"banditEnabled": true,
+		"mypyEnabled": true,
+		"pytypeEnabled": true,
+		"pycodestyleEnabled": true,
+		"prospectorEnabled": true,
+		"pydocstyleEnabled": true,
+		"pylamaEnabled": true,
+		"pylintEnable": false
+	},
 	"suggest.labelMaxLength": 100,
 	"yank.enableCompletion": false,
 	"yank.highlight.enable": true

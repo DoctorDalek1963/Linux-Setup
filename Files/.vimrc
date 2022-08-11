@@ -211,6 +211,9 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
+" Use Alt + Enter to trigger JetBrains-like codeActions
+nnoremap <silent> <M-return> <Plug>(coc-codeaction-cursor)
+
 function! ShowDocumentation()
 	if CocAction('hasProvider', 'hover')
 		call CocActionAsync('doHover')
