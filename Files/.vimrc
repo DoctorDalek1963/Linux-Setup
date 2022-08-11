@@ -451,6 +451,21 @@ augroup packer_config_augroup
 	autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup END
 " }}}
+
+" Resume cursor position {{{
+augroup resume_cursor_position_augroup
+	autocmd!
+
+	" Adapted from https://stackoverflow.com/a/3699926/12985838
+	" Resume cursor position, expand folds up to cursor line, and center cursor line on the screen
+	au BufReadPost *
+		\	if line("'\"") > 0 && line ("'\"") <= line("$") |
+		\		exe "normal g'\"" |
+		\		exe "normal zv" |
+		\		exe "normal zz" |
+		\	endif
+augroup END
+" }}}
 " }}}
 
 " ########## SIMPLE COMMANDS ########## {{{
