@@ -1,28 +1,28 @@
 " ########## PLUGIN CONFIG ########## {{{
-" luochen1990/rainbow
-let g:rainbow_active = 1 " Turn on rainbow parentheses
+" vim-matchup
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
-" joshdick/onedark.vim
+" onedark.vim
 if has('termguicolors')
 	set termguicolors " 24-bit truecolor
 endif
 let g:onedark_terminal_italics=1
 
-" JuliaEditorSupport/julia-vim
+" julia-vim
 let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 1
 
-" tmhedberg/SimpylFold
+" SimpylFold
 let g:SimpylFold_docstring_preview = 1
 
-" lervag/vimtex
+" vimtex
 let g:vimtex_view_general_viewer = 'evince'
 let g:tex_conceal = ""
 
-" unblevable/quick-scope
+" quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" Yggdroot/indentLine {{{
+" indentLine {{{
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 1
@@ -30,7 +30,7 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_fileTypeExclude = ['json', 'markdown']
 " }}}
 
-" SirVer/UltiSnips and honza/vim-snippets {{{
+" UltiSnips and vim-snippets {{{
 let g:UltiSnipsExpandTrigger="¬"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -39,7 +39,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ultisnips_python_quoting_style="single"
 " }}}
 
-" dense-analysis/ALE {{{
+" ALE {{{
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 
@@ -52,7 +52,7 @@ let g:ale_linters = {
 	\ }
 " }}}
 
-" itchyny/lightline.vim, maximbaz/lightline-ale, and josa42/vim-lightline-coc {{{
+" lightline.vim {{{
 let g:lightline = {'colorscheme': 'onedark'}
 
 let g:lightline.component_expand = {
@@ -211,6 +211,23 @@ nnoremap <silent> <S-Up> :call coc#float#scroll(0, 1)<CR>
 
 " Preview yanked things
 nnoremap <silent> <leader>y :CocList -A --normal yank<CR>
+" }}}
+
+" nvim-dap {{{
+nnoremap <silent> <Plug>CustomDapToggleBreakpoint :lua require('dap').toggle_breakpoint()<CR>:call repeat#set("\<Plug>CustomDapToggleBreakpoint", v:count)<CR>
+nnoremap <silent> <Plug>CustomDapContinue :lua require('dap').continue()<CR>:call repeat#set("\<Plug>CustomDapContinue", v:count)<CR>
+nnoremap <silent> <Plug>CustomDapStepOver :lua require('dap').step_over()<CR>:call repeat#set("\<Plug>CustomDapStepOver", v:count)<CR>
+nnoremap <silent> <Plug>CustomDapStepInto :lua require('dap').step_into()<CR>:call repeat#set("\<Plug>CustomDapStepInto", v:count)<CR>
+nnoremap <silent> <Plug>CustomDapREPL :lua require('dap').repl.open()<CR>:call repeat#set("\<Plug>CustomDapREPL", v:count)<CR>
+
+nnoremap <silent> <leader>db <Plug>CustomDapToggleBreakpoint
+nnoremap <silent> <leader>dc <Plug>CustomDapContinue
+nnoremap <silent> <leader>dso <Plug>CustomDapStepOver
+nnoremap <silent> <leader>dsi <Plug>CustomDapStepInto
+nnoremap <silent> <leader>dr <Plug>CustomDapREPL
+
+nnoremap <silent> <leader>dst :lua require('dap').continue()<CR>
+nnoremap <silent> <leader>dui :lua require('dapui').setup()<CR>:lua require('dapui').open()<CR>
 " }}}
 " }}}
 
