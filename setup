@@ -96,7 +96,7 @@ InstallNvimPacker() {
 }
 
 InstallAndUpdateVimPlugins() {
-	nvim --headless -c "PackerCompile" -c "PackerClean" -c "PackerInstall" -c "PackerUpdate" -c "qa!"
+	nvim --headless -c "PackerCompile" -c "PackerClean" -c "PackerInstall" -c "PackerUpdate" -c "CocUpdate" -c "qa!"
 }
 
 InstallLanguageServers() {
