@@ -39,39 +39,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ultisnips_python_quoting_style="single"
 " }}}
 
-" ALE {{{
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-
-" The '%(code): %' will completely disappear if there is no error code
-let g:ale_echo_msg_format = '[%linter%] [%severity%] %(code): %%s'
-
-let g:ale_linters = {
-	\	'tex': [],
-	\	'cpp': []
-	\ }
-" }}}
-
 " lightline.vim {{{
-let g:lightline = {'colorscheme': 'onedark'}
-
-let g:lightline.component_expand = {
-	\	'linter_checking': 'lightline#ale#checking',
-	\	'linter_infos': 'lightline#ale#infos',
-	\	'linter_warnings': 'lightline#ale#warnings',
-	\	'linter_errors': 'lightline#ale#errors',
-	\	'linter_ok': 'lightline#ale#ok',
-	\	'coc_status': 'lightline#coc#status'
-	\ }
-
-let g:lightline.component_type = {
-	\	'linter_checking': 'right',
-	\	'linter_infos': 'right',
-	\	'linter_warnings': 'warning',
-	\	'linter_errors': 'error',
-	\	'linter_ok': 'right',
-	\ }
-
 function! LightlineReadonly()
 	return &readonly && &filetype !=# 'help' ? 'RO' : ''
 endfunction
@@ -103,16 +71,34 @@ function! GitPS1Status()
 	return g:git_ps1_status
 endfunction
 
+let g:lightline = {'colorscheme': 'onedark'}
+
+let g:lightline.component_expand = {
+	\	'linter_errors': 'lightline#coc#errors',
+	\	'linter_warnings': 'lightline#coc#warnings',
+	\	'linter_info': 'lightline#coc#info',
+	\	'linter_hints': 'lightline#coc#hints',
+	\	'linter_ok': 'lightline#coc#ok',
+	\ }
+
+let g:lightline.component_type = {
+	\	'linter_errors': 'error',
+	\	'linter_warnings': 'warning',
+	\	'linter_info': 'info',
+	\	'linter_hints': 'hints',
+	\	'linter_ok': 'left',
+	\ }
+
 let g:lightline.component_function = {
 	\	'readonly': 'LightlineReadonly',
 	\	'visual_words_and_chars': 'VisualWordsAndChars',
 	\	'git_ps1_status': 'GitPS1Status'
 	\ }
 
-" This will set the ALE linting stuff on the far right, and then my normal vim file info stuff to the left of that
+" This will set the coc linting stuff on the far right, and then my normal vim file info stuff to the left of that
 let g:lightline.active = {
 	\	'right': [
-	\		[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+	\		[ 'linter_errors', 'linter_warnings', 'linter_info', 'linter_hints', 'linter_ok' ],
 	\		[ 'lineinfo' ],
 	\		[ 'percent' ],
 	\		[ 'fileformat', 'fileencoding', 'filetype' ],
@@ -120,8 +106,7 @@ let g:lightline.active = {
 	\	],
 	\	'left': [
 	\		[ 'mode' ],
-	\		[ 'readonly', 'git_ps1_status', 'filename', 'modified' ],
-	\		[ 'coc_status' ]
+	\		[ 'readonly', 'git_ps1_status', 'filename', 'modified' ]
 	\	]
 	\ }
 
@@ -134,11 +119,6 @@ let g:lightline.inactive = {
 	\		[ 'filename', 'modified' ]
 	\	]
 	\ }
-
-let g:lightline#ale#indicator_checking = "\uf110 "
-let g:lightline#ale#indicator_infos = "\uf129 "
-let g:lightline#ale#indicator_warnings = "\uf071 "
-let g:lightline#ale#indicator_errors = "\uf05e "
 " }}}
 
 " coc.nvim {{{

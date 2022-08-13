@@ -158,10 +158,7 @@ return require('packer').startup(function(use)
 	use 'SirVer/ultisnips'
 	use 'honza/vim-snippets'
 
-	use 'dense-analysis/ale'
-
 	use 'itchyny/lightline.vim'
-	use 'maximbaz/lightline-ale'
 	use 'josa42/vim-lightline-coc'
 
 	if packer_bootstrap then

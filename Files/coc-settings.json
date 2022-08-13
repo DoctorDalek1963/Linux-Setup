@@ -37,7 +37,7 @@
 		"banditEnabled": true,
 		"mypyEnabled": true,
 		"pytypeEnabled": true,
-		"pycodestyleEnabled": true,
+		"pycodestyleEnabled": false,
 		"prospectorEnabled": true,
 		"pydocstyleEnabled": true,
 		"pylamaEnabled": true,
