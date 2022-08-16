@@ -4,9 +4,12 @@ c.InteractiveShellApp.exec_lines = [
     '%load_ext autoreload',
     '%autoreload 2',
     '''
+import itertools
+import operator
 import os
 import re
 import sys
+import time
 
 from datetime import datetime as dt
 from datetime import timedelta as td
