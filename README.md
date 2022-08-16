@@ -14,4 +14,5 @@ all the plugins defined in `plugins.lua`.
 
 Since this project now uses symlinks, I recommend keeping this directory cloned and up-to-date.
 
-In bash, you can use `source .setup-completion.bash` to get tab autocompletion. See `./setup --help` for all the available commands.``
+In bash, you can use `source .setup-completion.bash` to get tab autocompletion. See `./setup
+--help` for all the available commands.
