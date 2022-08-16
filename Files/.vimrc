@@ -44,6 +44,10 @@ function! LightlineReadonly()
 	return &readonly && &filetype !=# 'help' ? 'RO' : ''
 endfunction
 
+function! LightlineFileformat()
+	return &fileformat !=# 'unix' ? &fileformat : ''
+endfunction
+
 function! VisualWordsAndChars()
 	if mode() == "v"
 		return wordcount().visual_words . "W " . wordcount().visual_chars . "C"
@@ -91,6 +95,7 @@ let g:lightline.component_type = {
 
 let g:lightline.component_function = {
 	\	'readonly': 'LightlineReadonly',
+	\	'fileformat': 'LightlineFileformat',
 	\	'visual_words_and_chars': 'VisualWordsAndChars',
 	\	'git_ps1_status': 'GitPS1Status'
 	\ }
