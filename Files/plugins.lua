@@ -152,12 +152,22 @@ return require('packer').startup(function(use)
 		config = function()
 			require('dap-python').setup('~/.local/bin/python')
 			require('dap-python').test_runner = 'pytest'
+
+			table.insert(
+				require('dap').configurations.python,
+				{
+					type = 'python',
+					request = 'launch',
+					name = 'Launch installed module',
+					module = function() return vim.fn.input('Module name: ') end
+				}
+			)
 		end
 	}
 
 	use {
 		'rcarriga/nvim-dap-ui',
-		requires = 'mfussenegger/nvim-dap',
+		requires = 'nvim-dap',
 		config = function()
 			require('dapui').setup {
 				layouts = {
