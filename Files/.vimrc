@@ -237,6 +237,28 @@ nnoremap <silent> <leader>dr <Plug>CustomDapREPL
 nnoremap <silent> <leader>dst :lua require('dap').continue()<CR>
 nnoremap <silent> <leader>dui :lua require('dapui').setup()<CR>:lua require('dapui').open()<CR>
 " }}}
+
+" telescope.nvim {{{
+" Intentional trailing space
+nnoremap <leader>T :Telescope 
+
+nnoremap <silent> <leader>tf :Telescope find_files<CR>
+nnoremap <silent> <leader>tg :Telescope live_grep<CR>
+nnoremap <silent> <leader>tF :Telescope frecency<CR>
+nnoremap <silent> <leader>ty :Telescope neoclip<CR>
+nnoremap <silent> <leader>tq :Telescope macroscope<CR>
+nnoremap <silent> <leader>tb :Telescope file_browser<CR>
+nnoremap <silent> <leader>tp :Telescope project<CR>
+nnoremap <silent> <leader>t? :Telescope cheatsheet<CR>
+nnoremap <silent> <leader>th :Telescope heading<CR>
+nnoremap <silent> <leader>ts :lua require('telescope.builtin').symbols{ sources = { 'latex', 'math', 'julia', 'nerd' } }<CR>
+
+nnoremap <silent> <leader>tC :Telescope coc<CR>
+nnoremap <silent> <leader>tcds :Telescope coc document_symbols<CR>
+nnoremap <silent> <leader>tcws :Telescope coc workspace_symbols<CR>
+nnoremap <silent> <leader>tcdi :Telescope coc diagnostics<CR>
+nnoremap <silent> <leader>tcwd :Telescope coc workspace_diagnostics<CR>
+" }}}
 " }}}
 
 " ########## MISC THINGS ########## {{{

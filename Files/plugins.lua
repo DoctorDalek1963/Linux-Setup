@@ -11,6 +11,140 @@ return require('packer').startup(function(use)
 
 	use { 'neoclide/coc.nvim', branch = 'release' }
 
+	use {
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			{ 'BurntSushi/ripgrep', run = 'rustup run nightly cargo install --path .' },
+			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+			{ 'sharkdp/fd', run = 'cargo install fd-find' },
+			'nvim-treesitter',
+			'kyazdani42/nvim-web-devicons'
+		}
+	}
+
+	use {
+		'nvim-telescope/telescope-frecency.nvim',
+		requires = {
+			'telescope.nvim',
+			'kkharji/sqlite.lua',
+			'kyazdani42/nvim-web-devicons'
+		},
+		config = function()
+			require('telescope').load_extension('frecency')
+		end
+	}
+
+	use {
+		'AckslD/nvim-neoclip.lua',
+		requires = {
+			'telescope.nvim',
+			{ 'kkharji/sqlite.lua', module = 'sqlite' }
+		},
+		config = function()
+			local function is_whitespace(line)
+				return vim.fn.match(line, [[^\s*$]]) ~= -1
+			end
+
+			local function all(tbl)
+				for _, entry in ipairs(tbl) do
+					if not is_whitespace(entry) then
+						return false
+					end
+				end
+				return true
+			end
+
+			require('neoclip').setup {
+				history = 200,
+				enable_persistent_history = true,
+				continuous_sync = true,
+				default_register_macros = 'w',
+				filter = function(data)
+					return not all(data.event.regcontents)
+				end
+			}
+			require('telescope').load_extension('neoclip')
+			require('telescope').load_extension('macroscope')
+		end
+	}
+
+	use {
+		'nvim-telescope/telescope-file-browser.nvim',
+		config = function()
+			require('telescope').load_extension('file_browser')
+		end
+	}
+
+	use {
+		'nvim-telescope/telescope-project.nvim',
+		requires = {
+			'telescope.nvim',
+			'telescope-file-browser.nvim'
+		},
+		config = function()
+			require('telescope').load_extension('project')
+		end
+	}
+
+	use {
+		'sudormrfbin/cheatsheet.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'telescope.nvim'
+		},
+		config = function()
+			require('telescope').load_extension('cheatsheet')
+		end
+	}
+
+	use {
+		'fannheyward/telescope-coc.nvim',
+		requires = {
+			{ 'coc.nvim', branch = 'release' },
+			'telescope.nvim'
+		},
+		config = function()
+			require('telescope').load_extension('coc')
+		end
+	}
+
+	use {
+		'nvim-telescope/telescope-symbols.nvim',
+		requires = 'telescope.nvim'
+	}
+
+	use {
+		'crispgm/telescope-heading.nvim',
+		requires = {
+			'telescope.nvim',
+			'nvim-treesitter'
+		},
+		config = function()
+			require('telescope').setup {
+				extensions = {
+					heading = {
+						treesitter = true
+					}
+				}
+			}
+
+			require('telescope').load_extension('heading')
+		end
+	}
+
+	use {
+		'fhill2/telescope-ultisnips.nvim',
+		requires = {
+			'telescope.nvim',
+			'ultisnips'
+		},
+		config = function()
+			require('telescope').load_extension('ultisnips')
+		end
+	}
+
 	use 'mfussenegger/nvim-dap'
 
 	use {
