@@ -36,7 +36,7 @@
 		"flake8Enabled": true,
 		"banditEnabled": true,
 		"mypyEnabled": true,
-		"pytypeEnabled": true,
+		"pytypeEnabled": false,
 		"pycodestyleEnabled": false,
 		"prospectorEnabled": true,
 		"pydocstyleEnabled": true,
