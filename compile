@@ -29,6 +29,32 @@ install_python310() {
 	_install_python 3.10.6
 }
 
+install_sagemath() {
+	mkdir -p $HOME/.local/src
+	cd $HOME/.local/src
+
+	sudo apt install -y bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gcc gengetopt gfan gfortran glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbrial-dev libbrial-groebner-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-arb-dev libflint-dev libfplll-dev libfreetype6-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblinbox-dev liblrcalc-dev liblzma-dev libm4ri-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses5-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev libz-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3 python3-distutils r-base-dev r-cran-lattice singular singular-doc sqlite3 sympow tachyon tar tox xcas xz-utils
+	sudo apt install -y 4ti2 clang coinor-cbc coinor-libcbc-dev graphviz libfile-slurp-perl libgraphviz-dev libigraph-dev libisl-dev libjson-perl libmongodb-perl libnauty-dev libperl-dev libpolymake-dev libsvg-perl libterm-readkey-perl libterm-readline-gnu-perl libxml-libxslt-perl libxml-writer-perl libxml2-dev lrslib ninja-build pari-gp2c pdf2svg polymake texinfo
+
+	sudo apt install -y texlive-generic-extra texlive-xetex latexmk pandoc dvipng default-jdk ffmpeg libavdevice-dev
+	sudo apt install -y tk tk-dev
+
+	wget https://www.mirrorservice.org/sites/www.sagemath.org/src/sage-9.6.tar.gz
+	tar xzvf sage-9.6.tar.gz
+	cd sage-9.6/
+
+	SAGE_ROOT=$HOME/.local/src/sage-9.6
+	SAGE_LOCAL=$HOME/.local
+
+	MAKE="make -j4"
+	SAGE_CHECK="yes"
+	SAGE_DEBUG="no"
+
+	./configure --prefix=$SAGE_LOCAL --with-python=$HOME/.local/bin/python && make
+
+	rm $HOME/.local/sage-9.6.tar.gz
+}
+
 while [ $# -ne 0 ]; do
 	case "$1" in
 		'all')
@@ -44,6 +70,10 @@ while [ $# -ne 0 ]; do
 			install_python310
 			shift
 			continue
+		;;
+
+		'sage')
+			install_sagemath
 		;;
 	esac
 done
