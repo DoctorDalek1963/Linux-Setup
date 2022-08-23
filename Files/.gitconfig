@@ -1,7 +1,7 @@
 [user]
 	name = DoctorDalek1963
 	email = dyson.dyson@icloud.com
-	signingKey = 91089581EE7BBF6B
+	signingKey = F1C0D1EBB627CF58
 [core]
 	editor = nvim
 [init]
