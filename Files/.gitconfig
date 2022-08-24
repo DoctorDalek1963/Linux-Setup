@@ -52,3 +52,5 @@
 	default = current
 [fetch]
 	prune = true
+[merge]
+	ff = false
