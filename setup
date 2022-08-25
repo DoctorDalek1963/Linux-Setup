@@ -79,7 +79,10 @@ MiscSoftware() {
 
 	which fuck &> /dev/null || sudo pip3 install thefuck
 
+	which rustc &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 	which bat &> /dev/null || cargo install bat
+	which delta &> /dev/null || cargo install git-delta
 	which fd &> /dev/null || cargo install fd-find
 	which rg &> /dev/null || cargo install ripgrep
 
@@ -320,8 +323,20 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
+		'install-rustup')
+			which rustc &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+			shift
+			continue
+		;;
+
 		'install-bat')
 			which bat &> /dev/null || cargo install bat
+			shift
+			continue
+		;;
+
+		'install-delta')
+			which delta &> /dev/null || cargo install git-delta
 			shift
 			continue
 		;;

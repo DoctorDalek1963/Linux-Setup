@@ -33,7 +33,9 @@ Commands:
   install-terminator               Installs terminator.
   install-fuck                     Installs fuck.
   install-unimatrix                Installs unimatrix.
+  install-rustup                   Installs rustup.
   install-bat                      Installs bat.
+  install-delta                    Installs delta (for git diffs).
   install-fd                       Installs fd.
   install-ripgrep                  Installs ripgrep.
 
