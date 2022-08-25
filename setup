@@ -62,25 +62,26 @@ AllFiles() {
 
 	rm -rf ~/.config/nvim/UltiSnips
 	ln -sf $FILES/UltiSnips ~/.config/nvim/
+
+	OptionalMkdir ~/.config/bat
+	ln -sf $FILES/bat-config ~/.config/bat/config
+
+	OptionalMkdir ~/.config/fd
+	ln -sf $FILES/fd-ignore ~/.config/fd/ignore
+
+	OptionalMkdir ~/.config/ripgrep
+	ln -sf $FILES/ripgrep-config ~/.config/ripgrep/config
 }
 
 MiscSoftware() {
 	CheckWithWhichAndInstallWithAPT neofetch
 	CheckWithWhichAndInstallWithAPT terminator
-	CheckWithWhichAndInstallWithAPT bat
 
 	which fuck &> /dev/null || sudo pip3 install thefuck
 
-	which exa &> /dev/null
-	if [ $? -ne 0 ]; then
-		# Install rustup if necessary
-		which rustc &> /dev/null
-		if [ $? -ne 0 ]; then
-			curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-		fi
-
-		cargo install exa
-	fi
+	which bat &> /dev/null || cargo install bat
+	which fd &> /dev/null || cargo install fd-find
+	which rg &> /dev/null || cargo install ripgrep
 
 	which unimatrix &> /dev/null
 	if [ $? -eq 0 ]; then
@@ -279,6 +280,27 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
+		'bat-config')
+			rm -rf ~/.config/bat/config
+			ln -sf $FILES/bat-config ~/.config/bat/config
+			shift
+			continue
+		;;
+
+		'fd-ignore')
+			rm -rf ~/.config/fd/ignore
+			ln -sf $FILES/fd-ignore ~/.config/fd/ignore
+			shift
+			continue
+		;;
+
+		'ripgrep-config')
+			rm -rf ~/.config/ripgrep/config
+			ln -sf $FILES/ripgrep-config ~/.config/ripgrep/config
+			shift
+			continue
+		;;
+
 		########## Misc Software
 		'install-neofetch')
 			CheckWithWhichAndInstallWithAPT neofetch
@@ -292,29 +314,28 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
-		'install-bat')
-			CheckWithWhichAndInstallWithAPT bat
-			shift
-			continue
-		;;
-
 		'install-fuck')
 			which fuck &> /dev/null || sudo pip3 install thefuck
 			shift
 			continue
 		;;
 
-		'install-exa')
-			which exa &> /dev/null
-			if [ $? -ne 0 ]; then
-				# Install rustup if necessary
-				which rustc &> /dev/null
-				if [ $? -ne 0 ]; then
-					curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-				fi
+		'install-bat')
+			which bat &> /dev/null || cargo install bat
+			shift
+			continue
+		;;
 
-				cargo install exa
-			fi
+		'install-fd')
+			which fd &> /dev/null || cargo install fd-find
+			shift
+			continue
+		;;
+
+		'install-ripgrep')
+			which rg &> /dev/null || cargo install ripgrep
+			shift
+			continue
 		;;
 
 		'install-unimatrix')

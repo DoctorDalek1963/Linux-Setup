@@ -115,6 +115,10 @@ alias vxcomp="vim ~/.XCompose"
 alias vsjl="vim ~/.julia/config/startup.jl"
 alias vis="vim ~/.sage/init.sage"
 
+alias vbatc="vim ~/.config/bat/config"
+alias vfdi="vim ~/.config/fd/ignore"
+alias vrgc="vim ~/.config/ripgrep/config"
+
 # Source and update everything
 alias srcall="srcbal;srcbrc;echo;echo Everything sourced"
 alias srcupall="srcall;upall;echo;echo Everything sourced and updated"

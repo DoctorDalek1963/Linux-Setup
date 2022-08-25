@@ -25,13 +25,17 @@ Commands:
   vim-ultisnips                    Symlinks UltiSnips folder to its proper directory.
   startup.jl                       Symlinks startup.jl to its proper directory.
   init.sage                        Symlinks init.sage to its proper directory.
+  bat-config                       Symlinks the bat config to its proper directory.
+  fd-ignore                        Symlinks the global fd ignore file to its proper directory.
+  ripgrep-config                   Symlinks the ripgrep config to its proper directory.
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.
-  install-bat                      Installs bat.
   install-fuck                     Installs fuck.
-  install-exa                      Installs exa.
   install-unimatrix                Installs unimatrix.
+  install-bat                      Installs bat.
+  install-fd                       Installs fd.
+  install-ripgrep                  Installs ripgrep.
 
   install-nvim-packer              Installs Packer for nvim.
   install-and-update-vim-plugins   Installs and updates all plugins in ~/.vimrc.
