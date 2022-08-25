@@ -468,7 +468,7 @@ augroup resume_cursor_position_augroup
 
 	" Adapted from https://stackoverflow.com/a/3699926/12985838
 	" Resume cursor position, expand folds up to cursor line, and center cursor line on the screen
-	au BufReadPost *
+	autocmd BufReadPost *
 		\	if line("'\"") > 0 && line ("'\"") <= line("$") |
 		\		exe "normal g'\"" |
 		\		exe "normal zv" |
