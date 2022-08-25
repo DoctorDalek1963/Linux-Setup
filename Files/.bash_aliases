@@ -299,8 +299,6 @@ tiny_prompt() {
 	export PS1="\[\033[01;31m\]\$ \[\033[00m\]"
 }
 
-which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
-
 alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
 alias youtube-dl-a="youtube-dl --config-location ~/.config/youtube-dl/albums.conf"
 
