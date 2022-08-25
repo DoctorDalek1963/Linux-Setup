@@ -14,6 +14,7 @@
 	navigate = true
 	light = false
 	syntax-theme = OneHalfDark
+	line-numbers = true
 
 [merge]
 	conflictstyle = diff3
