@@ -5,6 +5,21 @@
 
 [core]
 	editor = nvim
+	pager = delta
+
+[add.interactive]
+	useBuiltin = true
+
+[delta]
+	navigate = true
+	light = false
+	syntax-theme = OneHalfDark
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
 
 [init]
 	defaultBranch = main
