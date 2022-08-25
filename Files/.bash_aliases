@@ -299,9 +299,6 @@ tiny_prompt() {
 	export PS1="\[\033[01;31m\]\$ \[\033[00m\]"
 }
 
-# If batcat exists but bat doesn't, alias it
-which batcat &> /dev/null && which bat &> /dev/null || alias bat="batcat"
-
 which exa &> /dev/null && alias el="exa -1 -l -a -h -g --git --colour=always --colour-scale --icons"
 
 alias youtube-dl-s="youtube-dl --config-location ~/.config/youtube-dl/soundtracks.conf"
