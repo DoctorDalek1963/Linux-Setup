@@ -477,6 +477,14 @@ augroup resume_cursor_position_augroup
 		\	endif
 augroup END
 " }}}
+
+" Rust {{{
+augroup rust_augroup
+	autocmd!
+
+	autocmd BufWritePost *.rs RustFmt | w
+augroup END
+" }}}
 " }}}
 
 " ########## SIMPLE COMMANDS ########## {{{
