@@ -129,6 +129,7 @@ let g:lightline.inactive = {
 " coc.nvim {{{
 let g:coc_global_extensions = [
 			\ 'coc-html',
+			\ 'coc-dictionary',
 			\ 'coc-java',
 			\ 'coc-json',
 			\ 'coc-pairs',
@@ -140,6 +141,7 @@ let g:coc_global_extensions = [
 			\ 'coc-ultisnips',
 			\ 'coc-vimlsp',
 			\ 'coc-vimtex',
+			\ 'coc-word',
 			\ 'coc-yank',
 			\ ]
 

@@ -1,4 +1,6 @@
 {
+	"coc.source.dictionary.filetypes": ["txt", "markdown"],
+	"coc.source.word.filetypes": ["txt", "markdown"],
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",
