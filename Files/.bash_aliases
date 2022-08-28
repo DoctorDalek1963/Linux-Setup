@@ -8,6 +8,7 @@ else
 fi
 
 # Single letter aliases
+alias b="bat"
 alias c="cat"
 alias g="git"
 alias j="julia"
