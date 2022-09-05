@@ -45,6 +45,8 @@
 		"pylamaEnabled": true,
 		"pylintEnable": false
 	},
+	"rust-analyzer.updates.checkOnStartup": true,
+	"rust-analyzer.updates.prompt": false,
 	"suggest.labelMaxLength": 100,
 	"yank.enableCompletion": false,
 	"yank.highlight.enable": true
