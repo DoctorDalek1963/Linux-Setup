@@ -1,6 +1,7 @@
 {
 	"coc.source.dictionary.filetypes": ["txt", "markdown"],
 	"coc.source.word.filetypes": ["txt", "markdown"],
+
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",
@@ -32,7 +33,9 @@
 			"filetypes": ["julia"]
 		}
 	},
+
 	"pyright.organizeimports.provider": "isort",
+
 	"python.linting": {
 		"enabled": true,
 		"flake8Enabled": true,
@@ -45,9 +48,18 @@
 		"pylamaEnabled": true,
 		"pylintEnable": false
 	},
+
+	// Until https://github.com/neovim/neovim/pull/9496 is merged,
+	// I don't want the inlay hints that should be in the middle of the line,
+	// because they erroneously appear at the end of the line
+	"rust-analyzer.inlayHints.parameterHints.enable": false,
+	"rust-analyzer.inlayHints.typeHints.enable": false,
+
 	"rust-analyzer.updates.checkOnStartup": true,
 	"rust-analyzer.updates.prompt": false,
+
 	"suggest.labelMaxLength": 100,
+
 	"yank.enableCompletion": false,
 	"yank.highlight.enable": true
 }
