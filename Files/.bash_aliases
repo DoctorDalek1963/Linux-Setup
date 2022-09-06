@@ -18,6 +18,7 @@ alias v="vim"
 alias x="exit"
 
 # Two letter simple aliases
+alias ca="cargo"
 alias cl="clear"
 alias la="ls -a"
 alias ll="ls -la"
