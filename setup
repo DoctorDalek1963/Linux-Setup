@@ -63,6 +63,9 @@ AllFiles() {
 	rm -rf ~/.config/nvim/UltiSnips
 	ln -sf $FILES/UltiSnips ~/.config/nvim/
 
+	OptionalMkdir ~/.cargo/
+	ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
+
 	OptionalMkdir ~/.config/bat
 	ln -sf $FILES/bat-config ~/.config/bat/config
 
@@ -279,6 +282,13 @@ while [ $# -ne 0 ]; do
 		'vim-ultisnips')
 			rm -rf ~/.config/nvim/UltiSnips
 			ln -sf $FILES/UltiSnips ~/.config/nvim/
+			shift
+			continue
+		;;
+
+		'cargo-config')
+			OptionalMkdir ~/.cargo/
+			ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
 			shift
 			continue
 		;;

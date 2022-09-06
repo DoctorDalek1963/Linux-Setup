@@ -116,6 +116,7 @@ alias vxcomp="vim ~/.XCompose"
 alias vsjl="vim ~/.julia/config/startup.jl"
 alias vis="vim ~/.sage/init.sage"
 
+alias vcc="vim ~/.cargo/config.toml"
 alias vbatc="vim ~/.config/bat/config"
 alias vfdi="vim ~/.config/fd/ignore"
 alias vrgc="vim ~/.config/ripgrep/config"

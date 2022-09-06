@@ -25,6 +25,7 @@ Commands:
   vim-ultisnips                    Symlinks UltiSnips folder to its proper directory.
   startup.jl                       Symlinks startup.jl to its proper directory.
   init.sage                        Symlinks init.sage to its proper directory.
+  cargo-config                     Symlinks the cargo config to its proper directory.
   bat-config                       Symlinks the bat config to its proper directory.
   fd-ignore                        Symlinks the global fd ignore file to its proper directory.
   ripgrep-config                   Symlinks the ripgrep config to its proper directory.
