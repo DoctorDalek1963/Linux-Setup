@@ -2,6 +2,7 @@
 b = "build"
 br = "build --release"
 c = "check"
+n = "new"
 r = "run"
 rr = "run --release"
 t = "test"
