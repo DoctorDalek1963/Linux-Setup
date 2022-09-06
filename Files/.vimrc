@@ -497,3 +497,20 @@ command Rmsp execute '%s/\s\+$//e'
 command Q execute "q!"
 command W execute "wq"
 " }}}
+
+" ########## SYNTAX HIGHLIGHTING ########## {{{
+
+" This function will extend a syntax hightlighting group with new options
+" Taken from https://stackoverflow.com/a/5961837/12985838
+function! ExtendHighlight(base, group, add)
+	redir => basehi
+	sil! exe 'highlight' a:base
+	redir END
+	let grphi = split(basehi, '\n')[0]
+	let grphi = substitute(grphi, '^'.a:base.'\s\+xxx', '', '')
+	sil exe 'highlight' a:group grphi a:add
+endfunction
+
+" This makes the coc hints italic. I mainly use this group for coc-rust-analyzer
+call ExtendHighlight('CocHintSign', 'CocHintSign', 'cterm=italic gui=italic')
+" }}}
