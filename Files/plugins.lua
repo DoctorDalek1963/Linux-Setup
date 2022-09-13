@@ -25,18 +25,6 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'nvim-telescope/telescope-frecency.nvim',
-		requires = {
-			'telescope.nvim',
-			'kkharji/sqlite.lua',
-			'kyazdani42/nvim-web-devicons'
-		},
-		config = function()
-			require('telescope').load_extension('frecency')
-		end
-	}
-
-	use {
 		'AckslD/nvim-neoclip.lua',
 		requires = {
 			'telescope.nvim',
