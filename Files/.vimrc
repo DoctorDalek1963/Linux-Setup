@@ -326,6 +326,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Use <C-w><C-w> to maximise current pane
+" (Use <C-w>= to go back by making everything equally spaced)
+nnoremap <C-w><C-w> <C-w>_<C-w>\|
+
 " Easier splitting into new panes
 " Open empty buffer by default
 nnoremap <Bar> <C-w>v<C-w>l<C-w>n<C-w>j<C-w>c
