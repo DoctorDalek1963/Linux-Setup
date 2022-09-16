@@ -265,9 +265,10 @@ return require('packer').startup(function(use)
 	use 'airblade/vim-gitgutter'
 	use 'sheerun/vim-polyglot'
 
-	use 'tpope/vim-surround'
-	use 'tpope/vim-repeat'
+	use 'tpope/vim-eunuch'
 	use 'tpope/vim-fugitive'
+	use 'tpope/vim-repeat'
+	use 'tpope/vim-surround'
 
 	use 'joshdick/onedark.vim'
 
