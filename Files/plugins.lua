@@ -295,6 +295,8 @@ return require('packer').startup(function(use)
 	use 'itchyny/lightline.vim'
 	use 'josa42/vim-lightline-coc'
 
+	use 'chaoren/vim-wordmotion'
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
