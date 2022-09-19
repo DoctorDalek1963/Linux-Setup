@@ -267,13 +267,24 @@ cppushd() {
 }
 
 _source_dotdotdot() {
+	local curdir="$(pwd)"
+
 	# If ... is a symlink, source it
 	if [ -L "..." ]; then
-		echo "Sourcing $(readlink ...)"
+		# This sed expression replaces $HOME with ~
+		echo "Sourcing $(readlink -f ... | sed "s/$(echo "$HOME" | sed 's/\//\\\//g')/~/g")"
 		source ...
 	else
-		echo "No '...' symlink to source"
+		# Recurse up the filesystem until we find a ... symlink or hit /
+		if [ "$(pwd)" = "/" ]; then
+			echo "No '...' symlink to source"
+		else
+			cd ..
+			_source_dotdotdot
+		fi
 	fi
+
+	cd "$curdir"
 }
 
 # Bash doesn't like a function with this name, so we just alias it
