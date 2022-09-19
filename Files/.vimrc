@@ -1,4 +1,7 @@
 " ########## PLUGIN CONFIG ########## {{{
+" windows.nvim
+nnoremap <silent> <C-w><C-w> :WindowsMaximize<CR>
+
 " vim-matchup
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
@@ -325,10 +328,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" Use <C-w><C-w> to maximise current pane
-" (Use <C-w>= to go back by making everything equally spaced)
-nnoremap <C-w><C-w> <C-w>_<C-w>\|
 
 " Easier splitting into new panes
 " Open empty buffer by default
