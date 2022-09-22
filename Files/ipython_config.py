@@ -58,7 +58,7 @@ except ModuleNotFoundError:
 ''',
     '''
 try:
-    from probcalc import P, B, Po, N
+    from probcalc import *
 
 except ModuleNotFoundError:
     print('-------------------------')
