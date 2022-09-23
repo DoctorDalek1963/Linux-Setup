@@ -1,4 +1,5 @@
 [alias]
+a = "add"
 b = "build"
 br = "build --release"
 c = "check"
@@ -6,4 +7,5 @@ n = "new"
 r = "run"
 rr = "run --release"
 t = "test"
+tr = "test --release"
 up = "update"
