@@ -33,6 +33,8 @@ alias pmhttp="python -m http.server"
 alias pip="python -m pip"
 alias pup="python -m pip install --upgrade pip"
 
+alias clippy="cargo clippy -- -W clippy::pedantic -W clippy::nursery -W clippy::unwrap_used"
+
 mkvenv() {
 	if [ -d ./venv ] && [ "$1" != "-f" ]; then
 		echo 'venv already exists. Use -f to force a new one'
