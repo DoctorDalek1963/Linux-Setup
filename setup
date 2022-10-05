@@ -65,6 +65,7 @@ AllFiles() {
 
 	OptionalMkdir ~/.cargo/
 	ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
+	ln -sf $FILES/clippy.conf ~/.cargo/clippy.conf
 
 	OptionalMkdir ~/.config/bat
 	ln -sf $FILES/bat-config ~/.config/bat/config
@@ -289,6 +290,13 @@ while [ $# -ne 0 ]; do
 		'cargo-config')
 			OptionalMkdir ~/.cargo/
 			ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
+			shift
+			continue
+		;;
+
+		'clippy-config')
+			OptionalMkdir ~/.cargo/
+			ln -sf $FILES/clippy.conf ~/.cargo/clippy.conf
 			shift
 			continue
 		;;

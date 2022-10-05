@@ -35,7 +35,7 @@ alias pmhttp="python -m http.server"
 alias pip="python -m pip"
 alias pup="python -m pip install --upgrade pip"
 
-alias clippy="cargo clippy -- -W clippy::pedantic -W clippy::nursery -W clippy::unwrap_used"
+alias clippy="cat $HOME/.cargo/clippy.conf | xargs cargo clippy --"
 
 mkvenv() {
 	if [ -d ./venv ] && [ "$1" != "-f" ]; then
@@ -122,6 +122,7 @@ alias vsjl="vim ~/.julia/config/startup.jl"
 alias vis="vim ~/.sage/init.sage"
 
 alias vcc="vim ~/.cargo/config.toml"
+alias vclc="vim ~/.cargo/clippy.conf"
 alias vbatc="vim ~/.config/bat/config"
 alias vfdi="vim ~/.config/fd/ignore"
 alias vrgc="vim ~/.config/ripgrep/config"
