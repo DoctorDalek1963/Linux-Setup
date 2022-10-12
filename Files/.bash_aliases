@@ -277,7 +277,7 @@ _source_dotdotdot() {
 	# If ... is a symlink, source it
 	if [ -L "..." ]; then
 		# This sed expression replaces $HOME with ~
-		echo "Sourcing $(readlink -f ... | sed "s/$(echo "$HOME" | sed 's/\//\\\//g')/~/g")"
+		echo "Sourcing $(readlink -f ... | sed "s/$(echo "$HOME" | sed 's/\//\\\//g')/~/" | sed "s/venv\/bin\/activate/.../")"
 		source ...
 	else
 		# Recurse up the filesystem until we find a ... symlink or hit /
