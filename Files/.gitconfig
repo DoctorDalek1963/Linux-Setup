@@ -48,7 +48,7 @@
 	sh = show
 	st = status
 	sw = switch
-	unstage = restore --staged
+	unstage = rm --cached
 	uncommit = reset --soft HEAD~1
 
 [filter "nousagecount"]
