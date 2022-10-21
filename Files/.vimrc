@@ -317,6 +317,8 @@ set spelllang=en_gb
 set conceallevel=0
 
 set scrolloff=2 " Keep two lines of context around cursor line
+
+set mouse=n " Only allow mouse cursor in normal mode
 " }}}
 
 " ########## MAPPINGS ########## {{{
