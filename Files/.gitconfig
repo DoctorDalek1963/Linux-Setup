@@ -41,7 +41,7 @@
 	l = log
 	la = log --all --decorate
 	last = log -1 HEAD
-	lg = log --all --graph --oneline --decorate --notes HEAD
+	lg = log --all --graph --oneline --decorate --notes --date-order
 	lo = log --oneline
 	pfwl = push --force-with-lease
 	puom = push -u origin main
