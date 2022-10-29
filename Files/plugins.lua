@@ -35,9 +35,13 @@ return require('packer').startup(function(use)
 				return vim.fn.match(line, [[^\s*$]]) ~= -1
 			end
 
-			local function all(tbl)
+			local function is_single_char(text)
+				return vim.fn.match(text, [[^.$]]) ~= -1
+			end
+
+			local function filter_yanks(tbl)
 				for _, entry in ipairs(tbl) do
-					if not is_whitespace(entry) then
+					if is_whitespace(entry) or is_single_char(entry) then
 						return false
 					end
 				end
@@ -50,7 +54,7 @@ return require('packer').startup(function(use)
 				continuous_sync = true,
 				default_register_macros = 'w',
 				filter = function(data)
-					return not all(data.event.regcontents)
+					return filter_yanks(data.event.regcontents)
 				end
 			}
 			require('telescope').load_extension('neoclip')
