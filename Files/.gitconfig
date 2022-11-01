@@ -51,14 +51,6 @@
 	unstage = rm --cached
 	uncommit = reset --soft HEAD~1
 
-[filter "nousagecount"]
-	clean = grep -v "usageCount" %f
-	smudge = cat
-
-[filter "nostore"]
-	clean = cat %f | tr "\\n" "·" | sed 's/"store": {[^{}]*},//g' | tr "·" "\\n"
-	smudge = cat
-
 [pull]
 	rebase = false
 	ff = only
