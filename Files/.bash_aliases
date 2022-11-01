@@ -34,6 +34,7 @@ alias pnb="julia -e 'import Pluto; Pluto.run()'"
 alias pmhttp="python -m http.server"
 alias pip="python -m pip"
 alias pup="python -m pip install --upgrade pip"
+alias rs="evcxr"
 
 alias clippy="cat $HOME/.cargo/clippy.conf | xargs cargo clippy --"
 
