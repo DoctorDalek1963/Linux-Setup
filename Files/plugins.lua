@@ -268,6 +268,8 @@ return require('packer').startup(function(use)
 		ft = 'markdown'
 	}
 
+	use 'nathom/filetype.nvim'
+
 	use 'preservim/NERDTree'
 	use 'preservim/nerdcommenter'
 
