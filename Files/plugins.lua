@@ -231,6 +231,12 @@ return require('packer').startup(function(use)
 	}
 
 	use {
+		'IndianBoy42/tree-sitter-just',
+		requires = 'nvim-treesitter',
+		config = function() require('tree-sitter-just').setup({}) end
+	}
+
+	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
 			require('nvim-treesitter.install').update({ with_sync = true })

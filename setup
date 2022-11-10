@@ -88,7 +88,9 @@ MiscSoftware() {
 	which bat &> /dev/null || cargo install bat
 	which delta &> /dev/null || cargo install git-delta
 	which fd &> /dev/null || cargo install fd-find
+	which just &> /dev/null || cargo install just
 	which rg &> /dev/null || cargo install ripgrep
+	which sd &> /dev/null || cargo install sd
 
 	which unimatrix &> /dev/null
 	if [ $? -eq 0 ]; then
@@ -365,8 +367,20 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
+		'install-just')
+			which just &> /dev/null || cargo install just
+			shift
+			continue
+		;;
+
 		'install-ripgrep')
 			which rg &> /dev/null || cargo install ripgrep
+			shift
+			continue
+		;;
+
+		'install-sd')
+			which sd &> /dev/null || cargo install sd
 			shift
 			continue
 		;;

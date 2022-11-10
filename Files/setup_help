@@ -39,7 +39,9 @@ Commands:
   install-bat                      Installs bat.
   install-delta                    Installs delta (for git diffs).
   install-fd                       Installs fd.
+  install-just                     Installs just.
   install-ripgrep                  Installs ripgrep.
+  install-sd                       Installs sd.
 
   install-nvim-packer              Installs Packer for nvim.
   install-and-update-vim-plugins   Installs and updates all plugins in ~/.vimrc.
