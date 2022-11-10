@@ -33,7 +33,6 @@ Commands:
 
   install-neofetch                 Installs neofetch.
   install-terminator               Installs terminator.
-  install-fuck                     Installs fuck.
   install-unimatrix                Installs unimatrix.
   install-rustup                   Installs rustup.
   install-bat                      Installs bat.

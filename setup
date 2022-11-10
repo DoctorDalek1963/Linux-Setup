@@ -81,8 +81,6 @@ MiscSoftware() {
 	CheckWithWhichAndInstallWithAPT neofetch
 	CheckWithWhichAndInstallWithAPT terminator
 
-	which fuck &> /dev/null || sudo pip3 install thefuck
-
 	which rustc &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 	which bat &> /dev/null || cargo install bat
@@ -333,12 +331,6 @@ while [ $# -ne 0 ]; do
 
 		'install-terminator')
 			CheckWithWhichAndInstallWithAPT terminator
-			shift
-			continue
-		;;
-
-		'install-fuck')
-			which fuck &> /dev/null || sudo pip3 install thefuck
 			shift
 			continue
 		;;
