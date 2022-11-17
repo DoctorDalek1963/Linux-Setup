@@ -20,7 +20,7 @@ let g:SimpylFold_docstring_preview = 1
 
 " vimtex
 let g:vimtex_view_general_viewer = 'evince'
-let g:tex_conceal = ""
+let g:vimtex_syntax_conceal_disable = 1
 
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
