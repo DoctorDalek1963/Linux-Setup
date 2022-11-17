@@ -48,7 +48,7 @@
 	sh = show
 	st = status
 	sw = switch
-	unstage = rm --cached
+	unstage = restore --staged
 	uncommit = reset --soft HEAD~1
 
 [pull]
