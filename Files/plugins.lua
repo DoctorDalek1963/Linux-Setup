@@ -237,6 +237,17 @@ return require('packer').startup(function(use)
 	}
 
 	use {
+		'jose-elias-alvarez/null-ls.nvim'
+	}
+	use {
+		'LhKipp/nvim-nu',
+		requires = { 'nvim-treesitter', 'null-ls.nvim' },
+		config = function()
+			require('nu').setup({})
+		end
+	}
+
+	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
 			require('nvim-treesitter.install').update({ with_sync = true })

@@ -63,6 +63,9 @@ AllFiles() {
 	rm -rf ~/.config/nvim/UltiSnips
 	ln -sf $FILES/UltiSnips ~/.config/nvim/
 
+	rm -rf ~/.config/nushell
+	ln -sf $FILES/nushell ~/.config/
+
 	OptionalMkdir ~/.cargo/
 	ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
 	ln -sf $FILES/clippy.conf ~/.cargo/clippy.conf
@@ -80,6 +83,8 @@ AllFiles() {
 MiscSoftware() {
 	CheckWithWhichAndInstallWithAPT neofetch
 	CheckWithWhichAndInstallWithAPT terminator
+
+	which nu &> /dev/null || cargo install --force nu --features=extra
 
 	which rustc &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
@@ -287,6 +292,13 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
+		'nushell-config')
+			rm -rf ~/.config/nushell
+			ln -sf $FILES/nushell ~/.config/
+			shift
+			continue
+		;;
+
 		'cargo-config')
 			OptionalMkdir ~/.cargo/
 			ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
@@ -331,6 +343,12 @@ while [ $# -ne 0 ]; do
 
 		'install-terminator')
 			CheckWithWhichAndInstallWithAPT terminator
+			shift
+			continue
+		;;
+
+		'install-nushell')
+			cargo install --force nu --features=extra
 			shift
 			continue
 		;;
