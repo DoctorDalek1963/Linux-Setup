@@ -5,8 +5,7 @@ let-env PATH = ($env.PATH | append ([ $env.HOME '.ghcup/bin' ] | str join '/'))
 
 let-env EDITOR = (which nvim | get 0.path)
 
-source "vars.nu"
-source "env.nu"
-source "completions.nu"
-source "aliases.nu"
-source "commands.nu"
+source /home/dyson/.config/nushell/vars.nu
+source /home/dyson/.config/nushell/completions.nu
+source /home/dyson/.config/nushell/aliases.nu
+source /home/dyson/.config/nushell/commands.nu

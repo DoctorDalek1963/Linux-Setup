@@ -1,4 +1,8 @@
 module commands {
+	############
+	### conf ###
+	############
+
 	def get-path [] {
 		$nu.config-path | path parse | get parent
 	}
@@ -36,6 +40,34 @@ module commands {
 	export def "conf commands" [] {
 		conf-edit "commands.nu"
 	}
+
+	############
+	### venv ###
+	############
+
+	#export def sv [] {
+		#let path = './venv/bin/activate.nu' 
+		#if ($path | path exists) {
+			#use $path as pyvenv
+			#overlay use activate.nu
+		#}
+	#}
+
+	#export def mkvenv [force: bool = false] {
+		#virtualvenv venv
+		#sv
+		#python -m pip install --upgrade pip wheel
+	#}
+
+	## Remove the venv
+	#export def rmvenv [] {
+		#if not ([ $env.PWD "venv" ] | str join '/' | path exists) {
+			#print -e "venv does not exist here"
+		#} else {
+			##deactivate;
+			#^rm -rf ./venv
+		#}
+	#}
 }
 
 use commands *

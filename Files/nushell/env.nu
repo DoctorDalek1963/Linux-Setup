@@ -1,11 +1,9 @@
-# Nushell Environment Config File
-
 def create_right_prompt [] {
 	[
 		(if (is-admin) { ansi red_bold } else { ansi green_bold })
 		$env.USER
 		"@"
-		(sys | get host.hostname)
+		(hostname)
 		(ansi reset)
 	] | str join
 }
@@ -17,6 +15,8 @@ def create_left_prompt [] {
 	}
 
 	[
+		(if $env.LAST_EXIT_CODE != 0 { [(ansi red_bold) $env.LAST_EXIT_CODE " " (ansi reset)] | str join })
+
 		(ansi blue_bold)
 		($env.PWD | str replace $env.HOME "~")
 		(ansi red_bold)
@@ -34,8 +34,7 @@ def create_left_prompt [] {
 let-env PROMPT_COMMAND = { create_left_prompt }
 let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
-# The prompt indicators are environmental variables that represent
-# the state of the prompt
+# The prompt indicators are environmental variables that represent the state of the prompt
 let-env PROMPT_INDICATOR = { "〉" }
 let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
 let-env PROMPT_INDICATOR_VI_NORMAL = { "〉" }
@@ -57,18 +56,13 @@ let-env ENV_CONVERSIONS = {
 }
 
 # Directories to search for scripts when calling source or use
-#
-# By default, <nushell-config-dir>/scripts is added
 let-env NU_LIB_DIRS = [
     ($nu.config-path | path dirname | path join 'scripts')
 ]
 
 # Directories to search for plugin binaries when calling register
-#
-# By default, <nushell-config-dir>/plugins is added
 let-env NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
-# To add entries to PATH (on Windows you might use Path), you can use the following pattern:
-# let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+#let-env SHELL = /home/dyson/.cargo/bin/nu
