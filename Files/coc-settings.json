@@ -57,6 +57,8 @@
 
 	"rust-analyzer.updates.checkOnStartup": true,
 	"rust-analyzer.updates.prompt": false,
+	"rust-analyzer.updates.channel": "nightly",
+	"rust-analyzer.server.extraEnv": { "RUSTUP_TOOLCHAIN": "nightly" },
 
 	"suggest.labelMaxLength": 100,
 
