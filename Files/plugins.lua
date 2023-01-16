@@ -142,7 +142,7 @@ return require('packer').startup(function(use)
 	use {
 		'mfussenegger/nvim-dap-python',
 		config = function()
-			require('dap-python').setup('~/.local/bin/python')
+			require('dap-python').setup(io.popen('which python'):read())
 			require('dap-python').test_runner = 'pytest'
 
 			table.insert(
