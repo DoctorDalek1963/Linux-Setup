@@ -1,6 +1,6 @@
 {
-	"coc.source.dictionary.filetypes": ["txt", "markdown"],
-	"coc.source.word.filetypes": ["txt", "markdown"],
+	"coc.source.dictionary.filetypes": ["txt", "markdown", "latex"],
+	"coc.source.word.filetypes": ["txt", "markdown", "latex"],
 
 	"languageserver": {
 		"ccls": {

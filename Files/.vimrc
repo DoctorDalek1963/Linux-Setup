@@ -140,6 +140,7 @@ let g:coc_global_extensions = [
 			\ 'coc-rust-analyzer',
 			\ 'coc-sh',
 			\ 'coc-snippets',
+			\ 'coc-texlab',
 			\ 'coc-tsserver',
 			\ 'coc-ultisnips',
 			\ 'coc-vimlsp',
