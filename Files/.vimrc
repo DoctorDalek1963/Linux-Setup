@@ -405,6 +405,8 @@ nnoremap / /\v
 
 " Toggle spell check
 nnoremap <silent> <leader>s :set spell!<cr>
+" Automatically fix spelling
+nnoremap <silent> <leader>z mq1z=`q
 
 " Copy whole file to clipboard in normal mode
 nnoremap <leader>cp :w !xclip -selection c<CR><CR>
