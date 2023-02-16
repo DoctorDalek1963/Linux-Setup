@@ -37,7 +37,7 @@ alias pip="python -m pip"
 alias pup="python -m pip install --upgrade pip"
 alias rs="evcxr"
 
-alias clippy="cat $HOME/.cargo/clippy.conf | xargs cargo clippy --"
+alias clippy="cat $HOME/.cargo/clippy.conf | xargs cargo clippy --all-features --"
 
 mkvenv() {
 	if [ -d ./venv ] && [ "$1" != "-f" ]; then
