@@ -277,6 +277,8 @@ return require('packer').startup(function(use)
 	use 'airblade/vim-gitgutter'
 	use 'sheerun/vim-polyglot'
 
+	use 'ron-rs/ron.vim'
+
 	use 'tpope/vim-eunuch'
 	use 'tpope/vim-fugitive'
 	use 'tpope/vim-repeat'
