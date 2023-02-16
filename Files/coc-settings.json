@@ -49,6 +49,8 @@
 		"pylintEnable": false
 	},
 
+	"rust-analyzer.cargo.allFeatures": true,
+
 	// Until https://github.com/neovim/neovim/pull/9496 is merged,
 	// I don't want the inlay hints that should be in the middle of the line,
 	// because they erroneously appear at the end of the line
