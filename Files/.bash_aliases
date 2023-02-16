@@ -68,7 +68,7 @@ rmvenv() {
 initvenv() {
 	[ ! -d ./venv ] && mkvenv
 
-	pip install numpy sympy bitstring IPython
+	pip install numpy sympy bitstring IPython debugpy
 
 	if [ -f ./requirements.txt ]; then
 		pip install -r requirements.txt
