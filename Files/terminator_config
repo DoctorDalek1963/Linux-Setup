@@ -22,6 +22,17 @@
     scrollback_infinite = True
     use_system_font = False
     bold_is_bright = True
+  [[white]]
+    audible_bell = True
+    background_color = "#ffffff"
+    cursor_color = "#aaaaaa"
+    font = Hack Nerd Font 12
+    foreground_color = "#000000"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+    bold_is_bright = True
 [layouts]
   [[default]]
     [[[child0]]]
