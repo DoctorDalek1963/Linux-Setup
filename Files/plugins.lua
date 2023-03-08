@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
 			end
 
 			require('neoclip').setup {
-				history = 200,
+				history = 1000,
 				enable_persistent_history = true,
 				continuous_sync = true,
 				default_register_macros = 'w',
