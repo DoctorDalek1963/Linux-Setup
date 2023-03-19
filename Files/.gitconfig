@@ -7,9 +7,6 @@
 	editor = nvim
 	pager = delta
 
-[add.interactive]
-	useBuiltin = true
-
 [delta]
 	navigate = true
 	light = false
