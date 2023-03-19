@@ -53,6 +53,8 @@ EXTENDED_PS1=1
 build_prompt() {
 	local exit_code="$?" # We need this first to catch it
 
+	history -a
+
 	local force_color_prompt=yes
 	local color_prompt=
 
