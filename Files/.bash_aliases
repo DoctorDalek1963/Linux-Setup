@@ -177,6 +177,22 @@ alias gpall="python ~/repos/git_all.py push"
 # Search long-form history
 alias grephist="cat ~/.bash_history | grep --"
 
+# Taken from https://unix.stackexchange.com/a/391698/459068
+_insert_text_into_terminal() {
+	perl -le 'require "sys/ioctl.ph";
+			$delay = 0.05;
+			unless(fork) {
+				select undef, undef, undef, $delay;
+				ioctl(STDIN, &TIOCSTI, $_) for split "", join " ", @ARGV;
+			}' -- "$@";
+}
+
+# Fuzzy find in bash history
+fzh() {
+	local command="$(cat ~/.bash_history | fzf) "
+	_insert_text_into_terminal "$command"
+}
+
 # Copy Unicode code point
 cpunicp() {
 	string="\\u$1"
