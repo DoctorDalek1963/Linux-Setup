@@ -189,8 +189,12 @@ _insert_text_into_terminal() {
 
 # Fuzzy find in bash history
 fzh() {
-	local command="$(cat ~/.bash_history | fzf) "
-	_insert_text_into_terminal "$command"
+	local command="$(cat ~/.bash_history | fzf --tac | awk '{$1=$1};1')"
+	if [ "$command" = "" ]; then
+		return
+	else
+		_insert_text_into_terminal "$command "
+	fi
 }
 
 # Copy Unicode code point
