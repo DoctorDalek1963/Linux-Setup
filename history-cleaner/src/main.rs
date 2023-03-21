@@ -3,6 +3,7 @@
 use clap::Parser;
 use color_eyre::Result;
 use levenshtein::levenshtein;
+use rayon::prelude::*;
 use std::fs;
 
 /// A simple struct to hold the parsed arguments.
@@ -51,9 +52,9 @@ fn filter_lines(lines: Vec<&str>, keep_lines: usize, threshold: f32) -> Vec<&str
 
     for line in lines.into_iter().skip(keep_lines) {
         if kept_lines
-            .iter()
+            .par_iter()
             .map(|&s| score(s, line))
-            .fold(threshold + 1., f32::min)
+            .reduce(|| threshold + 1., f32::min)
             > threshold
         {
             kept_lines.push(line);
