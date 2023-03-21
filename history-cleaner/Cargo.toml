@@ -1,0 +1,12 @@
+[package]
+name = "history-cleaner"
+version = "0.1.0"
+authors = ["Dyson Dyson <dyson.dyson@icloud.com>"]
+edition = "2021"
+description = "A simple CLI script to take a bash-style history file and clean it up a bit."
+license = "GPL-3.0"
+
+[dependencies]
+clap = { version = "4.1.11", features = ["derive"] }
+color-eyre = "0.6.2"
+levenshtein = "1.0.5"
