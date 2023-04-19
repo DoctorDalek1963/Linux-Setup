@@ -65,5 +65,6 @@
 	"suggest.labelMaxLength": 100,
 
 	"yank.enableCompletion": false,
-	"yank.highlight.enable": true
+	"yank.highlight.enable": true,
+	"snippets.ultisnips.pythonPrompt": false
 }
