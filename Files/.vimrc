@@ -492,7 +492,7 @@ augroup END
 augroup rust_augroup
 	autocmd!
 
-	autocmd BufWritePost *.rs silent! RustFmt | w
+	autocmd BufWritePre *.rs silent! RustFmt
 augroup END
 " }}}
 " }}}
