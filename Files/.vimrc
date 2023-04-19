@@ -495,6 +495,14 @@ augroup rust_augroup
 	autocmd BufWritePre *.rs silent! RustFmt
 augroup END
 " }}}
+
+" LaTeX {{{
+augroup latex_augroup
+	autocmd!
+
+	autocmd BufNewFile,BufReadPre *.tex silent! set ft=tex
+augroup END
+" }}}
 " }}}
 
 " ########## SIMPLE COMMANDS ########## {{{
