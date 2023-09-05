@@ -278,6 +278,7 @@ return require('packer').startup(function(use)
 	use 'sheerun/vim-polyglot'
 
 	use 'ron-rs/ron.vim'
+	use 'avli/vim-lox-syntax'
 
 	use 'tpope/vim-eunuch'
 	use 'tpope/vim-fugitive'
