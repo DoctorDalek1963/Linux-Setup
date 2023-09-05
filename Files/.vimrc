@@ -28,6 +28,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " haskell-vim
 let g:haskell_indent_disable=1
 
+" vim-pencil
+let g:pencil#conceallevel = 0
+
 " indentLine {{{
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
@@ -513,6 +516,16 @@ augroup latex_augroup
 	autocmd!
 
 	autocmd BufNewFile,BufReadPre *.tex silent! set ft=tex
+augroup END
+" }}}
+
+" Markdown {{{
+augroup markdown_augroup
+	autocmd!
+
+	autocmd FileType markdown silent! set textwidth=0 linebreak formatoptions=q
+	autocmd FileType markdown silent! Goyo 80
+	autocmd FileType markdown silent! SoftPencil
 augroup END
 " }}}
 " }}}

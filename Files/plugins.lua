@@ -272,6 +272,9 @@ return require('packer').startup(function(use)
 
 	use 'preservim/NERDTree'
 	use 'preservim/nerdcommenter'
+	use 'preservim/vim-pencil'
+
+	use 'junegunn/goyo.vim'
 
 	use 'andymass/vim-matchup'
 	use 'airblade/vim-gitgutter'
