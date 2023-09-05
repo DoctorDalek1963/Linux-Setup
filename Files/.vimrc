@@ -25,6 +25,9 @@ let g:vimtex_syntax_conceal_disable = 1
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+" haskell-vim
+let g:haskell_indent_disable=1
+
 " indentLine {{{
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '|'
@@ -462,6 +465,15 @@ augroup python_augroup
 	autocmd!
 	" Set a colour column at column 120 in Python files
 	autocmd FileType python setlocal colorcolumn=120
+augroup END
+" }}}
+
+" Haskell {{{
+augroup haskell_augroup
+	autocmd!
+
+	" Format on save
+	autocmd FileType haskell autocmd BufWritePre <buffer> call CocAction('format')
 augroup END
 " }}}
 

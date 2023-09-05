@@ -312,6 +312,8 @@ return require('packer').startup(function(use)
 
 	use 'chaoren/vim-wordmotion'
 
+	use 'neovimhaskell/haskell-vim'
+
 	use {
 		'anuvyklack/windows.nvim',
 		requires = {
