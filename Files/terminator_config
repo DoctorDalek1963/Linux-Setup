@@ -1,4 +1,5 @@
 [global_config]
+  handle_size = 5
   always_split_with_profile = True
 [keybindings]
 [profiles]
@@ -6,7 +7,6 @@
     audible_bell = True
     background_darkness = 0.8
     background_type = transparent
-    cursor_color = "#aaaaaa"
     font = Hack Nerd Font 12
     foreground_color = "#ffffff"
     scrollbar_position = hidden
@@ -15,7 +15,6 @@
     bold_is_bright = True
   [[minimal]]
     audible_bell = True
-    cursor_color = "#aaaaaa"
     font = Hack Nerd Font 10
     foreground_color = "#ffffff"
     scrollbar_position = hidden
@@ -25,7 +24,6 @@
   [[white]]
     audible_bell = True
     background_color = "#ffffff"
-    cursor_color = "#aaaaaa"
     font = Hack Nerd Font 12
     foreground_color = "#000000"
     show_titlebar = False
