@@ -198,13 +198,13 @@ inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -221,8 +221,11 @@ function! ShowDocumentation()
 endfunction
 
 " Symbol renaming and refactoring
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>rf <Plug>(coc-refactor)
+nnoremap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rf <Plug>(coc-refactor)
+
+" Toggle inlay hints
+nnoremap <silent> <leader>i :CocCommand document.toggleInlayHint<CR>
 
 " Scroll through floating windows
 " 1 moves forward, 0 moves backward
@@ -506,8 +509,7 @@ augroup END
 " Rust {{{
 augroup rust_augroup
 	autocmd!
-
-	autocmd BufWritePre *.rs silent! RustFmt
+	autocmd BufRead *.rs silent! nnoremap <silent> <leader>f :RustFmt<CR>
 augroup END
 " }}}
 
