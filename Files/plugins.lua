@@ -290,8 +290,8 @@ return require('packer').startup(function(use)
 	use 'airblade/vim-gitgutter'
 	use 'sheerun/vim-polyglot'
 
-	use 'ron-rs/ron.vim'
-	use 'avli/vim-lox-syntax'
+	use { 'ron-rs/ron.vim', ft = 'ron' }
+	use { 'avli/vim-lox-syntax', ft = 'lox' }
 
 	use 'tpope/vim-eunuch'
 	use 'tpope/vim-fugitive'
