@@ -111,67 +111,101 @@ return require('packer').startup(function(use)
 		end
 	}
 
-	use 'mfussenegger/nvim-dap'
+	--use {
+		--'mfussenegger/nvim-dap',
+		--config = function()
+			--local dap = require('dap')
 
-	use {
-		'mfussenegger/nvim-dap-python',
-		config = function()
-			require('dap-python').setup(io.popen('which python'):read())
-			require('dap-python').test_runner = 'pytest'
+			--dap.adapters.rust = {
+				--type = 'executable',
+				--command = 'lldb',
+			--}
+			--dap.configurations.rust = {
+				--{
+					--type = 'rust',
+					--request = 'launch',
+					--name = 'Launch file',
+					--program = '${file}',
+				--},
+				--{
+					--type = 'rust',
+					--request = 'launch',
+					--name = 'Launch file with arguments',
+					--program = '${file}',
+					--args = function()
+						--local args_string = vim.fn.input('Arguments: ')
+						--return vim.split(args_string, " +")
+					--end,
+				--},
+			--}
+		--end,
+		--cmd = 'EnableDap'
+	--}
 
-			table.insert(
-				require('dap').configurations.python,
-				{
-					type = 'python',
-					request = 'launch',
-					name = 'Launch installed module',
-					module = function() return vim.fn.input('Module name: ') end
-				}
-			)
-		end
-	}
+	--use {
+		--'mfussenegger/nvim-dap-python',
+		--requires = 'nvim-dap',
+		--config = function()
+			--require('dap-python').setup(io.popen('which python'):read())
+			--require('dap-python').test_runner = 'pytest'
 
-	use {
-		'rcarriga/nvim-dap-ui',
-		requires = 'nvim-dap',
-		config = function()
-			require('dapui').setup {
-				layouts = {
-					{
-						elements = {
-							'scopes',
-							'breakpoints',
-							'stacks',
-							'watches'
-						},
-						size = 0.3, -- 30% of total width
-						position = 'left',
-					},
-					{
-						elements = { 'repl' },
-						size = 0.25, -- 25% of total lines
-						position = 'bottom',
-					},
-				},
-			}
-		end
-	}
+			--table.insert(
+				--require('dap').configurations.python,
+				--{
+					--type = 'python',
+					--request = 'launch',
+					--name = 'Launch installed module',
+					--module = function() return vim.fn.input('Module name: ') end
+				--}
+			--)
+		--end,
+		--ft = 'python',
+		--cmd = 'EnableDap'
+	--}
 
-	use {
-		'theHamsta/nvim-dap-virtual-text',
-		requires = {
-			'nvim-dap',
-			'nvim-treesitter'
-		},
-		config = function()
-			require('nvim-dap-virtual-text').setup {
-				enable = true,
-				highlight_changed_variables = true,
-				highlight_new_as_changed = true,
-				all_frames = true
-			}
-		end
-	}
+	--use {
+		--'rcarriga/nvim-dap-ui',
+		--requires = 'nvim-dap',
+		--config = function()
+			--require('dapui').setup {
+				--layouts = {
+					--{
+						--elements = {
+							--'scopes',
+							--'breakpoints',
+							--'stacks',
+							--'watches'
+						--},
+						--size = 0.3, -- 30% of total width
+						--position = 'left',
+					--},
+					--{
+						--elements = { 'repl' },
+						--size = 0.25, -- 25% of total lines
+						--position = 'bottom',
+					--},
+				--},
+			--}
+		--end,
+		--cmd = 'EnableDap'
+	--}
+
+	--use {
+		--'theHamsta/nvim-dap-virtual-text',
+		--requires = {
+			--'nvim-dap',
+			--'nvim-treesitter'
+		--},
+		--config = function()
+			--require('nvim-dap-virtual-text').setup {
+				--enable = true,
+				--highlight_changed_variables = true,
+				--highlight_new_as_changed = true,
+				--all_frames = true
+			--}
+		--end,
+		--cmd = 'EnableDap'
+	--}
 
 	use { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter' }
 
