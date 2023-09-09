@@ -1,4 +1,5 @@
 " ########## PLUGIN CONFIG ########## {{{
+" misc {{{
 " windows.nvim
 nnoremap <silent> <C-w><C-w> :WindowsMaximize<CR>
 
@@ -24,6 +25,7 @@ let g:vimtex_syntax_conceal_disable = 1
 
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+"}}}
 
 " haskell-vim
 let g:haskell_indent_disable=1

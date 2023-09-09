@@ -9,14 +9,18 @@ end
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
-	use { 'neoclide/coc.nvim', branch = 'release' }
+	use {
+		'neoclide/coc.nvim',
+		branch = 'release',
+		run = ':CocUpdate'
+	}
 
 	use {
 		'nvim-telescope/telescope.nvim',
 		branch = '0.1.x',
 		requires = {
 			'nvim-lua/plenary.nvim',
-			{ 'BurntSushi/ripgrep', run = 'rustup run nightly cargo install --path .' },
+			{ 'BurntSushi/ripgrep', run = 'rustup run nightly cargo install --path . && rustup run nightly cargo clean' },
 			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			{ 'sharkdp/fd', run = 'cargo install fd-find' },
 			'nvim-treesitter',
