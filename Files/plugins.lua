@@ -74,17 +74,6 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'nvim-telescope/telescope-project.nvim',
-		requires = {
-			'telescope.nvim',
-			'telescope-file-browser.nvim'
-		},
-		config = function()
-			require('telescope').load_extension('project')
-		end
-	}
-
-	use {
 		'sudormrfbin/cheatsheet.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim',
@@ -109,25 +98,6 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-telescope/telescope-symbols.nvim',
 		requires = 'telescope.nvim'
-	}
-
-	use {
-		'crispgm/telescope-heading.nvim',
-		requires = {
-			'telescope.nvim',
-			'nvim-treesitter'
-		},
-		config = function()
-			require('telescope').setup {
-				extensions = {
-					heading = {
-						treesitter = true
-					}
-				}
-			}
-
-			require('telescope').load_extension('heading')
-		end
 	}
 
 	use {
@@ -237,13 +207,15 @@ return require('packer').startup(function(use)
 	use {
 		'IndianBoy42/tree-sitter-just',
 		requires = 'nvim-treesitter',
-		config = function() require('tree-sitter-just').setup({}) end
+		config = function() require('tree-sitter-just').setup({}) end,
+		ft = 'just'
 	}
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
 			require('nvim-treesitter.install').update({ with_sync = true })
+			vim.cmd [[TSUpdate]]
 		end,
 		config = function()
 			require('nvim-treesitter.configs').setup {
