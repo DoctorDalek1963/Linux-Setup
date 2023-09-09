@@ -238,20 +238,21 @@ nnoremap <silent> <leader>y :CocList -A --normal yank<CR>
 " }}}
 
 " nvim-dap {{{
+command EnableDap execute 'e %'
+
 nnoremap <silent> <Plug>CustomDapToggleBreakpoint :lua require('dap').toggle_breakpoint()<CR>:call repeat#set("\<Plug>CustomDapToggleBreakpoint", v:count)<CR>
 nnoremap <silent> <Plug>CustomDapContinue :lua require('dap').continue()<CR>:call repeat#set("\<Plug>CustomDapContinue", v:count)<CR>
 nnoremap <silent> <Plug>CustomDapStepOver :lua require('dap').step_over()<CR>:call repeat#set("\<Plug>CustomDapStepOver", v:count)<CR>
 nnoremap <silent> <Plug>CustomDapStepInto :lua require('dap').step_into()<CR>:call repeat#set("\<Plug>CustomDapStepInto", v:count)<CR>
 nnoremap <silent> <Plug>CustomDapREPL :lua require('dap').repl.open()<CR>:call repeat#set("\<Plug>CustomDapREPL", v:count)<CR>
+nnoremap <silent> <Plug>CustomDapUI :lua require('dapui').setup()<CR>:lua require('dapui').open()<CR>:call repeat#set("\<Plug>CustomDapUI", v:count)<CR>
 
 nnoremap <silent> <leader>db <Plug>CustomDapToggleBreakpoint
 nnoremap <silent> <leader>dc <Plug>CustomDapContinue
 nnoremap <silent> <leader>dso <Plug>CustomDapStepOver
 nnoremap <silent> <leader>dsi <Plug>CustomDapStepInto
 nnoremap <silent> <leader>dr <Plug>CustomDapREPL
-
-nnoremap <silent> <leader>dst :lua require('dap').continue()<CR>
-nnoremap <silent> <leader>dui :lua require('dapui').setup()<CR>:lua require('dapui').open()<CR>
+nnoremap <silent> <leader>dui <Plug>CustomDapUI
 " }}}
 
 " telescope.nvim {{{
