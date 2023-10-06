@@ -36,6 +36,7 @@ alias pmhttp="python -m http.server"
 alias pip="python -m pip"
 alias pup="python -m pip install --upgrade pip"
 alias rs="evcxr"
+alias coq="rlwrap coqtop"
 
 alias clippy="cat $HOME/.cargo/clippy.conf | xargs cargo clippy --all-features --"
 
