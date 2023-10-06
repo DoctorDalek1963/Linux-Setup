@@ -203,3 +203,5 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/lib"
 export JILL_INSTALL_DIR="$HOME/.local/misc/julia-versions"
 
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
+which opam &> /dev/null && eval $(opam env)
