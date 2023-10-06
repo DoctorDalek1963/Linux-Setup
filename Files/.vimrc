@@ -433,6 +433,9 @@ vnoremap <leader>cp "+y
 
 " Don't overwrite the default yank buffer when pasting
 vnoremap p pgvy
+
+" Select everything in the file
+nnoremap <leader>a ggVG
 " }}}
 " }}}
 
