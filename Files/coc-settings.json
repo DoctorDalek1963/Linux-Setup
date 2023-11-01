@@ -45,7 +45,7 @@
 
 	"python.linting": {
 		"enabled": true,
-		"flake8Enabled": true,
+		"flake8Enabled": false,
 		"banditEnabled": true,
 		"mypyEnabled": true,
 		"pytypeEnabled": false,
