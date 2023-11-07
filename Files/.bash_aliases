@@ -38,9 +38,9 @@ alias pup="python -m pip install --upgrade pip"
 alias rs="evcxr"
 
 alias coq="docker run --rm -it doctordalek1963/coq-interactive rlwrap coqtop"
-alias coqide="docker run --rm --network=host --env DISPLAY=\"${DISPLAY}\" --volume /tmp/.X11-unix:/tmp/.X11-unix doctordalek1963/coq-interactive coqide"
+alias coqide="docker run --rm --network=host --env DISPLAY=\"${DISPLAY}\" --volume /tmp/.X11-unix:/tmp/.X11-unix --volume \"${HOME}\":/home/coq/host doctordalek1963/coq-interactive coqide"
 alias coq-libs="docker run --rm -it doctordalek1963/coq-interactive-with-libraries rlwrap coqtop"
-alias coqide-libs="docker run --rm --network=host --env DISPLAY=\"${DISPLAY}\" --volume /tmp/.X11-unix:/tmp/.X11-unix doctordalek1963/coq-interactive-with-libraries coqide"
+alias coqide-libs="docker run --rm --network=host --env DISPLAY=\"${DISPLAY}\" --volume /tmp/.X11-unix:/tmp/.X11-unix --volume \"${HOME}\":/home/coq/host doctordalek1963/coq-interactive-with-libraries coqide"
 
 alias clippy="cat $HOME/.cargo/clippy.conf | xargs cargo clippy --all-features --"
 
