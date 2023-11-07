@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=2023.10.1.1
+Name=Burp Suite
+Comment=Network traffic interceptor
+Icon=/home/dyson/.local/misc/icons/portswigger/128.xpm
+Exec=/home/dyson/.sdkman/candidates/java/17.0.0-tem/bin/java -jar /home/dyson/.local/misc/jars/burpsuite.jar
+Terminal=false

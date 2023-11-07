@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.3.5
+Name=Obsidian
+Icon=/home/dyson/.local/misc/icons/obsidian/128.xpm
+Exec=/home/dyson/.local/bin/obsidian
+Terminal=false

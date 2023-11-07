@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=8.18.0
+Name=CoqIDE
+Icon=/home/dyson/.local/misc/icons/coqide/128.xpm
+Exec=bash -c "docker run --rm --network=host --env DISPLAY=\"${DISPLAY}\" --volume /tmp/.X11-unix:/tmp/.X11-unix doctordalek1963/coq-interactive coqide"
+Terminal=false
