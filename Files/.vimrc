@@ -278,12 +278,6 @@ nnoremap <silent> <leader>tcws :Telescope coc workspace_symbols<CR>
 nnoremap <silent> <leader>tcdi :Telescope coc diagnostics<CR>
 nnoremap <silent> <leader>tcwd :Telescope coc workspace_diagnostics<CR>
 " }}}
-
-" OCaml stuff {{{
-set rtp^="/home/dyson/.opam/5.1.0/share/ocp-indent/vim"
-let g:opamshare = substitute(system('opam var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-" }}}
 " }}}
 
 " ########## MISC THINGS ########## {{{
