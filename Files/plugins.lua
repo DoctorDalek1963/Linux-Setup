@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
 			'nvim-lua/plenary.nvim',
 			{ 'BurntSushi/ripgrep', run = 'rustup run nightly cargo install --path . && rustup run nightly cargo clean' },
 			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-			{ 'sharkdp/fd', run = 'cargo install fd-find' },
+			{ 'sharkdp/fd', run = 'cargo binstall --force -y fd-find' },
 			'nvim-treesitter',
 			'kyazdani42/nvim-web-devicons'
 		}
