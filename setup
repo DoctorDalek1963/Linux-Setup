@@ -75,20 +75,26 @@ AllFiles() {
 
 	OptionalMkdir ~/.config/ripgrep
 	ln -sf $FILES/ripgrep-config ~/.config/ripgrep/config
+
+	OptionalMkdir ~/.config/evcxr
+	ln -sf $FILES/init.evcxr ~/.config/evcxr/init.evcxr
 }
 
 MiscSoftware() {
 	CheckWithWhichAndInstallWithAPT neofetch
 	CheckWithWhichAndInstallWithAPT terminator
 
-	which rustc &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	which rustc &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-	which bat &> /dev/null || cargo install bat
-	which delta &> /dev/null || cargo install git-delta
-	which fd &> /dev/null || cargo install fd-find
-	which just &> /dev/null || cargo install just
-	which rg &> /dev/null || cargo install ripgrep
-	which sd &> /dev/null || cargo install sd
+	cargo install cargo-binstall
+
+	which bat   &> /dev/null || cargo binstall -y bat
+	which delta &> /dev/null || cargo binstall -y git-delta
+	which fd    &> /dev/null || cargo binstall -y fd-find
+	which just  &> /dev/null || cargo binstall -y just
+	which rg    &> /dev/null || cargo binstall -y ripgrep
+	which sd    &> /dev/null || cargo binstall -y sd
+	which evcxr &> /dev/null || cargo binstall -y evcxr_repl
 
 	which unimatrix &> /dev/null
 	if [ $? -eq 0 ]; then
@@ -322,6 +328,13 @@ while [ $# -ne 0 ]; do
 			continue
 		;;
 
+		'init.evcxr')
+			rm -rf ~/.config/evcxr/init.evcxr
+			ln -sf $FILES/init.evcxr ~/.config/evcxr/init.evcxr
+			shift
+			continue
+		;;
+
 		########## Misc Software
 		'install-neofetch')
 			CheckWithWhichAndInstallWithAPT neofetch
@@ -342,37 +355,43 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'install-bat')
-			which bat &> /dev/null || cargo install bat
+			which bat &> /dev/null || cargo binstall -y bat
 			shift
 			continue
 		;;
 
 		'install-delta')
-			which delta &> /dev/null || cargo install git-delta
+			which delta &> /dev/null || cargo binstall -y git-delta
 			shift
 			continue
 		;;
 
 		'install-fd')
-			which fd &> /dev/null || cargo install fd-find
+			which fd &> /dev/null || cargo binstall -y fd-find
 			shift
 			continue
 		;;
 
 		'install-just')
-			which just &> /dev/null || cargo install just
+			which just &> /dev/null || cargo binstall -y just
 			shift
 			continue
 		;;
 
 		'install-ripgrep')
-			which rg &> /dev/null || cargo install ripgrep
+			which rg &> /dev/null || cargo binstall -y ripgrep
 			shift
 			continue
 		;;
 
 		'install-sd')
-			which sd &> /dev/null || cargo install sd
+			which sd &> /dev/null || cargo binstall -y sd
+			shift
+			continue
+		;;
+
+		'install-evcxr')
+			which evcxr &> /dev/null || cargo binstall -y evcxr_repl
 			shift
 			continue
 		;;
