@@ -287,6 +287,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'vim-ultisnips')
+			OptionalMkdir ~/.config/nvim
 			rm -rf ~/.config/nvim/UltiSnips
 			ln -sf $FILES/UltiSnips ~/.config/nvim/
 			shift
@@ -294,20 +295,21 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'cargo-config')
-			OptionalMkdir ~/.cargo/
+			OptionalMkdir ~/.cargo
 			ln -sf $FILES/cargo-config.toml ~/.cargo/config.toml
 			shift
 			continue
 		;;
 
 		'clippy-config')
-			OptionalMkdir ~/.cargo/
+			OptionalMkdir ~/.cargo
 			ln -sf $FILES/clippy.conf ~/.cargo/clippy.conf
 			shift
 			continue
 		;;
 
 		'bat-config')
+			OptionalMkdir ~/.config/bat
 			rm -rf ~/.config/bat/config
 			ln -sf $FILES/bat-config ~/.config/bat/config
 			shift
@@ -315,6 +317,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'fd-ignore')
+			OptionalMkdir ~/.config/fd
 			rm -rf ~/.config/fd/ignore
 			ln -sf $FILES/fd-ignore ~/.config/fd/ignore
 			shift
@@ -322,6 +325,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'ripgrep-config')
+			OptionalMkdir ~/.config/ripgrep
 			rm -rf ~/.config/ripgrep/config
 			ln -sf $FILES/ripgrep-config ~/.config/ripgrep/config
 			shift
@@ -329,6 +333,7 @@ while [ $# -ne 0 ]; do
 		;;
 
 		'init.evcxr')
+			OptionalMkdir ~/.config/evcxr
 			rm -rf ~/.config/evcxr/init.evcxr
 			ln -sf $FILES/init.evcxr ~/.config/evcxr/init.evcxr
 			shift
