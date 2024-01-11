@@ -44,6 +44,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Set completion to be case INsensitive
+bind -s 'set completion-ignore-case on'
+
 # === PS1
 
 # We want the PS1 to be extended by default
