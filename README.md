@@ -6,6 +6,12 @@
 ![Repo Size](https://img.shields.io/github/repo-size/DoctorDalek1963/Linux-Setup)
 ![Code Size](https://img.shields.io/github/languages/code-size/DoctorDalek1963/Linux-Setup)
 
+## NOTICE
+
+I have switched to [NixOS](https://nixos.org/) and this repo has been superseded by [my NixOS config](https://github.com/DoctorDalek1963/nixos-config). All my dotfiles and system config now live there, except for my [Neovim](https://neovim.io/) config, which lives [here](https://github.com/DoctorDalek1963/nixvim-config).
+
+---
+
 This is a small, simple repo to hold dotfiles for my Linux machines.
 
 For ease of use, it contains a setup script called `setup`, which can symlink the dotfiles and
